@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { Groce } from "./components/Groce'Inflation";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Groce />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
