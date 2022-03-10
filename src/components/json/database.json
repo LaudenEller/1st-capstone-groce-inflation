@@ -1,0 +1,51 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "description": "Apple",
+            "categoryId": 1,
+            "userId": 1
+        }
+    ],
+    "purchases": [
+        {
+            "id": 1,
+            "date": "dateTime",
+            "price": 1,
+            "productId": 1,
+            "vendorId": 1,
+            "userId": 1
+        }
+    ],
+    "vendors": [
+        {
+            "id": 1,
+            "address": "4832 Wilshire Ave",
+            "name": "Ralphs-Wilshire",
+            "userId": 1
+        }
+    ],
+    "vendorProducts": [
+        {
+            "id": 1,
+            "vendorId": 1,
+            "productId": 1
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "email": "junior@chef.com"
+        },
+        {
+            "id": 2,
+            "email": "senior@chef.com"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "description": "produce"
+        }
+    ]
+}
