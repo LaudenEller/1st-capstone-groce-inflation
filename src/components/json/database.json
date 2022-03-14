@@ -1,51 +1,182 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "description": "Apple",
-            "categoryId": 1,
-            "userId": 1
-        }
-    ],
-    "purchases": [
-        {
-            "id": 1,
-            "date": "dateTime",
-            "price": 1,
-            "productId": 1,
-            "vendorId": 1,
-            "userId": 1
-        }
-    ],
-    "vendors": [
-        {
-            "id": 1,
-            "address": "4832 Wilshire Ave",
-            "name": "Ralphs-Wilshire",
-            "userId": 1
-        }
-    ],
-    "vendorProducts": [
-        {
-            "id": 1,
-            "vendorId": 1,
-            "productId": 1
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "email": "junior@chef.com"
-        },
-        {
-            "id": 2,
-            "email": "senior@chef.com"
-        }
-    ],
-    "categories": [
-        {
-            "id": 1,
-            "description": "produce"
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "description": "Apple",
+      "categoryId": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "description": "Avocado",
+      "categoryId": 1,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "description": "Coffee",
+      "categoryId": 1,
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "description": "Banana",
+      "categoryId": 1,
+      "userId": 2
+    },
+    {
+      "description": "Apple",
+      "userId": 3,
+      "id": 5
+    },
+    {
+      "description": "New Product Description",
+      "userId": 3,
+      "id": 6
+    },
+    {
+      "description": "Beer",
+      "userId": 3,
+      "id": 19
+    },
+    {
+      "description": "Caviar",
+      "userId": 3,
+      "id": 20
+    },
+    {
+      "description": "Something New",
+      "userId": 3,
+      "id": 27
+    },
+    {
+      "description": "Umbrella",
+      "userId": 3,
+      "id": 30
+    },
+    {
+      "description": "Candle Stick",
+      "userId": 3,
+      "id": 31
+    },
+    {
+      "description": "Chicken",
+      "userId": 3,
+      "id": 32
+    },
+    {
+      "description": "Bagels",
+      "userId": 3,
+      "id": 33
+    }
+  ],
+  "purchases": [
+    {
+      "id": 1,
+      "date": "May 5th, 2018",
+      "price": 1,
+      "productId": 1,
+      "vendorId": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "date": "March 11th, 2022",
+      "price": 100,
+      "productId": 1,
+      "vendorId": 1,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "date": "March 12th, 2022",
+      "price": 0.75,
+      "productId": 1,
+      "vendorId": 1,
+      "userId": 1
+    }
+  ],
+  "vendors": [
+    {
+      "id": 1,
+      "address": "4832 Wilshire Ave",
+      "name": "Ralphs-Wilshire",
+      "userId": 1
+    },
+    {
+      "address": "This is a string of an address including integers like 1 and 6",
+      "name": "Vendor Form Test",
+      "userId": 3,
+      "id": 2
+    },
+    {
+      "address": "S33 integers and letters can be in a string",
+      "name": "Another Big Test Vendor Name",
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "address": "aasdf09823",
+      "name": "Some More Tests",
+      "userId": 3,
+      "id": 4
+    },
+    {
+      "address": "123 Tester Ave",
+      "name": "Big Big Test",
+      "userId": 3,
+      "id": 5
+    },
+    {
+      "address": "3908sljk",
+      "name": "Here we gooooo",
+      "userId": 3,
+      "id": 6
+    },
+    {
+      "address": "aosidjflksj",
+      "name": "New Vendor Test 1",
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "address": "Testing vendorProduct Post",
+      "name": "A test of the vendorProduct Post",
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "address": "Triasdlfkj",
+      "name": "Another test of the vendorProduct Post",
+      "userId": 3,
+      "id": 9
+    }
+  ],
+  "vendorProducts": [
+    {
+      "id": 1,
+      "vendorId": 1,
+      "productId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "junior@chef.com"
+    },
+    {
+      "id": 2,
+      "email": "senior@chef.com"
+    },
+    {
+      "email": "juniorTest@chef.com",
+      "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "description": "produce"
+    }
+  ]
 }

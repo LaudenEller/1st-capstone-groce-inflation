@@ -1,9 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { GraphIt } from "./Graph";
+import { GraphIt } from "./graph/Graph";
 import { VendorList } from "./vendors/Vendors";
 import { PurchaseForm } from "./purchases/Purchases";
 import { VendorForm } from "./vendors/VendorForm";
+import { Vendor } from "./vendors/Vendor";
 
 
 export const ApplicationViews = () => {
@@ -20,6 +21,9 @@ export const ApplicationViews = () => {
         </Route>
         <Route exact path="/vendors/create">
             <VendorForm />
+        </Route>
+        <Route exact path="/vendors/:vendorId(\d+)">
+            <Vendor />
         </Route>
             </>
     )

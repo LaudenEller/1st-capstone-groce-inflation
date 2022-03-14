@@ -4,6 +4,10 @@ export const getAllVendors = () => {
     return fetch(`${api}/vendors`)
     .then(res => res.json())
 }
+export const getAllVendorProducts = () => {
+    return fetch(`${api}/vendorProducts?_expand=product`)
+    .then(res => res.json())
+}
 export const getAllPurchases = () => {
     return fetch(`${api}/purchases`)
     .then(res => res.json())

@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { getAllVendors } from "../ApiManger";
-
+import { getAllVendors } from "../json/ApiManger";
+import { getAllVendorProducts } from "../json/ApiManger";
 
 // export a function that returns html for a form
 export const PurchaseForm = () => {
@@ -47,7 +47,7 @@ export const PurchaseForm = () => {
     const recordPurchase = (event) => {
         // Add keys to the object that match the user input
         const newPurchase = {
-            date: date.now(),
+            date: "",
             price: 1,
             productId: 1,
             vendorId: 1,
@@ -56,7 +56,7 @@ export const PurchaseForm = () => {
     
     
     // Use .prventDefault() to stop default event behaviour from the DOM
-    event.preventDefault
+    event.preventDefault()
 
     // Post new object to Json
         const fetchOption = {

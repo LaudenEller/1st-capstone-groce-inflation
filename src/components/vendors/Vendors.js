@@ -4,13 +4,50 @@
 
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/";
+import { getAllVendors } from "../json/ApiManger";
+import { Link } from "react-router-dom";
 
+
+// Export a function that returns html for vendors list
 export const VendorList = () => {
-    return (
-        <>
-            {
-                <p key={1}>This is the Vendor page, it will display a list of vendors.</p>
+    // Initiatie state for vendors
+    const [vendors, setVendors] = useState()
+    
+    // Update state from Json
+    useEffect(
+        () => {
+            getAllVendors()
+            .then((data) => {
+                setVendors(data)
             }
-        </>
-    )
+            )
+        },
+        []
+        )
+
+        const history = useHistory()
+      
+        if (vendors === undefined) {
+            return <>Still loading...</>;
+          }
+          else {
+
+        return (
+            <>
+
+        <h2>Vendor List</h2>
+
+        <ul>
+            {vendors.map(
+                (vendor) => {
+                    return <li key={`vendor--${vendor.id}`}>
+                        <Link to={`/vendors/${vendor.id}`}>{vendor.name}</Link></li>})}
+            </ul>
+
+<button onClick={() => {
+    history.push("/vendors/create")}}>Add Vendor</button>
+    
+    </>
+)
+}
 }
