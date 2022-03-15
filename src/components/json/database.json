@@ -28,46 +28,6 @@
       "description": "Apple",
       "userId": 3,
       "id": 5
-    },
-    {
-      "description": "New Product Description",
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "description": "Beer",
-      "userId": 3,
-      "id": 19
-    },
-    {
-      "description": "Caviar",
-      "userId": 3,
-      "id": 20
-    },
-    {
-      "description": "Something New",
-      "userId": 3,
-      "id": 27
-    },
-    {
-      "description": "Umbrella",
-      "userId": 3,
-      "id": 30
-    },
-    {
-      "description": "Candle Stick",
-      "userId": 3,
-      "id": 31
-    },
-    {
-      "description": "Chicken",
-      "userId": 3,
-      "id": 32
-    },
-    {
-      "description": "Bagels",
-      "userId": 3,
-      "id": 33
     }
   ],
   "purchases": [
@@ -104,52 +64,10 @@
       "userId": 1
     },
     {
-      "address": "This is a string of an address including integers like 1 and 6",
-      "name": "Vendor Form Test",
+      "address": "4754 Commons Way, Calabasas, CA 91302",
+      "name": "Ralphs - Calabasas",
       "userId": 3,
       "id": 2
-    },
-    {
-      "address": "S33 integers and letters can be in a string",
-      "name": "Another Big Test Vendor Name",
-      "userId": 3,
-      "id": 3
-    },
-    {
-      "address": "aasdf09823",
-      "name": "Some More Tests",
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "address": "123 Tester Ave",
-      "name": "Big Big Test",
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "address": "3908sljk",
-      "name": "Here we gooooo",
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "address": "aosidjflksj",
-      "name": "New Vendor Test 1",
-      "userId": 3,
-      "id": 7
-    },
-    {
-      "address": "Testing vendorProduct Post",
-      "name": "A test of the vendorProduct Post",
-      "userId": 3,
-      "id": 8
-    },
-    {
-      "address": "Triasdlfkj",
-      "name": "Another test of the vendorProduct Post",
-      "userId": 3,
-      "id": 9
     }
   ],
   "vendorProducts": [
@@ -157,6 +75,12 @@
       "id": 1,
       "vendorId": 1,
       "productId": 1
+    },
+    {
+      "vendorId": 3,
+      "productId": 6,
+      "userId": 3,
+      "id": 2
     }
   ],
   "users": [
