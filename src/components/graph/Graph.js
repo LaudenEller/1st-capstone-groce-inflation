@@ -1,6 +1,7 @@
 // This module will display the home page
 import React, { useState, useEffect } from "react"
 import { getAllProducts, getAllPurchases } from "../json/ApiManger"
+import "./Graph.css"
 
 export const GraphIt = () => {
 
@@ -60,11 +61,16 @@ export const GraphIt = () => {
 
     return (
         <>
+        <div>
+        <h1 className="page_title">Groce' Inflation</h1>
+        </div>
+        <div>
             <ul>
                 {productPurchaseArray.map(productPurchase => {
                     return <li>Between {productPurchase.firstPurchaseDate} and {productPurchase.lastPurchaseDate} the price of {productPurchase.productName}s inflated by {productPurchase.inflation}%</li>
                 })}
             </ul>
+            </div>
         </>
     )
 }

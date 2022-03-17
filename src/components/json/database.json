@@ -27,7 +27,20 @@
     {
       "description": "Apple",
       "userId": 3,
+      "categoryId": 1,
       "id": 5
+    },
+    {
+      "description": "Caviar",
+      "userId": 3,
+      "categoryId": 1,
+      "id": 6
+    },
+    {
+      "description": "Caviar",
+      "userId": 3,
+      "categoryId": 1,
+      "id": 7
     }
   ],
   "purchases": [
@@ -36,7 +49,6 @@
       "date": "May 5th, 2018",
       "price": 1,
       "productId": 1,
-      "vendorId": 1,
       "userId": 1
     },
     {
@@ -44,7 +56,6 @@
       "date": "March 11th, 2022",
       "price": 100,
       "productId": 1,
-      "vendorId": 1,
       "userId": 1
     },
     {
@@ -52,7 +63,6 @@
       "date": "March 12th, 2022",
       "price": 0.75,
       "productId": 1,
-      "vendorId": 1,
       "userId": 1
     }
   ],
@@ -73,14 +83,23 @@
   "vendorProducts": [
     {
       "id": 1,
-      "vendorId": 1,
-      "productId": 1
+      "productId": 1,
+      "vendorId": 1
     },
     {
-      "vendorId": 3,
-      "productId": 6,
-      "userId": 3,
-      "id": 2
+      "id": 2,
+      "productId": 2,
+      "vendorId": 2
+    },
+    {
+      "id": 3,
+      "productId": 3,
+      "vendorId": 1
+    },
+    {
+      "id": 4,
+      "productId": 4,
+      "vendorId": 2
     }
   ],
   "users": [

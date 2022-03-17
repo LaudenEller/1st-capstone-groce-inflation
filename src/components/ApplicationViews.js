@@ -5,6 +5,7 @@ import { VendorList } from "./vendors/Vendors";
 import { PurchaseForm } from "./purchases/Purchases";
 import { VendorForm } from "./vendors/VendorForm";
 import { Vendor } from "./vendors/Vendor";
+import { AddProduct } from "./products/ProductForm";
 
 
 export const ApplicationViews = () => {
@@ -24,6 +25,9 @@ export const ApplicationViews = () => {
         </Route>
         <Route exact path="/vendors/:vendorId(\d+)">
             <Vendor />
+        </Route>
+        <Route exact path="/product">
+            <AddProduct />
         </Route>
             </>
     )
