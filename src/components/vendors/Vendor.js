@@ -6,20 +6,24 @@ import { getAllProducts, getAllVendorProducts } from "../json/ApiManger"
 
 
 export const Vendor = () => {
-    const [vendor, setVendor] = useState({})  // State variable for current vendor object
-    const { vendorId } = useParams()  // Variable storing the route parameter
+    const [vendor, setVendor] = useState({})
+    const { vendorId } = useParams()
     const [vendorProducts, setVendorProducts] = useState([])
     const [products, setProducts] = useState([])
+    const [selectedProductId, setSelectedProductId] = useState()
+    const [value, setValue] = useState(0)
 
-    // useEffect(
-    //     () => {
-    //         getAllProducts()
-    //         .then((data) => {
-    //             for (const vendorProduct of vendor.vendorProducts) {
-    //             setProducts(data.filter(product => product.id === vendorProduct.id))
-    //         }})
-    //     }
-    // )
+
+    useEffect(
+        () => {
+            getAllProducts()
+                .then((data) => {
+                    setProducts(data)
+                }
+                )
+        },
+        []
+    )
 
     useEffect(
         () => {
@@ -32,32 +36,61 @@ export const Vendor = () => {
         },
         [vendorId]  // This useEffect runs when the value of vendorId changes
     )
+    
+    useEffect(
+        () => {
+           if(typeof selectedProductId === "number") { AddVendorProduct()
+            .then(() => { Update() })
+        }},
+        [selectedProductId]  // This useEffect runs when the value of vendorId changes
+    )
 
     useEffect(
         () => {
-           if (vendor.id){ fetch("http://localhost:8088/vendorProducts?_expand=product")
-           .then(r => r.json())
+            if (vendor.id) {
+                fetch("http://localhost:8088/vendorProducts?_expand=product")
+                .then(r => r.json())
                 .then((data) => {
                     setVendorProducts(data.filter(vendorProduct => vendorProduct.vendorId === vendor.id))
-                })}
+                })
+            }
         },
-        [vendor] // NEEDS TO WAIT UNTIL THE VENDOR STATE IS UPDATED BECAUSE IT NEEDS THE VENDOR ID TO KNOW WHICH VENDOR PRODUCTS TO GET FROM JSON
+        [vendor] // Waiting because it needs the vendor id to filter the  vendorProduct response by
     )
 
-    // const Update = () => {
-    //     getAllVendorProducts()
-    //         .then((data) => {
-    //             setVendorProducts(data.filter(vendorProduct => vendorProduct.vendorId === vendor.id))
-    //         })
-    // }
+    const Update = () => {
+        getAllVendorProducts()
+            .then((data) => {
+                setVendorProducts(data.filter(vendorProduct => vendorProduct.vendorId === vendor.id))
+            })
+    }
 
     const DeleteVendorProduct = (id) => {
         fetch(`http://localhost:8088/vendorProducts/${id}`, {
             method: "DELETE"
         })
-            // .then(() => { Update() })
+            .then(() => { Update() })
     }
 
+    const AddVendorProduct = () => {
+
+        const vendorProduct = {
+            vendorId: vendor.id,
+            productId: selectedProductId
+        }
+
+        const fetchOption = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(vendorProduct)
+        }
+
+        return fetch("http://localhost:8088/vendorProducts", fetchOption)
+            .then(r => r.json())
+
+    }
     return (
         <>
             <section className="vendor">
@@ -65,10 +98,26 @@ export const Vendor = () => {
                 <p>Products</p>
                 <ul>
                     {vendorProducts?.map((vendorProduct) => {
-                        return <li key={`vendorProduct--${vendorProduct.id}`}>{vendorProduct.product.description}<button 
-                        onClick={DeleteVendorProduct(vendorProduct.id)}>-</button></li>
+                        return <li key={`vendorProduct--${vendorProduct.id}`}>{vendorProduct.product.description}<button
+                            onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</button></li>
                     })}
                 </ul>
+                <div className="form-group">
+                    <label htmlFor="product">Add a new product</label>
+                    <select
+                        required autofocustype="text"
+                        className="form-control"
+                        value={value}
+                        onChange={(evt) => {
+                            const copy = parseInt(evt.target.value)
+                            setSelectedProductId(copy)
+                            setValue(0)
+                        }
+                        }
+                    ><option value="0">Add a new product</option>
+                        {products?.map(product => <option key={product.id} value={product.id}>{product.description}</option>)}
+                    </select>
+                </div>
             </section>
         </>
     )

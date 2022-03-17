@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getAllVendors } from "../json/ApiManger";
 import { getAllProducts } from "../json/ApiManger";
+import { useHistory } from "react-router-dom";
 import Popup from "./Popup";
 import "./Popup.css"
 
@@ -22,8 +23,14 @@ export const AddProduct = () => {
     // Initialize state for productResponse that will be updated when the POST products function is invoked
     const [productResponse, setProductResponse] = useState({})
 
+    // const [vendorValue, setVendorValue] = useState(0)
+
+    const [productValue, setProductValue] = useState("")
+
     const [isOpen, setIsOpen] = useState(false)
 
+    const history = useHistory()
+    
     useEffect(() => {
         getAllVendors()
             .then(setVendors)
@@ -57,7 +64,7 @@ export const AddProduct = () => {
         event.preventDefault()
 
         AddProduct()
-        // Set the productResponse state to the response sent back from the POST product function so the AddVendorFunction can access the id
+            // Set the productResponse state to the response sent back from the POST product function so the AddVendorFunction can access the id
             .then((data) => setProductResponse(data))
     }
 
@@ -96,6 +103,7 @@ export const AddProduct = () => {
                 return fetch("http://localhost:8088/products", fetchOption)
                     .then(r => r.json())
 
+
             }
         }
     }
@@ -117,60 +125,67 @@ export const AddProduct = () => {
         }
 
         return fetch("http://localhost:8088/vendorProducts", fetchOption)
+        .then(history.push("/vendors"))
+        // .then(changeSelectedVendorId(0))
+        // .then(setProductValue(""))
+        // .then(setNewProduct({}))
     }
     // Return jsx for a form with input for product descriptions, 
     // a dropdown box that allows the user to assign a product to a vendor and a add product button
-    return (
+        
+        return (
         <>
-        <div>
-            {isOpen && <Popup 
-            handleClose={togglePopup}
-                content={<div>
-                <h2>Hold On...</h2>
-            <p>This product already exists</p>
-        </div>}/>}
-</div>
-        <form className="productForm">
-            <h2 className="productForm_title">New Product</h2>
-            {/* // Return a dropdown box that displays all vendors */}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="vendor">Vendor</label>
-                    <select
-                        required autofocustype="text"
-                        className="form-control"
-                        onChange={(evt) => {
-                            const copy = evt.target.value
-                            changeSelectedVendorId(copy)
-                        }
-                        }
-                    ><option value="0">Assign A Vendor...</option>
-                        {vendors?.map(vendor => <option key = {vendor.id} value={vendor.id}>{vendor.name}</option>)}
-                    </select>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="product-description">Product </label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Product Description eg. 'Apple'"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...newProduct }
-                                copy.description = evt.target.value
-                                setNewProduct(copy)
+            <div>
+                {isOpen && <Popup
+                    handleClose={togglePopup}
+                    content={<div>
+                        <h2>Hold On...</h2>
+                        <p>This product already exists</p>
+                    </div>} />}
+            </div>
+            <form className="productForm">
+                <h2 className="productForm_title">New Product</h2>
+                {/* // Return a dropdown box that displays all vendors */}
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="vendor">Vendor</label>
+                        <select
+                            required autofocustype="text"
+                            className="form-control"
+                            value={selectedVendorId}
+                            onChange={(evt) => {
+                                const copy = evt.target.value
+                                changeSelectedVendorId(copy)
                             }
-                        }
-                    />
-                </div>
-            </fieldset>
-            <button className="btn btn-primary" onClick={updateJson}>
-                Add Product
-            </button>
-        </form>
+                            }
+                        ><option value="0">Assign A Vendor...</option>
+                            {vendors?.map(vendor => <option key={vendor.id} value={vendor.id}>{vendor.name}</option>)}
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="product-description">Product </label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="Product Description eg. 'Apple'"
+                            onChange={
+                                (evt) => {
+                                    const copy = { ...newProduct }
+                                    copy.description = evt.target.value
+                                    setNewProduct(copy)
+
+                                }
+                            }
+                        />
+                    </div>
+                </fieldset>
+                <button className="btn btn-primary" onClick={updateJson}>
+                    Add Product
+                </button>
+            </form>
         </>
     )
 }
