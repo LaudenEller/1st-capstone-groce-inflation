@@ -1,54 +1,72 @@
-// This module displays a single vendor and all of the products they offer, it also allows the user to add/remove products
+// This module displays a single vendor and all of the products they offer, 
+    // it also allows the user to assign products to a vendor
+        // and returns an Add New Product button which sends the user to the New Product Form page
 
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getAllProducts, getAllVendorProducts } from "../json/ApiManger"
-
+import { getAllVendorProducts } from "../json/ApiManger"
+import { useHistory } from "react-router-dom"
 
 export const Vendor = () => {
+    // Initial state of the vendor this page displays info about
     const [vendor, setVendor] = useState({})
+   
+    // Initial route paramter to allow the DOM to display correct vendor page
     const { vendorId } = useParams()
+   
+    // Initial state for the list of products available from this vendor
     const [vendorProducts, setVendorProducts] = useState([])
+   
+    // Products are fetched and filtered by the current User Id in local storage
     const [products, setProducts] = useState([])
+   
+    // Saves the user input which = productId on the vendorProducts 
+        // that are sent to Json when user assigns a new product to the vendor
     const [selectedProductId, setSelectedProductId] = useState()
+   
+    // Initial state for value of the Select Box 
+        // that is reset once the Add New Product button is clicked 
     const [value, setValue] = useState(0)
 
-
+// GETs products from Json with userIds that match current user id
     useEffect(
         () => {
-            getAllProducts()
+            fetch(`http://localhost:8088/products?userId=${localStorage.getItem("groce_user")}`)
+            .then(r => r.json())
                 .then((data) => {
-                    setProducts(data)
-                }
-                )
+                    setProducts(data)})
         },
         []
     )
 
+    // Get the vendor object with a vendorId 
+        // that matches the id in the route parameter
     useEffect(
         () => {
-            fetch(`http://localhost:8088/vendors/${vendorId}`) // Get the vendor object with a vendorId 
-                // that matches the id in the route parameter
+            fetch(`http://localhost:8088/vendors/${vendorId}`) 
+                
                 .then(r => r.json())
                 .then((data) => {
                     setVendor(data)
                 })
         },
-        [vendorId]  // This useEffect runs when the value of vendorId changes
+        [vendorId]  // This useEffect runs when the value of vendorId changes which happens immediately
     )
     
+    // This will send vendorProduct to Json once a selection in the dropdown box is made
     useEffect(
         () => {
            if(typeof selectedProductId === "number") { AddVendorProduct()
             .then(() => { Update() })
         }},
-        [selectedProductId]  // This useEffect runs when the value of vendorId changes
+        [selectedProductId]  
     )
 
+// Once a vendor is copied to useState, fetch user's vendorProducts with ?_expand=product and filter by vendorId
     useEffect(
         () => {
             if (vendor.id) {
-                fetch("http://localhost:8088/vendorProducts?_expand=product")
+                fetch(`http://localhost:8088/vendorProducts?userId=${parseInt(localStorage.getItem("groce_user"))}&_expand=product`)
                 .then(r => r.json())
                 .then((data) => {
                     setVendorProducts(data.filter(vendorProduct => vendorProduct.vendorId === vendor.id))
@@ -58,13 +76,18 @@ export const Vendor = () => {
         [vendor] // Waiting because it needs the vendor id to filter the  vendorProduct response by
     )
 
+const history = useHistory()
+
+// resets the list of available products once one is removed or added
     const Update = () => {
         getAllVendorProducts()
             .then((data) => {
-                setVendorProducts(data.filter(vendorProduct => vendorProduct.vendorId === vendor.id))
+                setVendorProducts(data.filter(vendorProduct => 
+                    vendorProduct.vendorId === vendor.id))
             })
     }
 
+    // This is invoked when user selects the - remove icon and deletes that object from Json
     const DeleteVendorProduct = (id) => {
         fetch(`http://localhost:8088/vendorProducts/${id}`, {
             method: "DELETE"
@@ -72,6 +95,8 @@ export const Vendor = () => {
             .then(() => { Update() })
     }
 
+    // This function is invoked once a a selection in the dropdown box is made
+        // and POSTs a vendorProduct to Json
     const AddVendorProduct = () => {
 
         const vendorProduct = {
@@ -88,22 +113,25 @@ export const Vendor = () => {
         }
 
         return fetch("http://localhost:8088/vendorProducts", fetchOption)
-            .then(r => r.json())
 
     }
+
+    
     return (
         <>
+        {/* // Returns a title, subtitle, a list of products that can be purchased from this vendor and a - remove icon for each */}
             <section className="vendor">
                 <h3 className="vendor__name">{vendor.name}</h3>
                 <p>Products</p>
                 <ul>
                     {vendorProducts?.map((vendorProduct) => {
-                        return <li key={`vendorProduct--${vendorProduct.id}`}>{vendorProduct.product.description}<button
+                        return <li key={`vendorProduct--${vendorProduct.id}`}>{vendorProduct.product?.description}<button
                             onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</button></li>
                     })}
                 </ul>
+                {/* // Return a select box that displays all the products available to the current user */}
                 <div className="form-group">
-                    <label htmlFor="product">Add a new product</label>
+                    <label htmlFor="vendorProduct">Assign another product to vendor</label>
                     <select
                         required autofocustype="text"
                         className="form-control"
@@ -114,9 +142,13 @@ export const Vendor = () => {
                             setValue(0)
                         }
                         }
-                    ><option value="0">Add a new product</option>
+                    ><option value="0">Choose from all products</option>
                         {products?.map(product => <option key={product.id} value={product.id}>{product.description}</option>)}
                     </select>
+                </div>
+                {/* // Return a button that sends the user to the New Product page */}
+                <div>
+                <button className="btn-createProduct" onClick={() => history.push("../product")}>Add New Product</button>
                 </div>
             </section>
         </>

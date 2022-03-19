@@ -11,7 +11,7 @@ export const GraphIt = () => {
     useEffect(() => {
         getAllPurchases()
             .then((data) => {
-                setPurchases(data)
+                setPurchases(data.filter(purchase => purchase.userId === parseInt(localStorage.getItem("groce_user"))))
             })
     },
         []
@@ -20,7 +20,7 @@ export const GraphIt = () => {
     useEffect(() => {
         getAllProducts()
             .then((data) => {
-                setProducts(data)
+                setProducts(data.filter(product => product.userId === parseInt(localStorage.getItem("groce_user"))))
             })
     },
         []
@@ -36,22 +36,22 @@ export const GraphIt = () => {
             inflation: ""
         }
 
-        const filteredPurchases = purchases.filter(purchase => {
+        const filteredPurchases = purchases?.filter(purchase => {
             return purchase.productId === product.id
         })
         if (filteredPurchases < 1) {
 
-            console.log(`Current uset has not purchased ${product.description} yet`)
+            console.log(`Current user has not purchased ${product.description} yet`)
 
         } else {
-            const sortedPurchases = filteredPurchases.sort((a, b) => b.date - a.date)
-            const firstPurchase = sortedPurchases.shift()
-            const lastPurchase = sortedPurchases.pop()
+            const sortedPurchases = filteredPurchases?.sort((a, b) => b.date - a.date)
+            const firstPurchase = sortedPurchases?.shift()
+            const lastPurchase = sortedPurchases?.pop()
 
             newObject.productName = product.description
-            newObject.firstPurchaseDate = firstPurchase.date
-            newObject.lastPurchaseDate = lastPurchase.date
-            newObject.inflation = (parseFloat(lastPurchase.price) - parseFloat(firstPurchase.price) / parseFloat(firstPurchase.price)) * 100
+            newObject.firstPurchaseDate = firstPurchase?.date
+            newObject.lastPurchaseDate = lastPurchase?.date
+            newObject.inflation = (parseFloat(lastPurchase?.price) - parseFloat(firstPurchase?.price) / parseFloat(firstPurchase?.price)) * 100
 
 
 

@@ -31,154 +31,46 @@
       "id": 5
     },
     {
-      "description": "Caviar",
+      "description": "Celery",
       "userId": 3,
       "categoryId": 1,
       "id": 6
     },
     {
-      "description": "Caviar",
+      "description": "Blini",
       "userId": 3,
       "categoryId": 1,
       "id": 7
     },
     {
-      "description": "Coffee cake",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 8
-    },
-    {
-      "description": "Slippers",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 9
-    },
-    {
-      "description": "Goatee",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 10
-    },
-    {
-      "description": "Umbrella",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 11
-    },
-    {
-      "description": "Fondant",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 12
-    },
-    {
-      "description": "Honeydew",
+      "description": "Tractor",
       "userId": 3,
       "categoryId": 1,
       "id": 13
     },
     {
-      "description": "Mangos",
-      "userId": 3,
+      "description": "Red Bull",
+      "userId": 4,
       "categoryId": 1,
       "id": 14
     },
     {
-      "description": "Grapes",
-      "userId": 3,
+      "description": "Water Bottle",
+      "userId": 4,
       "categoryId": 1,
       "id": 15
     },
     {
-      "description": "Watermelon",
-      "userId": 3,
+      "description": "Grapes",
+      "userId": 4,
       "categoryId": 1,
       "id": 16
     },
     {
-      "description": "Pho",
-      "userId": 3,
+      "description": "Yellow Dirt",
+      "userId": 4,
       "categoryId": 1,
       "id": 17
-    },
-    {
-      "description": "Hat",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 18
-    },
-    {
-      "description": "Product",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 19
-    },
-    {
-      "description": "Happy",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 20
-    },
-    {
-      "description": "Cucumber",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 21
-    },
-    {
-      "description": "Jeans",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 22
-    },
-    {
-      "description": "Hula Hoop",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 23
-    },
-    {
-      "description": "Coffee Filters",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 24
-    },
-    {
-      "description": "Coffee Filters",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 25
-    },
-    {
-      "description": "Coffee Filters",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 26
-    },
-    {
-      "description": "Coffee Filters",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 27
-    },
-    {
-      "description": "Veal",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 28
-    },
-    {
-      "description": "Icecream",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 29
-    },
-    {
-      "description": "Crocks",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 30
     }
   ],
   "purchases": [
@@ -202,6 +94,101 @@
       "price": 0.75,
       "productId": 1,
       "userId": 1
+    },
+    {
+      "date": "2022-03-31",
+      "price": "9.99",
+      "vendorId": "1",
+      "userId": 3,
+      "id": 4
+    },
+    {
+      "date": "2022-04-27",
+      "price": 8,
+      "productId": 3,
+      "vendorId": 1,
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "date": "2022-06-23",
+      "price": 4,
+      "productId": 3,
+      "vendorId": 1,
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "date": "2022-03-01",
+      "price": 4,
+      "productId": 7,
+      "vendorId": 1,
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "date": "2022-03-31",
+      "price": 4,
+      "productId": 7,
+      "vendorId": 1,
+      "userId": 3,
+      "id": 12
+    },
+    {
+      "date": "2022-03-02",
+      "price": 4,
+      "productId": 3,
+      "vendorId": 1,
+      "userId": 4,
+      "id": 13
+    },
+    {
+      "date": "2022-03-31",
+      "price": 3,
+      "productId": 6,
+      "vendorId": 2,
+      "userId": 4,
+      "id": 14
+    },
+    {
+      "date": "2022-04-28",
+      "price": 5,
+      "productId": 6,
+      "vendorId": 1,
+      "userId": 4,
+      "id": 15
+    },
+    {
+      "date": "2022-03-17",
+      "price": 3,
+      "productId": 13,
+      "vendorId": 1,
+      "userId": 4,
+      "id": 16
+    },
+    {
+      "date": "2022-03-19",
+      "price": 4,
+      "productId": 13,
+      "vendorId": 1,
+      "userId": 4,
+      "id": 17
+    },
+    {
+      "date": "2022-03-15",
+      "price": 2,
+      "productId": 4,
+      "vendorId": 1,
+      "userId": 4,
+      "id": 18
+    },
+    {
+      "date": "2022-03-24",
+      "price": 2,
+      "productId": 4,
+      "vendorId": 1,
+      "userId": 4,
+      "id": 19
     }
   ],
   "vendors": [
@@ -216,93 +203,90 @@
       "name": "Ralphs - Calabasas",
       "userId": 3,
       "id": 2
+    },
+    {
+      "address": "3105 Wilshire Blvd, Santa Monica, CA 90403",
+      "name": "Bristol Farms - Wilshire",
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "address": "3434 Test St",
+      "name": "Whole Foods - Calabasas",
+      "userId": 4,
+      "id": 4
     }
   ],
   "vendorProducts": [
     {
-      "id": 4,
-      "productId": 3,
-      "vendorId": 2
-    },
-    {
-      "id": 5,
-      "productId": 3,
-      "vendorId": 2
-    },
-    {
       "vendorId": 1,
-      "productId": 6,
+      "productId": 1,
       "id": 6
     },
     {
       "vendorId": 1,
-      "productId": 10,
+      "productId": 3,
+      "id": 7
+    },
+    {
+      "vendorId": 1,
+      "productId": 4,
+      "id": 8
+    },
+    {
+      "vendorId": 1,
+      "productId": 6,
+      "id": 9
+    },
+    {
+      "vendorId": 1,
+      "productId": 7,
       "id": 10
     },
     {
-      "vendorId": 2,
-      "productId": 11,
-      "id": 11
+      "vendorId": 1,
+      "productId": 13,
+      "id": 16
     },
     {
-      "vendorId": 1,
+      "vendorId": 3,
       "productId": 14,
-      "id": 12
+      "id": 21
+    },
+    {
+      "vendorId": 3,
+      "productId": 15,
+      "id": 22
     },
     {
       "vendorId": 2,
-      "productId": 15,
-      "id": 13
-    },
-    {
-      "vendorId": 2,
-      "productId": 15,
-      "id": 14
-    },
-    {
-      "vendorId": 1,
-      "productId": 16,
-      "id": 15
-    },
-    {
-      "vendorId": 1,
-      "productId": 17,
-      "id": 17
-    },
-    {
-      "vendorId": 1,
-      "productId": 18,
-      "id": 18
-    },
-    {
-      "vendorId": 1,
-      "productId": 21,
+      "productId": 14,
       "id": 24
     },
     {
       "vendorId": 2,
-      "productId": 22,
-      "id": 26
-    },
-    {
-      "vendorId": 1,
-      "productId": 27,
-      "id": 36
-    },
-    {
-      "vendorId": 1,
-      "productId": 29,
-      "id": 38
-    },
-    {
-      "vendorId": 1,
-      "productId": 5,
-      "id": 41
+      "productId": 15,
+      "id": 25
     },
     {
       "vendorId": 2,
-      "productId": 30,
-      "id": 42
+      "productId": 16,
+      "id": 26
+    },
+    {
+      "vendorId": 2,
+      "productId": 17,
+      "id": 27
+    },
+    {
+      "vendorId": 3,
+      "productId": 17,
+      "id": 28
+    },
+    {
+      "vendorId": 3,
+      "productId": 17,
+      "id": 29
     }
   ],
   "users": [
@@ -317,6 +301,10 @@
     {
       "email": "juniorTest@chef.com",
       "id": 3
+    },
+    {
+      "email": "Test@email.com",
+      "id": 4
     }
   ],
   "categories": [

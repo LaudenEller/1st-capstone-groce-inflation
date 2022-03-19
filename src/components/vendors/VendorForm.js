@@ -1,6 +1,6 @@
-// This module will display a new vendor form that will save new vendor object to Json
+// This module will display a vendor form that will save a new vendor object to Json
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 // export a function that returns Jsx for a form
@@ -8,10 +8,10 @@ export const VendorForm = () => {
 
     const history = useHistory()
 
-    // This useState stores the vendor information as the form is filled out and that is then sent to the API
+    // This useState stores the vendor information as the form is filled out and eventually sent to Json
     const [vendor, addVendors] = useState([])
 
-    // Send new vendor object to Json database
+    // Sends new vendor object to Json database and pushes the user to the homepage
     const AddNewVendor = () => {
 
         const newVendor = {
@@ -32,7 +32,7 @@ export const VendorForm = () => {
 
         return fetch("http://localhost:8088/vendors", fetchOption)
             .then(r => r.json())
-            .then(history.push("/vendors"))
+            .then(history.push("/"))
     }
 
     return (
