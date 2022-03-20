@@ -29,7 +29,9 @@ export const AddProduct = () => {
 
     useEffect(() => {
         getAllVendors()
-            .then(setVendors)
+            .then((data) => {
+                setVendors(data.filter(vendor => vendor.userId === parseInt(localStorage.getItem("groce_user")
+                )))})
     },
         []
     )
@@ -106,7 +108,8 @@ const AddVendorProduct = () => {
 
     const vendorProduct = {
         vendorId: parseInt(selectedVendorId),
-        productId: productResponse?.id
+        productId: productResponse?.id,
+        userId: parseInt(localStorage.getItem("groce_user"))
     }
 
     const fetchOption = {

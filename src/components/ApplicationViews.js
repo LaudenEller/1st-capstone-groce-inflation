@@ -2,10 +2,11 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { GraphIt } from "./graph/Graph";
 import { VendorList } from "./vendors/Vendors";
-import { PurchaseForm } from "./purchases/Purchases";
+import { PurchaseForm } from "./purchases/PurchaseForm";
 import { VendorForm } from "./vendors/VendorForm";
 import { Vendor } from "./vendors/Vendor";
 import { AddProduct } from "./products/ProductForm";
+import { Purchases } from "./purchases/Purchases";
 
 
 export const ApplicationViews = () => {
@@ -19,6 +20,9 @@ export const ApplicationViews = () => {
         </Route>
         <Route exact path="/purchases/create">
             <PurchaseForm />
+        </Route>
+        <Route exact path="/purchases">
+            <Purchases />
         </Route>
         <Route exact path="/vendors/create">
             <VendorForm />

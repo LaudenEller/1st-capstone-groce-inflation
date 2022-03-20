@@ -4,7 +4,6 @@
 
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getAllVendorProducts } from "../json/ApiManger"
 import { useHistory } from "react-router-dom"
 
 export const Vendor = () => {
@@ -56,7 +55,8 @@ export const Vendor = () => {
     // This will send vendorProduct to Json once a selection in the dropdown box is made
     useEffect(
         () => {
-           if(typeof selectedProductId === "number") { AddVendorProduct()
+           if(typeof selectedProductId === "number") { 
+               AddVendorProduct()
             .then(() => { Update() })
         }},
         [selectedProductId]  
@@ -80,7 +80,8 @@ const history = useHistory()
 
 // resets the list of available products once one is removed or added
     const Update = () => {
-        getAllVendorProducts()
+        fetch(`http://localhost:8088/vendorProducts?userId=${parseInt(localStorage.getItem("groce_user"))}&_expand=product`)
+                .then(r => r.json())
             .then((data) => {
                 setVendorProducts(data.filter(vendorProduct => 
                     vendorProduct.vendorId === vendor.id))

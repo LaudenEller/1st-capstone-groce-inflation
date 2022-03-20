@@ -71,53 +71,38 @@
       "userId": 4,
       "categoryId": 1,
       "id": 17
+    },
+    {
+      "description": "Apple",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 18
+    },
+    {
+      "description": "Testing New Product Form",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 19
+    },
+    {
+      "description": "Blueberries",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 20
+    },
+    {
+      "userId": 2,
+      "categoryId": 1,
+      "id": 21
+    },
+    {
+      "description": "Chevre",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 22
     }
   ],
   "purchases": [
-    {
-      "id": 1,
-      "date": "May 5th, 2018",
-      "price": 1,
-      "productId": 1,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "date": "March 11th, 2022",
-      "price": 100,
-      "productId": 1,
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "date": "March 12th, 2022",
-      "price": 0.75,
-      "productId": 1,
-      "userId": 1
-    },
-    {
-      "date": "2022-03-31",
-      "price": "9.99",
-      "vendorId": "1",
-      "userId": 3,
-      "id": 4
-    },
-    {
-      "date": "2022-04-27",
-      "price": 8,
-      "productId": 3,
-      "vendorId": 1,
-      "userId": 3,
-      "id": 7
-    },
-    {
-      "date": "2022-06-23",
-      "price": 4,
-      "productId": 3,
-      "vendorId": 1,
-      "userId": 3,
-      "id": 8
-    },
     {
       "date": "2022-03-01",
       "price": 4,
@@ -141,14 +126,6 @@
       "vendorId": 1,
       "userId": 4,
       "id": 13
-    },
-    {
-      "date": "2022-03-31",
-      "price": 3,
-      "productId": 6,
-      "vendorId": 2,
-      "userId": 4,
-      "id": 14
     },
     {
       "date": "2022-04-28",
@@ -189,6 +166,54 @@
       "vendorId": 1,
       "userId": 4,
       "id": 19
+    },
+    {
+      "date": "2022-03-02",
+      "price": 1,
+      "productId": 1,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "date": "2022-03-03",
+      "price": 2,
+      "productId": 1,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 21
+    },
+    {
+      "date": "2022-03-03",
+      "price": 1,
+      "productId": 6,
+      "vendorId": 5,
+      "userId": 3,
+      "id": 22
+    },
+    {
+      "date": "2022-04-01",
+      "price": 3,
+      "productId": 6,
+      "vendorId": 5,
+      "userId": 3,
+      "id": 24
+    },
+    {
+      "date": "2022-03-08",
+      "price": 4,
+      "productId": 5,
+      "vendorId": 5,
+      "userId": 3,
+      "id": 25
+    },
+    {
+      "date": "2022-03-31",
+      "price": 5,
+      "productId": 5,
+      "vendorId": 5,
+      "userId": 3,
+      "id": 26
     }
   ],
   "vendors": [
@@ -199,22 +224,16 @@
       "userId": 1
     },
     {
-      "address": "4754 Commons Way, Calabasas, CA 91302",
-      "name": "Ralphs - Calabasas",
-      "userId": 3,
-      "id": 2
-    },
-    {
-      "address": "3105 Wilshire Blvd, Santa Monica, CA 90403",
-      "name": "Bristol Farms - Wilshire",
-      "userId": 3,
-      "id": 3
-    },
-    {
       "address": "3434 Test St",
       "name": "Whole Foods - Calabasas",
       "userId": 4,
       "id": 4
+    },
+    {
+      "address": "123 Test St",
+      "name": "New Vendor Test",
+      "userId": 3,
+      "id": 5
     }
   ],
   "vendorProducts": [
@@ -225,68 +244,28 @@
     },
     {
       "vendorId": 1,
-      "productId": 3,
-      "id": 7
-    },
-    {
-      "vendorId": 1,
-      "productId": 4,
-      "id": 8
-    },
-    {
-      "vendorId": 1,
-      "productId": 6,
-      "id": 9
-    },
-    {
-      "vendorId": 1,
-      "productId": 7,
+      "productId": 2,
       "id": 10
     },
     {
-      "vendorId": 1,
+      "vendorId": 5,
+      "productId": 7,
+      "id": 11
+    },
+    {
+      "vendorId": 5,
+      "productId": 6,
+      "id": 12
+    },
+    {
+      "vendorId": 5,
       "productId": 13,
-      "id": 16
+      "id": 13
     },
     {
-      "vendorId": 3,
-      "productId": 14,
-      "id": 21
-    },
-    {
-      "vendorId": 3,
-      "productId": 15,
-      "id": 22
-    },
-    {
-      "vendorId": 2,
-      "productId": 14,
-      "id": 24
-    },
-    {
-      "vendorId": 2,
-      "productId": 15,
-      "id": 25
-    },
-    {
-      "vendorId": 2,
-      "productId": 16,
-      "id": 26
-    },
-    {
-      "vendorId": 2,
-      "productId": 17,
-      "id": 27
-    },
-    {
-      "vendorId": 3,
-      "productId": 17,
-      "id": 28
-    },
-    {
-      "vendorId": 3,
-      "productId": 17,
-      "id": 29
+      "vendorId": 5,
+      "productId": 5,
+      "id": 14
     }
   ],
   "users": [
