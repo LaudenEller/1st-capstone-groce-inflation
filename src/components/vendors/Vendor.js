@@ -102,7 +102,8 @@ const history = useHistory()
 
         const vendorProduct = {
             vendorId: vendor.id,
-            productId: selectedProductId
+            productId: selectedProductId,
+            userId: parseInt(localStorage.getItem("groce_user"))
         }
 
         const fetchOption = {
@@ -114,6 +115,7 @@ const history = useHistory()
         }
 
         return fetch("http://localhost:8088/vendorProducts", fetchOption)
+        .then(() => { Update() })
 
     }
 
