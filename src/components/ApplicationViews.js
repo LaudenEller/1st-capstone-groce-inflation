@@ -7,7 +7,7 @@ import { VendorForm } from "./vendors/VendorForm";
 import { Vendor } from "./vendors/Vendor";
 import { AddProduct } from "./products/ProductForm";
 import { Purchases } from "./purchases/Purchases";
-import { LineChart } from "./graph/LineChart"
+import GraphPurchases from "./graph/LineChart";
 
 
 export const ApplicationViews = () => {
@@ -17,7 +17,7 @@ export const ApplicationViews = () => {
             <GraphIt />
         </Route>
         <Route exact path="/graph">
-            <LineChart />
+            <GraphPurchases />
         </Route>
         <Route exact path="/vendors">
             <VendorList />

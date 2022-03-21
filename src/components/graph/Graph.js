@@ -72,10 +72,6 @@ export const GraphIt = () => {
     })
 
     return (
-        <>
-        <div>
-        <h1 className="page_title">Groce' Inflation</h1>
-        </div>
         <div>
             <ul>
                 {/* // Returns a string for every purchase on the array */}
@@ -84,6 +80,5 @@ export const GraphIt = () => {
                 })}
             </ul>
             </div>
-        </>
     )
 }

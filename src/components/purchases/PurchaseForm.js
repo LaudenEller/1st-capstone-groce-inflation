@@ -78,7 +78,7 @@ export const PurchaseForm = () => {
                 <div className="form-group">
                     <label htmlFor="vendor">Vendor</label>
                     <select
-                        required autoFocustype="text"
+                        required autofocustype="text"
                         className="form-control"
                         onChange={(evt) => {
                             const copy = { ...purchase }
@@ -87,7 +87,7 @@ export const PurchaseForm = () => {
                         }
                         }
                     ><option value="0">Choose Vendor...</option>
-                        {vendors.map(vendor => <option value={vendor.id}>{vendor.name}</option>)}
+                        {vendors.map(vendor => <option key={vendor.id} value={vendor.id}>{vendor.name}</option>)}
                     </select>
                 </div>
             </fieldset>
@@ -96,7 +96,7 @@ export const PurchaseForm = () => {
                 <div className="form-group">
                     <label htmlFor="product">Product</label>
                     <select
-                        required autoFocustype="text"
+                        required autofocustype="text"
                         className="form-control"
                         onChange={(evt) => {
                             const copy = { ...purchase }

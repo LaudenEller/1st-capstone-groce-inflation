@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import "./Purchases.css"
 
 export const Purchases = () => {
 
@@ -40,13 +41,13 @@ export const Purchases = () => {
                 <h2>Purchase List</h2>
             </div>
             <div>
-                <ul>
+                <ol>
                     {purchases?.map(
                         (purchase) => {
                             return <li key={`purchase--${purchase.id}`}>{purchase.product.description} from {purchase.vendor.name} for {purchase.price} on {purchase.date}<button
                                 onClick={() => DeletePurchase(purchase.id)}>-</button></li>
                         })}
-                </ul>
+                </ol>
             </div>
             <button onClick={() => history.push("./purchases/create")}>Add Purchase</button>
         </>

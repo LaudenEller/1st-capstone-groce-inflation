@@ -5,6 +5,7 @@ import { ApplicationViews } from "./ApplicationViews";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./Groce'Inflation.css";
+import { Title } from "./nav/Title";
 
 export const Groce = () => (
     <>
@@ -14,6 +15,7 @@ export const Groce = () => (
             return (
               <>
                 <NavBar />
+                {/* <Title /> */}
                 <ApplicationViews />
               </>
             );
@@ -24,6 +26,7 @@ export const Groce = () => (
       />
   
       <Route path="/login">
+      {/* <Title /> */}
         <Login />
       </Route>
       <Route path="/register">

@@ -1,10 +1,25 @@
-.navbar {
+  .navbar{
+  
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
+    position: relative;
+    /* margin: auto; */
+    max-width: none;
+    max-height: none;
+    /* background-color: rgb(48, 162, 255); */
+    border: solid 2px none;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
 }
 
-.navbar__item {
+.navlink {
     flex-basis: 20%;
     list-style-type: none;
+    margin: 10px;
+    font-size: 18px;
+    width: 100%;
+    color: white;
+    display:inline-block;
 }
