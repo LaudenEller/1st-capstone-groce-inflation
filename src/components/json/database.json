@@ -29,6 +29,18 @@
       "userId": 1,
       "categoryId": 1,
       "id": 5
+    },
+    {
+      "description": "Apple",
+      "userId": 3,
+      "categoryId": 1,
+      "id": 6
+    },
+    {
+      "description": "Kale",
+      "userId": 3,
+      "categoryId": 1,
+      "id": 7
     }
   ],
   "purchases": [
@@ -63,6 +75,46 @@
       "vendorId": 1,
       "userId": 1,
       "id": 4
+    },
+    {
+      "date": "2022-02-28",
+      "price": 3,
+      "productId": 6,
+      "vendorId": 3,
+      "userId": 3,
+      "id": 5
+    },
+    {
+      "date": "2022-03-30",
+      "price": 4,
+      "productId": 6,
+      "vendorId": 3,
+      "userId": 3,
+      "id": 6
+    },
+    {
+      "date": "2022-03-07",
+      "price": 3.35,
+      "productId": 7,
+      "vendorId": 3,
+      "userId": 3,
+      "id": 7
+    },
+    {
+      "date": "2022-03-30",
+      "price": 4.15,
+      "productId": 7,
+      "vendorId": 3,
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "date": "2022-03-19",
+      "price": 6,
+      "productId": 7,
+      "vendorId": 3,
+      "userId": 3,
+      "id": 9
     }
   ],
   "vendors": [
@@ -77,6 +129,12 @@
       "name": "New Vendor Test",
       "userId": 2,
       "id": 2
+    },
+    {
+      "address": "123 Main St",
+      "name": "Kroger",
+      "userId": 3,
+      "id": 3
     }
   ],
   "vendorProducts": [
@@ -97,6 +155,12 @@
       "productId": 5,
       "userId": 1,
       "id": 3
+    },
+    {
+      "vendorId": 3,
+      "productId": 7,
+      "userId": 3,
+      "id": 5
     }
   ],
   "users": [
@@ -107,6 +171,14 @@
     {
       "id": 2,
       "email": "senior@chef.com"
+    },
+    {
+      "email": "Devin@chef.com",
+      "id": 3
+    },
+    {
+      "email": "Lauden@chef.com",
+      "id": 4
     }
   ],
   "categories": [

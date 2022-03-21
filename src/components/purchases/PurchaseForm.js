@@ -48,7 +48,7 @@ export const PurchaseForm = () => {
         // Add keys to the object that match the user input
         const newPurchase = {
             date: purchase.date,
-            price: parseInt(purchase.price),
+            price: parseFloat(purchase.price),
             productId: parseInt(purchase.productId),
             vendorId: parseInt(purchase.vendorId),
             userId: parseInt(localStorage.getItem("groce_user"))

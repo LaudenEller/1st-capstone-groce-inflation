@@ -7,6 +7,7 @@ import { VendorForm } from "./vendors/VendorForm";
 import { Vendor } from "./vendors/Vendor";
 import { AddProduct } from "./products/ProductForm";
 import { Purchases } from "./purchases/Purchases";
+import { LineChart } from "./graph/LineChart"
 
 
 export const ApplicationViews = () => {
@@ -14,6 +15,9 @@ export const ApplicationViews = () => {
         <>
         <Route exact path="/">
             <GraphIt />
+        </Route>
+        <Route exact path="/graph">
+            <LineChart />
         </Route>
         <Route exact path="/vendors">
             <VendorList />
