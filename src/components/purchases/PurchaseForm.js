@@ -1,12 +1,12 @@
 // CURRENTLY, THE HISTORY.PUSH AND FETCH THAT HAPPENS ON THE PURCHASES PAGE IS HAPPENING BEFORE THE POST NEW PURCHASE SO THE LIST PURCHASES
-    // THAT RENDERS DOESN'T INCLUDE THE NEWEST PURCHASE // CAN I DELAY THE HISTORY WITH A PROMISE.RESOLVE?
+// THAT RENDERS DOESN'T INCLUDE THE NEWEST PURCHASE
 
 // This module will display the new purchase form
 
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { getAllVendorProducts } from "../json/ApiManger";
-import TextField from '@material-ui/core/TextField';
+import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 // export a function that returns html for a form
 export const PurchaseForm = () => {
@@ -17,7 +17,7 @@ export const PurchaseForm = () => {
     // Populates the product dropdown box with products that match the selected vendor
     const [vendorProducts, setVendorProducts] = useState([])
 
-    // Stores user input that will eventually get sent to Json
+    // Stores user Input that will eventually get sent to Json
     const [purchase, setPurchase] = useState({})
 
     const history = useHistory()
@@ -29,23 +29,25 @@ export const PurchaseForm = () => {
                 .then(r => r.json())
                 .then((data) => {
                     setVendors(data)
-                })},
+                })
+        },
         []
     )
 
     // Declare a useEffect that observes initial state of vendorProducts and invokes a fetch function from apiManager
     useEffect(
-        () => { 
-                getAllVendorProducts()
+        () => {
+            getAllVendorProducts()
                 .then((data) => {
                     setVendorProducts(data)
-                })},
-                []
+                })
+        },
+        []
     )
 
     // Declare a function that accepts an event as a parameter and builds a new object
     const recordPurchase = (event) => {
-        // Add keys to the object that match the user input
+        // Add keys to the object that match the user Input
         const newPurchase = {
             date: purchase.date,
             price: parseFloat(purchase.price),
@@ -72,13 +74,39 @@ export const PurchaseForm = () => {
 
     return (
         // Return a dropdown box that displays all the current user's vendors
-        <form className="purchaseForm">
+        <Form inline className="purchaseForm">
             <h2 className="purchaseForm_title">New Purchase</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="vendor">Vendor</label>
-                    <select
-                        required autofocustype="text"
+            {/* <FormGroup floating>
+                <div className="form-group"> */}
+            <FormGroup floating>
+                <Col sm={10}>
+                    <Input
+                        id="vendorSelect"
+                        name="select"
+                        type="select"
+                        placeholder="Choose Vendor..."
+                        required autoFocustype="select"
+                        className="form-control"
+                        onChange={(evt) => {
+                            const copy = { ...purchase }
+                            copy.vendorId = evt.target.value
+                            setPurchase(copy)
+                        }
+                        }
+                    >
+                        <option value="0">Choose Vendor...</option>
+                        {vendors.map(vendor => <option key={vendor.id} value={vendor.id}>{vendor.name}</option>)}
+                    </Input>
+                    {/* <Label
+                            for="vendorSelect"
+                          sm={2}
+                        >
+                            Choose Vendor...
+                        </Label> */}
+                </Col>
+            </FormGroup>
+            {/* <select
+                        required autoFocustype="text"
                         className="form-control"
                         onChange={(evt) => {
                             const copy = { ...purchase }
@@ -88,15 +116,34 @@ export const PurchaseForm = () => {
                         }
                     ><option value="0">Choose Vendor...</option>
                         {vendors.map(vendor => <option key={vendor.id} value={vendor.id}>{vendor.name}</option>)}
-                    </select>
-                </div>
-            </fieldset>
+                    </select> */}
+            {/* <Label htmlFor="vendor">Vendor</Label> */}
+            {/* </div>
+            </FormGroup> */}
             {/* Return a select box for each vendorProduct with a vendor id that matches the user's chosen vendor */}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="product">Product</label>
-                    <select
-                        required autofocustype="text"
+            <FormGroup floating>
+                <Col sm={10}>
+                    <Input
+                        id="productSelect"
+                        name="select"
+                        type="select"
+                        placeholder="Products..."
+                        required autoFocustype="select"
+                        className="form-control"
+                        onChange={(evt) => {
+                            const copy = { ...purchase }
+                            copy.productId = evt.target.value
+                            setPurchase(copy)
+                        }
+                        }
+                    ><option value={0}>Choose Product...</option>
+                        {vendorProducts?.filter(vendorProduct =>
+                            vendorProduct.vendorId === parseInt(purchase.vendorId)).map((vendorProduct) => {
+                                return <option value={vendorProduct.productId}>{vendorProduct.product.description}</option>
+                            })}
+                    </Input>
+                    {/* <select
+                        required autoFocustype="text"
                         className="form-control"
                         onChange={(evt) => {
                             const copy = { ...purchase }
@@ -107,56 +154,53 @@ export const PurchaseForm = () => {
                     ><option value={0}>Products...</option>
                         {vendorProducts?.filter(vendorProduct =>
                             vendorProduct.vendorId === parseInt(purchase.vendorId)).map((vendorProduct) => {
-                               return <option value={vendorProduct.productId}>{vendorProduct.product.description}</option>
+                                return <option value={vendorProduct.productId}>{vendorProduct.product.description}</option>
                             })}
-                    </select>
-                </div>
-            </fieldset>
-            {/* // Return an input field for purchase price */}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="price">Price: </label>
-                    <input
-                        required autoFocus
-                        type="int"
-                        className="form-control"
-                        placeholder="9.99"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...purchase }
-                                copy.price = evt.target.value
-                                setPurchase(copy)
-                            }
-                        }
-                    />
-                </div>
-            </fieldset>
-            {/* // Return a calendar to select purchase date */}
-            <fieldset>
-                <div>
-                    <TextField
+                    </select> */}
+                </Col>
+            </FormGroup>
+            {/* // Return an Input field for purchase price */}
+            <FormGroup floating>
+                <Input
                     required autoFocus
-                    className="calendar"
-                    label="Choose purchase date"
-                    type="date"
-                    defaultValue="2022-03-18"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
+                    id="purchasePrice"
+                    name="purchasePrice"
+                    placeholder="Enter Price eg. 9.99"
+                    type="int"
+                    className="form-control"
+                    // placeholder="Price eg. 9.99"
                     onChange={
                         (evt) => {
                             const copy = { ...purchase }
-                            copy.date = evt.target.value
+                            copy.price = evt.target.value
                             setPurchase(copy)
                         }
                     }
-                    />
-                </div>
-            </fieldset>
-                    {/* Return a submit form button */}
-            <button className="btn btn-primary" onClick={recordPurchase}>
+                />
+                <Label htmlFor="purchasePrice">Enter Price eg. 9.99 </Label>
+            </FormGroup>
+            {/* // Return a calendar to select purchase date */}
+            <FormGroup>
+    <Input
+    required autoFocus
+    className="calendar"
+      id="exampleDate"
+      name="date"
+      placeholder="date placeholder"
+      type="date"
+      onChange={
+        (evt) => {
+            const copy = { ...purchase }
+            copy.date = evt.target.value
+            setPurchase(copy)
+        }
+    }
+    />
+  </FormGroup>
+            {/* Return a submit form button */}
+            <Button className="btn btn-primary" onClick={recordPurchase}>
                 Record Purchase
-            </button>
-        </form>
+            </Button>
+        </Form>
     )
 }

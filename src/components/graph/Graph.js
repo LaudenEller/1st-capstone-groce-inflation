@@ -73,6 +73,7 @@ export const GraphIt = () => {
 
     return (
         <div>
+            <h2>Inflated Products</h2>
             <ul>
                 {/* // Returns a string for every purchase on the array */}
                 {productPurchaseArray.map(productPurchase => {

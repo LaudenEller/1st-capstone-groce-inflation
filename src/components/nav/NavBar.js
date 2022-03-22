@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     Navbar,
@@ -15,20 +15,34 @@ import "./NavBar.css"
 export const NavBar = () => {
 
     // const [isOpen, setIsOpen] = React.useState(false)
+    const [style, setStyle] = useState({ display: 'block' });
+
+const handleClose = () => {
+    setStyle({ display: 'none' })
+}
+
+const handleOpen = () => {
+    setStyle({ display: 'block' });
+}
+
+
+
 
     return (
         <div >
-            <h1>Groce' Inflation</h1>
-            <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">Home</NavbarBrand>
-                {/* <NavbarToggler onClick={() => { setIsOpen(!isOpen) }} />
-                <Collapse isOpen={isOpen} navbar> */}
-                <Nav className="navbar" navbar>
-                    {/* <Dropdown
-                        onMouseEnter={setIsOpen(true)}
-                        onmouseleave={setIsOpen(false)}
-                        open={setIsOpen(true)}
-                        noCaret> */}
+            <div 
+                onMouseEnter={e => {
+                    handleOpen()
+                }}
+                onMouseLeave={e => {
+                    handleClose()
+                }}
+                >
+                <Navbar light expand="md" style={style}>
+                    <Nav className="navbar" navbar>
+                        <NavItem className="navlink">
+                            <NavLink href="/">Home</NavLink>
+                        </NavItem>
                         <NavItem className="navlink">
                             <NavLink href="/vendors">Vendors</NavLink>
                         </NavItem>
@@ -40,10 +54,9 @@ export const NavBar = () => {
                                 localStorage.removeItem("groce_user")
                             }}>Logout</NavLink>
                         </NavItem>
-                    {/* </Dropdown> */}
-                </Nav>
-                {/* </Collapse> */}
-            </Navbar>
+                    </Nav>
+                </Navbar>
+            </div>
         </div >
     )
-                        }
+}

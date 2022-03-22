@@ -6,6 +6,7 @@ import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./Groce'Inflation.css";
 import { Title } from "./nav/Title";
+import "./nav/Title.css"
 
 export const Groce = () => (
     <>
@@ -14,8 +15,8 @@ export const Groce = () => (
           if (localStorage.getItem("groce_user")) {
             return (
               <>
+                <Title />
                 <NavBar />
-                {/* <Title /> */}
                 <ApplicationViews />
               </>
             );
@@ -26,7 +27,7 @@ export const Groce = () => (
       />
   
       <Route path="/login">
-      {/* <Title /> */}
+      <Title />
         <Login />
       </Route>
       <Route path="/register">

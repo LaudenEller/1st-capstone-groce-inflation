@@ -5,6 +5,7 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom"
+import { Button, Input } from "reactstrap"
 
 export const Vendor = () => {
     // Initial state of the vendor this page displays info about
@@ -123,20 +124,23 @@ const history = useHistory()
     return (
         <>
         {/* // Returns a title, subtitle, a list of products that can be purchased from this vendor and a - remove icon for each */}
-            <section className="vendor">
+            <section>
                 <h3 className="vendor__name">{vendor.name}</h3>
                 <p>Products</p>
                 <ul>
                     {vendorProducts?.map((vendorProduct) => {
-                        return <li key={`vendorProduct--${vendorProduct.id}`}>{vendorProduct.product?.description}<button
-                            onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</button></li>
+                        return <li key={`vendorProduct--${vendorProduct.id}`}>{vendorProduct.product?.description}<Button
+                            onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</Button></li>
                     })}
                 </ul>
                 {/* // Return a select box that displays all the products available to the current user */}
-                <div className="form-group">
-                    <label htmlFor="vendorProduct">Assign another product to vendor</label>
-                    <select
+                <div>
+                    <Input
                         required autofocustype="text"
+                        id="vendorSelect"
+                        name="select"
+                        type="select"
+                        placeholder="All Products"
                         className="form-control"
                         value={value}
                         onChange={(evt) => {
@@ -145,14 +149,12 @@ const history = useHistory()
                             setValue(0)
                         }
                         }
-                    ><option value="0">Choose from all products</option>
+                    ><option value="0">Assign another product to vendor</option>
                         {products?.map(product => <option key={product.id} value={product.id}>{product.description}</option>)}
-                    </select>
+                    </Input>
                 </div>
                 {/* // Return a button that sends the user to the New Product page */}
-                <div>
-                <button className="btn-createProduct" onClick={() => history.push("../product")}>Add New Product</button>
-                </div>
+                <Button className="btn-createProduct" onClick={() => history.push("../product")}>Add New Product</Button>
             </section>
         </>
     )

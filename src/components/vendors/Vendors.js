@@ -1,6 +1,6 @@
 // This module will dsiplay a list of vendors
 // and this module will have links for viewing/editing any single vendor
-// this module will have a Add Vendor button that takes user to vendor form page
+// this module will have a Add Vendor Button that takes user to vendor form page
 
 // CURRENTLY ALLOWS USER TO DELETE A VENDOR FROM JSON
 // COMMENTED OUT CODE IS AN ATTEMPT AT AUTOMATICALLY HAVING
@@ -9,6 +9,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
+import "./Vendors.css"
 
 
 // Export a function that returns html for vendors list
@@ -72,30 +74,33 @@ export const VendorList = () => {
 
         return (
             <>
-
+<section className="vendorList_Section"></section>
+                <div className="vendorList_Title">
                 <h2>Vendor List</h2>
-
-                <ul>
+                </div>
+                <div>
+                <ul className="vendorList">
                     {vendors.map(
                         (vendor) => {
-                            return <li key={`vendor--${vendor.id}`}>
-                                <Link to={`/vendors/${vendor.id}`}>{vendor.name}</Link><button
-                                // WHAT IS SHOWING UP IN DOM FOR DELETE FUNCTION IS NOT AN INTEGER
-                                    onClick={() => DeleteVendor(vendor.id)}>-</button></li>
+                            return <li key={`vendor--${vendor.id}`}><div className="vendor">
+                                <Link to={`/vendors/${vendor.id}`}>{vendor.name}</Link>
+                                <Button className="btn_Secondary"
+                                    onClick={() => DeleteVendor(vendor.id)}>-</Button></div></li>
                         })}
                 </ul>
+                </div>
                 {/* <ul>
             {vendors.map(
                 (vendor) => {
                     return <li key={`vendor--${vendor.id}`}>
-                        <Link to={`/vendors/${vendor.id}`}>{vendor.name}</Link><button
-                            onClick={() => (setDeletedVendorId(vendor.id))}>-</button></li>})}
+                        <Link to={`/vendors/${vendor.id}`}>{vendor.name}</Link><Button
+                            onClick={() => (setDeletedVendorId(vendor.id))}>-</Button></li>})}
             </ul> */}
 
-{/* // Return a button that send user to the add new vendor form page */}
-                <button onClick={() => {
+{/* // Return a Button that send user to the add new vendor form page */}
+                <Button className="btn_Primary" onClick={() => {
                     history.push("/vendors/create")
-                }}>Add Vendor</button>
+                }}>Add Vendor</Button>
 
             </>
         )

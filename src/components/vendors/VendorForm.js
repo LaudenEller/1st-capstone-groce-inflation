@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Button, ButtonGroup, Form, FormGroup, Input, Label } from "reactstrap";
 
 // export a function that returns Jsx for a form
 export const VendorForm = () => {
@@ -32,54 +33,54 @@ export const VendorForm = () => {
 
         return fetch("http://localhost:8088/vendors", fetchOption)
             .then(r => r.json())
-            .then(history.push("/"))
+            .then(history.push("/vendors"))
     }
 
     return (
-        <form className="vendorForm">
-            <h2 className="vendorForm__title">New Vendor</h2>
-            {/* // Return an input field for new vendor name */}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Name: </label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Full Name"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...vendor }
-                                copy.name = evt.target.value
-                                addVendors(copy)
-                            }
+
+
+        <Form inline className="form">
+            <FormGroup floating>
+                <Input
+                    id="vendorName"
+                    name="vendorName"
+                    placeholder="Vendor Name"
+                    type="text"
+                    onChange={
+                        (evt) => {
+                            const copy = { ...vendor }
+                            copy.name = evt.target.value
+                            addVendors(copy)
                         }
-                    />
-                </div>
-            </fieldset>
-            {/* // Return an input field for new vendor address */}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="address">Address: </label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="123 Test St"
-                        onChange={
-                            (evt) => {
-                                const copy = { ...vendor }
-                                copy.address = evt.target.value
-                                addVendors(copy)
-                            }
+                    }
+                />
+                <Label for="vendorName">
+                    Vendor Name
+                </Label>
+            </FormGroup>
+            {' '}
+            <FormGroup floating>
+                <Input
+                    id="vendorAddress"
+                    name="address"
+                    placeholder="Vendor Address"
+                    type="text"
+                    onChange={
+                        (evt) => {
+                            const copy = { ...vendor }
+                            copy.address = evt.target.value
+                            addVendors(copy)
                         }
-                    />
-                </div>
-            </fieldset>
-            {/* // Return a button that when clicked, sends the user input to the API */}
-            <button className="btn btn-primary" onClick={AddNewVendor}>
-                Add New Vendor
-            </button>
-        </form>
+                    }
+                />
+                <Label for="vendorAddress">
+                    Vendor Address
+                </Label>
+            </FormGroup>
+            {' '}
+            <Button onClick={() => AddNewVendor()}>
+                Add Vendor
+            </Button>
+        </Form>
     )
 }

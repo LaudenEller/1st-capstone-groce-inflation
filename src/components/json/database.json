@@ -41,6 +41,12 @@
       "userId": 3,
       "categoryId": 1,
       "id": 7
+    },
+    {
+      "description": "Blueberries",
+      "userId": 1,
+      "categoryId": 1,
+      "id": 8
     }
   ],
   "purchases": [
@@ -115,6 +121,14 @@
       "vendorId": 3,
       "userId": 3,
       "id": 9
+    },
+    {
+      "date": "2022-04-07",
+      "price": 4.23,
+      "productId": 2,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 10
     }
   ],
   "vendors": [
@@ -135,6 +149,12 @@
       "name": "Kroger",
       "userId": 3,
       "id": 3
+    },
+    {
+      "address": "4754 Commons Way, Calabasas, CA 91302",
+      "name": "Ralphs - Calabasas",
+      "userId": 1,
+      "id": 4
     }
   ],
   "vendorProducts": [
@@ -145,22 +165,40 @@
       "id": 1
     },
     {
-      "vendorId": 1,
-      "productId": 2,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "vendorId": 1,
-      "productId": 5,
-      "userId": 1,
-      "id": 3
-    },
-    {
       "vendorId": 3,
       "productId": 7,
       "userId": 3,
       "id": 5
+    },
+    {
+      "vendorId": 1,
+      "productId": 8,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "vendorId": 4,
+      "productId": 1,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "vendorId": 4,
+      "productId": 5,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "vendorId": 4,
+      "productId": 8,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "vendorId": 1,
+      "productId": 2,
+      "userId": 1,
+      "id": 10
     }
   ],
   "users": [

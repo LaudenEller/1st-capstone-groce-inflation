@@ -1,13 +1,13 @@
-// import "./Title.css"
-// import React from "react";
+import "./Title.css"
+import React from "react";
 
-// export const Title = () => {
+export const Title = () => {
 
 
 
-//     return (
-//         <div className="page-title">
-//             <h1>Groce' Inflation</h1>
-//         </div>
-//     )
-// }
+    return (
+        <div className="page_title">
+            <h1>Groce' Inflation</h1>
+        </div>
+    )
+}

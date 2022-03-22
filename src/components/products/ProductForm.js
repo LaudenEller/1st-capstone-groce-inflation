@@ -5,6 +5,7 @@ import { getAllProducts } from "../json/ApiManger";
 import { useHistory } from "react-router-dom";
 import Popup from "./Popup";
 import "./Popup.css"
+import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 
 export const AddProduct = () => {
@@ -138,13 +139,15 @@ return (
                 </div>} />}
         </div>
         {/* Return a form with a title */}
-        <form className="productForm">
+        <Form className="productForm">
             <h2 className="productForm_title">New Product</h2>
             {/* // Return a dropdown box that displays all vendors */}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="vendor">Vendor</label>
-                    <select
+            <FormGroup floating>
+                    <Col sm={10}>
+                    <Input
+                        id="vendorSelect"
+                        name="select"
+                        type="select"
                         required autofocustype="text"
                         className="form-control"
                         value={selectedVendorId}
@@ -155,18 +158,19 @@ return (
                         }
                     ><option value="0">Assign A Vendor...</option>
                         {vendors?.map(vendor => <option key={vendor.id} value={vendor.id}>{vendor.name}</option>)}
-                    </select>
-                </div>
-            </fieldset>
+                    </Input>
+                    </Col>
+            </FormGroup>
             {/* // Return a text input field for the user to describe their new product */}
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="product-description">Product </label>
-                    <input
+            <FormGroup floating>
+                    
+                    <Input
+                    id="productField"
+                    name="productField"
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Product Description eg. 'Apple'"
+                        placeholder="Product"
                         onChange={
                             (evt) => {
                                 const copy = { ...newProduct }
@@ -176,12 +180,12 @@ return (
                             }
                         }
                     />
-                </div>
-            </fieldset>
-            <button className="btn btn-primary" onClick={updateJson}>
+                    <Label htmlFor="product-description">Product </Label>
+            </FormGroup>
+            <Button className="btn btn-primary" onClick={updateJson}>
                 Add Product
-            </button>
-        </form>
+            </Button>
+        </Form>
     </>
 )
 }
