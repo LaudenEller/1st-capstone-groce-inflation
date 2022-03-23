@@ -129,6 +129,93 @@
       "vendorId": 1,
       "userId": 1,
       "id": 10
+    },
+    {
+      "date": "2022-03-08",
+      "price": 6.34,
+      "productId": 2,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "date": "2022-03-08",
+      "price": 6.34,
+      "productId": 2,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "date": "2022-03-08",
+      "price": 6.34,
+      "productId": 2,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "date": "2022-03-31",
+      "price": 6.35,
+      "productId": 8,
+      "vendorId": 4,
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "date": "2022-03-07",
+      "price": 16,
+      "productId": 5,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "date": "2022-02-28",
+      "price": 22,
+      "productId": 8,
+      "vendorId": 4,
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "date": "2022-03-09",
+      "price": 3.33,
+      "productId": 2,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "date": "2022-03-08",
+      "price": 32,
+      "productId": 5,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "date": "2022-03-08",
+      "price": 32,
+      "productId": 5,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "price": null,
+      "productId": null,
+      "vendorId": null,
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "date": "2022-03-08",
+      "price": 23,
+      "productId": 2,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 21
     }
   ],
   "vendors": [
@@ -159,28 +246,10 @@
   ],
   "vendorProducts": [
     {
-      "vendorId": 1,
-      "productId": 1,
-      "userId": 1,
-      "id": 1
-    },
-    {
       "vendorId": 3,
       "productId": 7,
       "userId": 3,
       "id": 5
-    },
-    {
-      "vendorId": 1,
-      "productId": 8,
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "vendorId": 4,
-      "productId": 1,
-      "userId": 1,
-      "id": 7
     },
     {
       "vendorId": 4,
@@ -199,6 +268,42 @@
       "productId": 2,
       "userId": 1,
       "id": 10
+    },
+    {
+      "vendorId": 1,
+      "productId": 5,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "vendorId": 4,
+      "productId": 1,
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "vendorId": 3,
+      "productId": 1,
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "vendorId": 3,
+      "productId": 2,
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "vendorId": 3,
+      "productId": 8,
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "vendorId": 3,
+      "productId": 5,
+      "userId": 1,
+      "id": 17
     }
   ],
   "users": [

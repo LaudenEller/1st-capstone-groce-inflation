@@ -72,7 +72,8 @@ export const GraphIt = () => {
     })
 
     return (
-        <div>
+        <section className="main-container">
+        <div className="chart-container">
             <h2>Inflated Products</h2>
             <ul>
                 {/* // Returns a string for every purchase on the array */}
@@ -81,5 +82,6 @@ export const GraphIt = () => {
                 })}
             </ul>
             </div>
+            </section>
     )
 }

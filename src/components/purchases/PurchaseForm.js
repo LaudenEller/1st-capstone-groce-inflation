@@ -56,10 +56,6 @@ export const PurchaseForm = () => {
             userId: parseInt(localStorage.getItem("groce_user"))
         }
 
-
-        // Use .prventDefault() to stop default event behaviour from the DOM
-        event.preventDefault()
-
         // Post new object to Json
         const fetchOption = {
             method: "POST",
@@ -69,13 +65,16 @@ export const PurchaseForm = () => {
             body: JSON.stringify(newPurchase)
         }
         return fetch("http://localhost:8088/purchases", fetchOption)
-            .then(history.push("/purchases"))
+    .then(setPurchase({}))
     }
 
     return (
         // Return a dropdown box that displays all the current user's vendors
-        <Form inline className="purchaseForm">
-            <h2 className="purchaseForm_title">New Purchase</h2>
+       <section className="main-container">
+       <div className="form-container">
+       <h2>Enter your receipt</h2>
+       <Form inline className="purchaseForm">
+            {/* <h2 className="purchaseForm_title">New Purchase</h2> */}
             {/* <FormGroup floating>
                 <div className="form-group"> */}
             <FormGroup floating>
@@ -159,31 +158,11 @@ export const PurchaseForm = () => {
                     </select> */}
                 </Col>
             </FormGroup>
-            {/* // Return an Input field for purchase price */}
-            <FormGroup floating>
-                <Input
-                    required autoFocus
-                    id="purchasePrice"
-                    name="purchasePrice"
-                    placeholder="Enter Price eg. 9.99"
-                    type="int"
-                    className="form-control"
-                    // placeholder="Price eg. 9.99"
-                    onChange={
-                        (evt) => {
-                            const copy = { ...purchase }
-                            copy.price = evt.target.value
-                            setPurchase(copy)
-                        }
-                    }
-                />
-                <Label htmlFor="purchasePrice">Enter Price eg. 9.99 </Label>
-            </FormGroup>
             {/* // Return a calendar to select purchase date */}
-            <FormGroup>
+            <FormGroup floating>
     <Input
     required autoFocus
-    className="calendar"
+    className="form-control"
       id="exampleDate"
       name="date"
       placeholder="date placeholder"
@@ -195,12 +174,33 @@ export const PurchaseForm = () => {
             setPurchase(copy)
         }
     }
-    />
-  </FormGroup>
+    /></FormGroup>
+            {/* // Return an Input field for purchase price */}
+            <FormGroup floating>
+                <Input
+                    required autoFocus
+                    id="purchasePrice"
+                    name="purchasePrice"
+                    placeholder="Price"
+                    type="int"
+                    className="form-control"
+                    // placeholder="Price eg. 9.99"
+                    onChange={
+                        (evt) => {
+                            const copy = { ...purchase }
+                            copy.price = evt.target.value
+                            setPurchase(copy)
+                        }
+                    }
+                />
+                <Label className="price-label" htmlFor="purchasePrice">Price </Label>
+            </FormGroup>
             {/* Return a submit form button */}
             <Button className="btn btn-primary" onClick={recordPurchase}>
                 Record Purchase
             </Button>
         </Form>
+        </div>
+        </section>
     )
 }

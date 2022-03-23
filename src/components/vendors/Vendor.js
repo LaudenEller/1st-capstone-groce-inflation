@@ -123,24 +123,24 @@ const history = useHistory()
     
     return (
         <>
+       <section className="main-container">
         {/* // Returns a title, subtitle, a list of products that can be purchased from this vendor and a - remove icon for each */}
-            <section>
-                <h3 className="vendor__name">{vendor.name}</h3>
-                <p>Products</p>
+            <section className="vendor-container">
+                <h3 className="vendor-name">{vendor.name}</h3>
+                <p>Inventory</p>
                 <ul>
                     {vendorProducts?.map((vendorProduct) => {
-                        return <li key={`vendorProduct--${vendorProduct.id}`}>{vendorProduct.product?.description}<Button
-                            onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</Button></li>
+                        return <li key={`vendorProduct--${vendorProduct.id}`}><Button
+                        onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</Button>{vendorProduct.product?.description}</li>
                     })}
                 </ul>
                 {/* // Return a select box that displays all the products available to the current user */}
-                <div>
+                <div className="vendor-products">
                     <Input
                         required autofocustype="text"
-                        id="vendorSelect"
+                        id="vendorProduct-select"
                         name="select"
                         type="select"
-                        placeholder="All Products"
                         className="form-control"
                         value={value}
                         onChange={(evt) => {
@@ -149,12 +149,13 @@ const history = useHistory()
                             setValue(0)
                         }
                         }
-                    ><option value="0">Assign another product to vendor</option>
+                    ><option value="0">Add a product to inventory</option>
                         {products?.map(product => <option key={product.id} value={product.id}>{product.description}</option>)}
                     </Input>
                 </div>
                 {/* // Return a button that sends the user to the New Product page */}
-                <Button className="btn-createProduct" onClick={() => history.push("../product")}>Add New Product</Button>
+                <Button className="btn-createProduct" onClick={() => history.push("../product")}>Create New Product</Button>
+            </section>
             </section>
         </>
     )

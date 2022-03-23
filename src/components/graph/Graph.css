@@ -1,0 +1,11 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.chart-container {
+    width: 800px;
+    margin: 20px;
+}

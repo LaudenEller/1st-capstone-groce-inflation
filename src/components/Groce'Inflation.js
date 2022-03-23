@@ -15,7 +15,7 @@ export const Groce = () => (
           if (localStorage.getItem("groce_user")) {
             return (
               <>
-                <Title />
+                {/* <Title /> */}
                 <NavBar />
                 <ApplicationViews />
               </>
@@ -27,7 +27,7 @@ export const Groce = () => (
       />
   
       <Route path="/login">
-      <Title />
+      {/* <Title /> */}
         <Login />
       </Route>
       <Route path="/register">
