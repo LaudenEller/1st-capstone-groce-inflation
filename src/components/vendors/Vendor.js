@@ -6,6 +6,9 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import { Button, Input } from "reactstrap"
+import Popup from "../Popup";
+import "../Popup.css"
+import { AddProduct } from "../products/ProductForm";
 
 export const Vendor = () => {
     // Initial state of the vendor this page displays info about
@@ -27,6 +30,9 @@ export const Vendor = () => {
     // Initial state for value of the Select Box 
         // that is reset once the Add New Product button is clicked 
     const [value, setValue] = useState(0)
+
+    // Initialize state that is set by the togglePopup function which controls the opening/closing of the popup message
+    const [isOpen, setIsOpen] = useState(false)
 
 // GETs products from Json with userIds that match current user id
     useEffect(
@@ -79,6 +85,11 @@ export const Vendor = () => {
 
 const history = useHistory()
 
+ // Declare a function that opens the popup by changing the isOpen state variable
+ const togglePopup = () => {
+    setIsOpen(!isOpen)
+}
+
 // resets the list of available products once one is removed or added
     const Update = () => {
         fetch(`http://localhost:8088/vendorProducts?userId=${parseInt(localStorage.getItem("groce_user"))}&_expand=product`)
@@ -123,12 +134,18 @@ const history = useHistory()
     
     return (
         <>
+         {/* // Return a div containing the Popup function and a display message as the content for that function */}
+         <div>
+            {isOpen && <Popup
+                handleClose={togglePopup}
+                content={<AddProduct /> } />}
+        </div>
        <section className="main-container">
         {/* // Returns a title, subtitle, a list of products that can be purchased from this vendor and a - remove icon for each */}
             <section className="vendor-container">
                 <h3 className="vendor-name">{vendor.name}</h3>
                 <p>Inventory</p>
-                <ul>
+                <ul className="vendorProduct-list">
                     {vendorProducts?.map((vendorProduct) => {
                         return <li key={`vendorProduct--${vendorProduct.id}`}><Button
                         onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</Button>{vendorProduct.product?.description}</li>
@@ -154,7 +171,7 @@ const history = useHistory()
                     </Input>
                 </div>
                 {/* // Return a button that sends the user to the New Product page */}
-                <Button className="btn-createProduct" onClick={() => history.push("../product")}>Create New Product</Button>
+                <Button className="btn-createProduct" onClick={() => togglePopup()}>Create New Product</Button>
             </section>
             </section>
         </>

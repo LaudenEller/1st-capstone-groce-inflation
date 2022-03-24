@@ -17,8 +17,10 @@ import {
 import "./NavBar.css"
 import { getAllVendors } from "../json/ApiManger";
 import { useHistory } from "react-router-dom";
-
-
+import NavBrand from "../../NavBrand.png"
+import Popup from "../Popup";
+import "../Popup.css"
+import { VendorForm } from "../vendors/VendorForm";
 
 // export const NavBar = () => {
 //     return (
@@ -86,14 +88,21 @@ export const NavBar = () => {
 
     const [vendors, setVendors] = useState([])
     const [isOpen, setIsOpen] = useState(false)
+    const [popIsOpen, setPopIsOpen] = useState(false)
+
+    const brand = NavBrand
 
     const history = useHistory()
     let vendorArray = []
 
-    useEffect(() => {
-        getAllVendors()
-            .then(setVendors)
-    },
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/vendors?userId=${localStorage.getItem("groce_user")}`)
+                .then(r => r.json())
+                .then((data) => {
+                    setVendors(data)
+                })
+        },
         []
     )
 
@@ -101,7 +110,7 @@ export const NavBar = () => {
         if (vendors.length > 1) {
             for (const vendor of vendors) {
                 vendorArray.push(
-                    <li><NavLink to={`/vendors/${vendor.id}`}>{vendor.name}</NavLink>
+                    <li>
                     </li>
                 )
             }
@@ -110,54 +119,48 @@ export const NavBar = () => {
         [vendors]
     )
 
+    // Declare a function that opens the popup by changing the isOpen state variable
+    const togglePopup = () => {
+        setPopIsOpen(!popIsOpen)
+    }
 
     return (
-            <Navbar light expand="md">
-                <select
-                    required autoFocus
-                    type="text"
-                    id="navlink-vendor"
-                    className="form-control"
-                    onChange={(evt) => {
-                        history.push(`/vendors/${evt.target.value}`)
-                    }}
-                    >
-                        <option value="0">Vendors</option>
-                        {vendors.map(vendor => <option key={vendor.id} value={vendor.id}>{vendor.name}</option>)}
-                        </select>
-                    
-                    {/* <Dropdown isOpen={isOpen} toggle={() => setIsOpen(!isOpen)}>
-                        <DropdownToggle caret id="vendor-dropdown">
-                            Vendors
-                        </DropdownToggle>
-                        <DropdownMenu>
-                            <DropdownItem>1</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-                                            
-                        
-                        
-                        <div className="dropdown">
-                            <Button className="dropbtn">Vendors</Button>
-                            <ul className="dropdown-content">
-                                <NavLink className="navlink-vendor-links" href="vendors">Vendors</NavLink>
-                            </ul>
-                        </div> */}
+        <>
+            {/* // Return a div containing the Popup function and a display message as the content for that function */}
+            <div>
+                {popIsOpen && <Popup
+                    handleClose={togglePopup}
+                    content={<VendorForm />} />}
+            </div>
+            <Navbar light expand="lg">
+                {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
+                    <Collapse isOpen={isOpen} navbar>
+                       <Nav vertical navbar>
+                        {vendors.map(vendor => (
+                            <NavItem onClick={() => history.push(`/vendors/${vendor.id}`)}>{vendor.name}</NavItem>))}
+                    </Nav>
+                    </Collapse> */}
+                <Dropdown isOpen={isOpen} toggle={() => setIsOpen(!isOpen)}>
+                    <DropdownToggle caret id="vendor-dropdown">
+                        Vendors
+                    </DropdownToggle>
+                    <DropdownMenu >
+                        {vendors.map(vendor => (
+                            <DropdownItem onClick={() => history.push(`/vendors/${vendor.id}`)}>{vendor.name}</DropdownItem>))}
+                        <DropdownItem onClick={() => togglePopup()}>Add Vendor</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
                 <NavbarBrand href="/">
-                    {/* <img
+                    <img
                         alt=""
-                        src="public/logoG1"
-                        className="title-image" /> */}
-                    <h1>Groce' Inflation</h1>
-                    {/* <img
-                        alt=""
-                        src="public/logoG2"
-                        className="title-image" /> */}
+                        src={brand}
+                        className="title-image" />
                 </NavbarBrand>
-                    <NavLink className="navlink" id="purchase-link" href="/purchases/create">Purchases</NavLink>
-                    <NavLink className="navlink" id="logout-link" href="#" onClick={() => {
-                        localStorage.removeItem("groce_user")
-                    }}>Logout</NavLink>
+                <NavLink className="navlink" id="purchase-link" href="/purchases/create">Purchases</NavLink>
+                <NavLink className="navlink" id="logout-link" href="#" onClick={() => {
+                    localStorage.removeItem("groce_user")
+                }}>Logout</NavLink>
             </Navbar>
+        </>
     )
 }

@@ -3,7 +3,7 @@
 
 // This module will display the new purchase form
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { getAllVendorProducts } from "../json/ApiManger";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
@@ -21,6 +21,8 @@ export const PurchaseForm = () => {
     const [purchase, setPurchase] = useState({})
 
     const history = useHistory()
+
+    const exampleRef = useRef()
 
     // GETs the vendors with userIds that match the current user's id
     useEffect(
@@ -65,14 +67,16 @@ export const PurchaseForm = () => {
             body: JSON.stringify(newPurchase)
         }
         return fetch("http://localhost:8088/purchases", fetchOption)
-    .then(setPurchase({}))
+    .then(history.push("/"))
     }
 
     return (
         // Return a dropdown box that displays all the current user's vendors
        <section className="main-container">
        <div className="form-container">
+           <div className="purchaseForm-title">
        <h2>Enter your receipt</h2>
+       </div>
        <Form inline className="purchaseForm">
             {/* <h2 className="purchaseForm_title">New Purchase</h2> */}
             {/* <FormGroup floating>
@@ -178,6 +182,7 @@ export const PurchaseForm = () => {
             {/* // Return an Input field for purchase price */}
             <FormGroup floating>
                 <Input
+                ref={exampleRef}
                     required autoFocus
                     id="purchasePrice"
                     name="purchasePrice"

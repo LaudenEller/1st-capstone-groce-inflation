@@ -74,8 +74,10 @@ export const GraphIt = () => {
     return (
         <section className="main-container">
         <div className="chart-container">
+            <div className="inflation-title">
             <h2>Inflated Products</h2>
-            <ul>
+            </div>
+            <ul className="inflation-content">
                 {/* // Returns a string for every purchase on the array */}
                 {productPurchaseArray.map(productPurchase => {
                     return <li>Between {productPurchase.firstPurchaseDate} and {productPurchase.lastPurchaseDate} the price of {productPurchase.productName}s inflated by {productPurchase.inflation}%</li>

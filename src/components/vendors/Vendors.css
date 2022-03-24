@@ -2,12 +2,31 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  height: 645px;
+  background-color: #fff;
 
 }
 
 .vendor-container {
+  display: flex;
+  flex-direction: column;
   width: 800px;
-  margin: 20px;
+  border: solid #C0D6DF;
+  box-shadow: 5px 5px #4F6D7A;
+  border-width: 3px;
+  min-height: 500px;
+  max-height: 500px;
+  /* margin-top: 80px; */
+  justify-content: center;
+  /* text-align: center; */
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.vendorProduct-list {
+  list-style: none;
+  align-self: flex-start;
+  margin-left: 280px;
 
 }
 

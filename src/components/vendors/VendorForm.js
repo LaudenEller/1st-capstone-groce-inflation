@@ -33,7 +33,7 @@ export const VendorForm = () => {
 
         return fetch("http://localhost:8088/vendors", fetchOption)
             .then(r => r.json())
-            .then(history.push("/vendors"))
+            .then(history.push("/"))
     }
 
     return (

@@ -1,34 +1,71 @@
-ul {
-    list-style-type: none
-}
-
 .main-container {
     display: flex;
-    justify-content: center;
-    align-content: center;
-
+    align-items: center;
+    height: 645px;
+background-color: #fff;
 }
+
 .form-container {
-width: 800px;
-margin: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    border: solid #C0D6DF;
+    box-shadow: 5px 5px #4F6D7A;
+    border-width: 3px;
+    min-height: 500px;
+    max-height: 500px;
+    /* margin-top: 80px; */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.btn .btn-primary {
+    background-color: #C0D6DF;
 }
 
 .purchaseForm {
-
+    width: 600px;
 }
 
-.form-control {
-
+#vendorSelect {
+    width: 600px;
 }
 
-#purchasePrice {
-    max-width: 670px;
+#productSelect {
+    width: 600px;
 }
 
 #exampleDate {
-    max-width: 670px;
+    height: 10px;
+}
+
+#purchasePrice {
+    height: 10px;
+}
+
+.form-control {}
+
+#purchasePrice {
+    /* max-width: 670px; */
+    /* width: 100%; */
+}
+
+#exampleDate {
+    /* max-width: 670px; */
+    /* width: 100%; */
 }
 
 .price-label {
-    background-color: lightgray;
+    background-color: #6c757d;
+    color: #fff;
+    text-align: justify;
+}
+
+.purchaseForm-title {
+    height: fit-content;
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: center;
 }

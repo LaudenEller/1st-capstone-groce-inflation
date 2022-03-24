@@ -1,11 +1,35 @@
 .main-container {
     display: flex;
     justify-content: center;
-    align-content: center;
-
+    align-items: center;
+    background-color: #DBE9EE;
+    height: 645px;
 }
 
 .chart-container {
+    display: flex;
+    flex-direction: column;
     width: 800px;
-    margin: 20px;
+    box-shadow: 5px 5px #4F6D7A;
+    border: solid #C0D6DF;
+    border-width: 3px;
+    min-height: 500px;
+    max-height: 500px;
+    /* margin-top: 80px; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    align-items: center;
+    background-color: aliceblue;
+
+}
+
+.inflation-title {
+margin-top: 100px;
+}
+
+.inflation-content {
+justify-content: center;
+align-content: center;
+margin-top: 50px;
+list-style: none;
 }

@@ -47,6 +47,24 @@
       "userId": 1,
       "categoryId": 1,
       "id": 8
+    },
+    {
+      "description": "Cat Food",
+      "userId": 1,
+      "categoryId": 1,
+      "id": 9
+    },
+    {
+      "description": "Gatorade",
+      "userId": 1,
+      "categoryId": 1,
+      "id": 10
+    },
+    {
+      "description": "Green Apple",
+      "userId": 1,
+      "categoryId": 1,
+      "id": 11
     }
   ],
   "purchases": [
@@ -203,19 +221,60 @@
       "id": 19
     },
     {
-      "price": null,
-      "productId": null,
-      "vendorId": null,
-      "userId": 1,
-      "id": 20
-    },
-    {
       "date": "2022-03-08",
       "price": 23,
       "productId": 2,
       "vendorId": 1,
       "userId": 1,
       "id": 21
+    },
+    {
+      "date": "2022-03-15",
+      "price": 67,
+      "productId": 2,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 22
+    },
+    {
+      "date": "2022-03-08",
+      "price": 12,
+      "productId": 5,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 23
+    },
+    {
+      "date": "2022-03-08",
+      "price": 12,
+      "productId": 5,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 24
+    },
+    {
+      "date": "2022-03-10",
+      "price": 13,
+      "productId": 5,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 25
+    },
+    {
+      "date": "2022-03-07",
+      "price": 22,
+      "productId": 9,
+      "vendorId": 7,
+      "userId": 1,
+      "id": 26
+    },
+    {
+      "date": "2022-04-08",
+      "price": 33,
+      "productId": 9,
+      "vendorId": 7,
+      "userId": 1,
+      "id": 27
     }
   ],
   "vendors": [
@@ -242,6 +301,24 @@
       "name": "Ralphs - Calabasas",
       "userId": 1,
       "id": 4
+    },
+    {
+      "address": "2800 Wilshire Blvd, Santa Monica, CA 90403",
+      "name": "Erewhon - Wilshire",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "address": "26767 Agoura Rd, Calabasas, CA 91302",
+      "name": "Erewhon - Calabasas",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "address": "1000 Wilshire Blvd, Santa Monica, CA 90401",
+      "name": "Santa Monica Seafood Co.",
+      "userId": 1,
+      "id": 7
     }
   ],
   "vendorProducts": [
@@ -276,12 +353,6 @@
       "id": 11
     },
     {
-      "vendorId": 4,
-      "productId": 1,
-      "userId": 1,
-      "id": 12
-    },
-    {
       "vendorId": 3,
       "productId": 1,
       "userId": 1,
@@ -295,15 +366,69 @@
     },
     {
       "vendorId": 3,
-      "productId": 8,
-      "userId": 1,
-      "id": 16
-    },
-    {
-      "vendorId": 3,
       "productId": 5,
       "userId": 1,
       "id": 17
+    },
+    {
+      "vendorId": 1,
+      "productId": 8,
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "vendorId": 4,
+      "productId": 1,
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "vendorId": 1,
+      "productId": 9,
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "vendorId": 3,
+      "productId": 9,
+      "userId": 1,
+      "id": 23
+    },
+    {
+      "vendorId": 3,
+      "productId": 10,
+      "userId": 1,
+      "id": 24
+    },
+    {
+      "vendorId": 3,
+      "productId": 11,
+      "userId": 1,
+      "id": 25
+    },
+    {
+      "vendorId": 4,
+      "productId": 11,
+      "userId": 1,
+      "id": 26
+    },
+    {
+      "vendorId": 7,
+      "productId": 2,
+      "userId": 1,
+      "id": 27
+    },
+    {
+      "vendorId": 7,
+      "productId": 9,
+      "userId": 1,
+      "id": 28
+    },
+    {
+      "vendorId": 7,
+      "productId": 10,
+      "userId": 1,
+      "id": 29
     }
   ],
   "users": [

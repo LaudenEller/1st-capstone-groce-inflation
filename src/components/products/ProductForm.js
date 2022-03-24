@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { getAllVendors } from "../json/ApiManger";
 import { getAllProducts } from "../json/ApiManger";
 import { useHistory } from "react-router-dom";
-import Popup from "./Popup";
-import "./Popup.css"
+import Popup from "../Popup";
+import "../Popup.css"
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 
@@ -28,14 +28,14 @@ export const AddProduct = () => {
 
     const history = useHistory()
 
-    useEffect(() => {
-        getAllVendors()
-            .then((data) => {
-                setVendors(data.filter(vendor => vendor.userId === parseInt(localStorage.getItem("groce_user")
-                )))})
-    },
-        []
-    )
+    // useEffect(() => {
+    //     getAllVendors()
+    //         .then((data) => {
+    //             setVendors(data.filter(vendor => vendor.userId === parseInt(localStorage.getItem("groce_user")
+    //             )))})
+    // },
+    //     []
+    // )
 
     // GET all the products from Json and filter them when saved to state by userIds that match the user id in local storage
     useEffect(
@@ -50,14 +50,14 @@ export const AddProduct = () => {
         []
     )
 
-    // Once the productResponse is updated with the POST product id from the response, 
-        // AddVendorProduct POSTs a vendorProduct with a matching productId
-    useEffect(() => {
+    // // Once the productResponse is updated with the POST product id from the response, 
+    //     // AddVendorProduct POSTs a vendorProduct with a matching productId
+    // useEffect(() => {
 
-        if (productResponse.id) { AddVendorProduct() }
-    },
-        [productResponse]
-    )
+    //     if (productResponse.id) { AddVendorProduct() }
+    // },
+    //     [productResponse]
+    // )
 
     // Declare a function that invokes the AddProduct function and accepts the event from the onClick 
     const updateJson = (event) => {
@@ -65,7 +65,7 @@ export const AddProduct = () => {
         event.preventDefault()
 
         AddProduct()
-            .then((data) => setProductResponse(data))
+            // .then((data) => setProductResponse(data))
     }
 
     // Declare a function that opens the popup by changing the isOpen state variable
@@ -105,25 +105,25 @@ export const AddProduct = () => {
 }
 
 // Declare a function that sends the vendorProducts to Json and is invoked when the productResponse state is changed
-const AddVendorProduct = () => {
+// const AddVendorProduct = () => {
 
-    const vendorProduct = {
-        vendorId: parseInt(selectedVendorId),
-        productId: productResponse?.id,
-        userId: parseInt(localStorage.getItem("groce_user"))
-    }
+//     const vendorProduct = {
+//         vendorId: parseInt(selectedVendorId),
+//         productId: productResponse?.id,
+//         userId: parseInt(localStorage.getItem("groce_user"))
+//     }
 
-    const fetchOption = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(vendorProduct)
-    }
+//     const fetchOption = {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(vendorProduct)
+//     }
 
-    return fetch("http://localhost:8088/vendorProducts", fetchOption)
-        .then(history.push("/vendors"))
-}
+//     return fetch("http://localhost:8088/vendorProducts", fetchOption)
+//         .then(() => togglePopup())
+// }
 
 // Return jsx for a form with input for product descriptions, 
 // a dropdown box that allows the user to assign a product to a vendor and an add product button
@@ -142,7 +142,7 @@ return (
         <Form className="productForm">
             <h2 className="productForm_title">New Product</h2>
             {/* // Return a dropdown box that displays all vendors */}
-            <FormGroup floating>
+            {/* <FormGroup floating>
                     <Col sm={10}>
                     <Input
                         id="vendorSelect"
@@ -160,7 +160,7 @@ return (
                         {vendors?.map(vendor => <option key={vendor.id} value={vendor.id}>{vendor.name}</option>)}
                     </Input>
                     </Col>
-            </FormGroup>
+            </FormGroup> */}
             {/* // Return a text input field for the user to describe their new product */}
             <FormGroup floating>
                     
@@ -182,7 +182,7 @@ return (
                     />
                     <Label htmlFor="product-description">Product </Label>
             </FormGroup>
-            <Button className="btn btn-primary" onClick={updateJson}>
+            <Button className="btn btn-primary" onClick={AddProduct}>
                 Add Product
             </Button>
         </Form>
