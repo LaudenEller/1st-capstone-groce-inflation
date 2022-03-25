@@ -132,7 +132,7 @@ export const NavBar = () => {
                     handleClose={togglePopup}
                     content={<VendorForm />} />}
             </div>
-            <Navbar light expand="lg">
+            <Navbar light expand="lg" className="navbarParent">
                 {/* <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
                     <Collapse isOpen={isOpen} navbar>
                        <Nav vertical navbar>
@@ -146,18 +146,18 @@ export const NavBar = () => {
                     </DropdownToggle>
                     <DropdownMenu >
                         {vendors.map(vendor => (
-                            <DropdownItem onClick={() => history.push(`/vendors/${vendor.id}`)}>{vendor.name}</DropdownItem>))}
-                        <DropdownItem onClick={() => togglePopup()}>Add Vendor</DropdownItem>
+                            <DropdownItem className="vendor-dropdownItem" onClick={() => history.push(`/vendors/${vendor.id}`)}>{vendor.name}</DropdownItem>))}
+                        <DropdownItem className="addVendor-dropdownItem" onClick={() => togglePopup()}>Add Vendor</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
-                <NavbarBrand href="/">
+                <NavbarBrand className="brand-container" href="/">
                     <img
                         alt=""
                         src={brand}
                         className="title-image" />
                 </NavbarBrand>
-                <NavLink className="navlink" id="purchase-link" href="/purchases/create">Purchases</NavLink>
-                <NavLink className="navlink" id="logout-link" href="#" onClick={() => {
+                <NavLink id="purchase-link" href="/purchases/create">Purchases</NavLink>
+                <NavLink id="logout-link" href="#" onClick={() => {
                     localStorage.removeItem("groce_user")
                 }}>Logout</NavLink>
             </Navbar>

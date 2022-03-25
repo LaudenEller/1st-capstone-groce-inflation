@@ -3,6 +3,8 @@
     align-items: center;
     height: 645px;
 background-color: #fff;
+  justify-content: center;
+  align-content: center;
 }
 
 .form-container {

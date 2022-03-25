@@ -65,6 +65,12 @@
       "userId": 1,
       "categoryId": 1,
       "id": 11
+    },
+    {
+      "description": "Pear Sauce rolled in Taco Loco Flour Tortillas then Fried",
+      "userId": 1,
+      "categoryId": 1,
+      "id": 12
     }
   ],
   "purchases": [
@@ -275,6 +281,22 @@
       "vendorId": 7,
       "userId": 1,
       "id": 27
+    },
+    {
+      "date": "2022-03-08",
+      "price": 2.34,
+      "productId": 12,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 28
+    },
+    {
+      "date": "2022-04-07",
+      "price": 3.89,
+      "productId": 12,
+      "vendorId": 1,
+      "userId": 1,
+      "id": 29
     }
   ],
   "vendors": [
@@ -383,12 +405,6 @@
       "id": 19
     },
     {
-      "vendorId": 1,
-      "productId": 9,
-      "userId": 1,
-      "id": 20
-    },
-    {
       "vendorId": 3,
       "productId": 9,
       "userId": 1,
@@ -420,15 +436,15 @@
     },
     {
       "vendorId": 7,
-      "productId": 9,
-      "userId": 1,
-      "id": 28
-    },
-    {
-      "vendorId": 7,
       "productId": 10,
       "userId": 1,
       "id": 29
+    },
+    {
+      "vendorId": 1,
+      "productId": 12,
+      "userId": 1,
+      "id": 30
     }
   ],
   "users": [
