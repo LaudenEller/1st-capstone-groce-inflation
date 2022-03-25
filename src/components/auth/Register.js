@@ -52,9 +52,12 @@ export const Register = (props) => {
                 <div>Account with that email address already exists</div>
                 <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
-
-            <form className="form--login" onSubmit={handleRegister}>
+<section className="title">
                 <h1 className="h3 mb-3 font-weight-normal">Please Register for Groce' Inflation</h1>
+                </section>
+                <section className="main-container">
+            <section className="login-container">
+            <form className="form--login" onSubmit={handleRegister}>
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
@@ -63,6 +66,8 @@ export const Register = (props) => {
                     <button type="submit"> Register </button>
                 </fieldset>
             </form>
+            </section>"
+            </section>
         </main>
     )
 }

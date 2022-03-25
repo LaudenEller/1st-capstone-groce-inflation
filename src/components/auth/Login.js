@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
+import NavBrand from "../../NavBrand.png"
 
 export const Login = () => {
     const [email, set] = useState("")
@@ -27,16 +28,23 @@ export const Login = () => {
             })
     }
 
+    const brand = NavBrand
+
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
-
-            <section>
+<section className="title">
+<img
+                        alt=""
+                        src={brand}
+                        className="title-image" />
+                    </section>
+                    <section className="main-container">
+            <section className="login-container">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Groce' Inflation</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
@@ -55,6 +63,7 @@ export const Login = () => {
             </section>
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
+            </section>
             </section>
         </main>
     )
