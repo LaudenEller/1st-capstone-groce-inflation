@@ -317,62 +317,6 @@
       "vendorId": 7,
       "userId": 1,
       "id": 27
-    },
-    {
-      "date": "2022-03-07",
-      "price": 12,
-      "productId": 12,
-      "vendorId": 8,
-      "userId": 5,
-      "id": 28
-    },
-    {
-      "date": "2022-04-08",
-      "price": 13,
-      "productId": 12,
-      "vendorId": 8,
-      "userId": 5,
-      "id": 29
-    },
-    {
-      "date": "2022-03-07",
-      "price": 2.35,
-      "productId": 13,
-      "vendorId": 9,
-      "userId": 5,
-      "id": 30
-    },
-    {
-      "date": "2022-04-06",
-      "price": 2.75,
-      "productId": 13,
-      "vendorId": 9,
-      "userId": 5,
-      "id": 31
-    },
-    {
-      "date": "2022-06-01",
-      "price": 12,
-      "productId": 13,
-      "vendorId": 9,
-      "userId": 5,
-      "id": 32
-    },
-    {
-      "date": "2022-03-08",
-      "price": 2.35,
-      "productId": 16,
-      "vendorId": 10,
-      "userId": 5,
-      "id": 33
-    },
-    {
-      "date": "2022-04-07",
-      "price": 3,
-      "productId": 16,
-      "vendorId": 10,
-      "userId": 5,
-      "id": 34
     }
   ],
   "vendors": [
@@ -419,20 +363,14 @@
       "id": 7
     },
     {
-      "address": "2000 Santa Monica Blvd",
-      "name": "Ralphs - Santa Monica",
-      "userId": 5,
-      "id": 8
-    },
-    {
-      "address": "2300 Gallatin Way",
-      "name": "Kroger  - Gallatin",
+      "address": "3000 Santa Monica Blvd",
+      "name": "Sprouts - Santa Monica",
       "userId": 5,
       "id": 9
     },
     {
-      "address": "3453 Hipster Way",
-      "name": "New Seasons",
+      "address": "4754 Commons Way, Calabasas, CA 91302",
+      "name": "Ralphs - Calabasas",
       "userId": 5,
       "id": 10
     }
@@ -545,48 +483,6 @@
       "productId": 10,
       "userId": 1,
       "id": 29
-    },
-    {
-      "vendorId": 8,
-      "productId": 12,
-      "userId": 5,
-      "id": 30
-    },
-    {
-      "vendorId": 9,
-      "productId": 15,
-      "userId": 5,
-      "id": 31
-    },
-    {
-      "vendorId": 9,
-      "productId": 13,
-      "userId": 5,
-      "id": 32
-    },
-    {
-      "vendorId": 9,
-      "productId": 14,
-      "userId": 5,
-      "id": 33
-    },
-    {
-      "vendorId": 10,
-      "productId": 17,
-      "userId": 5,
-      "id": 34
-    },
-    {
-      "vendorId": 10,
-      "productId": 18,
-      "userId": 5,
-      "id": 35
-    },
-    {
-      "vendorId": 10,
-      "productId": 16,
-      "userId": 5,
-      "id": 36
     }
   ],
   "users": [

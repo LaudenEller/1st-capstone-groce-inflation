@@ -17,30 +17,27 @@
 }
 
 .sidedrawer-title {
-margin-top: 1rem;
-margin-left: 2rem;
+margin-top: 2rem;
+margin-left: 3rem;
 }
 
 .sidedrawer ul {
     list-style: none;
     display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start;
 height: 100%;
 }
 
 .sidedrawer li {
     margin: 0.5rem 0;
-     
-}
-
-.sidedrawer a {
-    color: #521751;
+    color: black;
     text-decoration: none;
 font-size: 1.2rem;
 }
 
-.sidedrawer a:hover,
-.sidedrawer a:active {
+.sidedrawer li:hover,
+.sidedrawer li:active {
 color: #fa923f;
+cursor: pointer;
 }

@@ -3,19 +3,24 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: aliceblue;
+    background-color: #fff;
     height: 56px;
+    /* box-shadow: 5px 5px #4F6D7A; */
+    border-bottom: solid #C0D6DF;
+    border-width: 3px;
 }
 
 .navbar-navigation {
     display: flex;
     height: 100%;
     align-items: center;
+    /* justify-content: right; */
     padding: 0 1rem;
+    width: 100%;
 }
 
 .navbar-logo {
-    margin-left: 1rem;;
+    margin-left: 1rem;
 }
 
 .navbar-logo a {
@@ -33,6 +38,8 @@ font-size: 1.5rem;
     margin: 0;
     padding: 0;
     display: flex;
+    color: black;
+    
 }
 
 .navbar-navigation-items li {
@@ -41,6 +48,7 @@ font-size: 1.5rem;
 .navbar-navigation-items a {
     columns: white;
     text-decoration: none;
+    color: black;
 }
 
 .navbar-navigation-items a:hover,
