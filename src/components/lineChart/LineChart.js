@@ -1,9 +1,4 @@
-// THIS MODULE WILL EXPORT A LINEGRAPH OF THE PURCHASE DATA
 
-// Set x to purchase.date for every purchase on the purchaseArray
-// Set y to purchase.price for every purchase on the purchaseArray
-// Set a label of purchase.product.description to each line in the chart 
-// Graph x and y on the chart for every purchase on the purchase Array
 
 // import React from "react";
 // import {Line} from "react-chartjs-2";

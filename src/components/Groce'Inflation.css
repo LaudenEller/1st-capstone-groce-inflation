@@ -1,0 +1,11 @@
+.route-container {
+height: 100%;
+}
+
+.content-area {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 615px;
+}

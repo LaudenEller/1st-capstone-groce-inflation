@@ -8,14 +8,15 @@ button,
 input,
 select,
 textarea {
-  color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
+  color: black;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
+  color: black;
+  font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
 }
 
@@ -37,12 +38,8 @@ background-color: #C0D6DF;
 }
 
 body {
-  margin: 0;
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #DBE9EE;
 }
 
 html {
@@ -52,4 +49,8 @@ html {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  height: 100%;
 }

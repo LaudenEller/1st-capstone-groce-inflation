@@ -43,7 +43,7 @@ export const GraphIt = () => {
         }
 
         // Notice the ?s anytime the app is looking at purchase things, sometimes a product has one or fewer purchases
-            // WHAT IS THIS?.METHOD CALLED AGAIN??? CONDITIONAL SOMETHING....?
+            // WHAT IS THIS?.METHOD CALLED AGAIN?: OPTIONAL CHAINING.
         const filteredPurchases = purchases?.filter(purchase => {
             return purchase.productId === product.id
         })
@@ -73,7 +73,7 @@ export const GraphIt = () => {
 
     return (
         <section className="main-container">
-        <div className="chart-container">
+        <div className="chart1-container">
             <div className="inflation-title">
             <h2>Inflated Products</h2>
             </div>

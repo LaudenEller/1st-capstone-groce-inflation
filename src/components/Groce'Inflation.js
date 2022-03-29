@@ -4,9 +4,9 @@ import { ApplicationViews } from "./ApplicationViews";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import "./Groce'Inflation.css";
-import { SideDrawer } from "./newNav/sideDrawer/SideDrawer";
-import { Backdrop } from "./newNav/sideDrawer/backdrop/Backdrop";
-import { Navbar } from "./newNav/NewNavbar";
+import { SideDrawer } from "./nav/sideDrawer/SideDrawer";
+import { Backdrop } from "./nav/sideDrawer/backdrop/Backdrop";
+import { Navbar } from "./nav/Navbar";
 
 export const Groce = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
@@ -33,13 +33,13 @@ if (sideDrawerOpen === true) {
           if (localStorage.getItem("groce_user")) {
             return (
               <>
-               <div style={{height: '100%'}}>
+               <div className="route-container">
                  {/* passing a reference to the toggle function with props to navbar */}
                 <Navbar drawerClickHandler={DrawerTogglerHandler} />
                 <SideDrawer show={sideDrawerOpen} />
                 {backdrop}
                 </div>
-                <div style={{marginTop: '64px'}}>
+                <div className="content-area">
                 <ApplicationViews />
                 </div>
               </>

@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, ButtonGroup, Form, FormGroup, Input, Label } from "reactstrap";
+import "./VendorForm.css"
+
 
 // export a function that returns Jsx for a form
 export const VendorForm = () => {

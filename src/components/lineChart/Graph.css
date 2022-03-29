@@ -6,7 +6,7 @@
     height: 645px;
 }
 
-.chart-container {
+.chart1-container {
     display: flex;
     flex-direction: column;
     width: 800px;

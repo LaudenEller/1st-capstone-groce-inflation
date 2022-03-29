@@ -483,6 +483,30 @@
       "productId": 10,
       "userId": 1,
       "id": 29
+    },
+    {
+      "vendorId": 9,
+      "productId": 15,
+      "userId": 5,
+      "id": 30
+    },
+    {
+      "vendorId": 9,
+      "productId": 18,
+      "userId": 5,
+      "id": 31
+    },
+    {
+      "vendorId": 9,
+      "productId": 13,
+      "userId": 5,
+      "id": 32
+    },
+    {
+      "vendorId": 9,
+      "productId": 14,
+      "userId": 5,
+      "id": 33
     }
   ],
   "users": [

@@ -6,7 +6,7 @@
     background-color: #fff;
     height: 56px;
     /* box-shadow: 5px 5px #4F6D7A; */
-    border-bottom: solid #C0D6DF;
+    border-bottom: solid aliceblue;
     border-width: 3px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .navbar-logo a {
-color: white;
+color: black;
 text-decoration: none;
 font-size: 1.5rem;
 }
@@ -33,13 +33,12 @@ font-size: 1.5rem;
     flex: 1;
 }
 
-.navbar-navigation-items ul {
-    list-style: none;
+.navbar-navigation-items {
     margin: 0;
     padding: 0;
     display: flex;
     color: black;
-    
+    margin-right: 2rem;
 }
 
 .navbar-navigation-items li {
@@ -53,6 +52,10 @@ font-size: 1.5rem;
 
 .navbar-navigation-items a:hover,
 .navbar-navigation-items a:active {
-color: orange;
+color: #fa923f;
 
+}
+
+h4:hover {
+    color: #fa923f;
 }

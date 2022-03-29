@@ -7,6 +7,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { getAllVendorProducts } from "../json/ApiManger";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
+import "./PurchaseForm.css"
+
 
 // export a function that returns html for a form
 export const PurchaseForm = () => {

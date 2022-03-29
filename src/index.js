@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { Groce } from "./components/Groce'Inflation";
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 ReactDOM.render(

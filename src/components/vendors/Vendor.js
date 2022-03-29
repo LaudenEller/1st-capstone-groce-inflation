@@ -9,6 +9,7 @@ import { Button, Input } from "reactstrap"
 import Popup from "../Popup";
 import "../Popup.css"
 import { AddProduct } from "../products/ProductForm";
+import "./Vendor.css"
 
 export const Vendor = () => {
     // Initial state of the vendor this page displays info about

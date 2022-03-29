@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
 import NavBrand from "../../NavBrand.png"
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 export const Login = () => {
     const [email, set] = useState("")
@@ -23,7 +24,7 @@ export const Login = () => {
                     localStorage.setItem("groce_user", exists.id)
                     history.push("/")
                 } else {
-                    existDialog.current.showModal()
+                    history.push("/register")
                 }
             })
     }
@@ -36,16 +37,17 @@ export const Login = () => {
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
-<section className="title">
-<img
-                        alt=""
-                        src={brand}
-                        className="title-image" />
-                    </section>
+            <header className="navbarLogin">
+        <nav className="navbarLogin-navigation">
+            <div className="spacer"></div>
+            <div className="navbar-logo"><a href="/"><img src={brand} /></a></div>
+            <div className="spacer"></div>
+        </nav>
+
+    </header>
                     <section className="main-container">
             <section className="login-container">
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h2>Please sign in</h2>
+                {/* <form className="form--login" onSubmit={handleLogin}>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -59,10 +61,26 @@ export const Login = () => {
                             Sign in
                         </button>
                     </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+                </form> */}
+                <Form inline className="form--login" onSubmit={handleLogin}>
+                <FormGroup floating>
+                <Input
+                    required autoFocus
+                    id="loginEmail"
+                    name="loginEmail"
+                    placeholder="Email Address"
+                    type="email"
+                    className="form-control"
+                    // placeholder="Price eg. 9.99"
+                    onChange={evt => set(evt.target.value)}
+                />
+                <Label className="loginEmail-label" htmlFor="inputEmail">Email Address </Label>
+            </FormGroup>
+            {/* Return a submit form button */}
+            <Button className="btn btn-primary" type="submit">
+                Sign In
+            </Button>
+            </Form>
             </section>
             </section>
         </main>

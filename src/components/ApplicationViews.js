@@ -1,13 +1,14 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { GraphIt } from "./graph/Graph";
+import { GraphIt } from "./lineChart/Graph";
 import { VendorList } from "./vendors/Vendors";
 import { PurchaseForm } from "./purchases/PurchaseForm";
 import { VendorForm } from "./vendors/VendorForm";
 import { Vendor } from "./vendors/Vendor";
 import { AddProduct } from "./products/ProductForm";
 import { Purchases } from "./purchases/Purchases";
-import GraphPurchases from "./graph/LineChart";
+import GraphPurchases from "./lineChart/LineChart";
+import { GraphInflation } from "./lineChart/InflationGraph";
 
 
 export const ApplicationViews = () => {
@@ -16,8 +17,11 @@ export const ApplicationViews = () => {
         <Route exact path="/">
             <GraphIt />
         </Route>
-        <Route exact path="/graph">
+        <Route exact path="/lineChart">
             <GraphPurchases />
+        </Route>
+        <Route exact path="/inflationchart">
+            <GraphInflation />
         </Route>
         <Route exact path="/vendors">
             <VendorList />

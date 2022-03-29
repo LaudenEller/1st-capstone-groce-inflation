@@ -7,9 +7,16 @@ import { useHistory } from "react-router-dom";
 import Popup from "../../Popup";
 import { VendorForm } from "../../vendors/VendorForm"
 
-// COMMENTED OUT CODE IS AN ATTEMPT AT DELETING ALL MATCHING VENDORPRODUCTS WHEN A VENDOR IS DELETED
 
-export const SideDrawer = props => {
+
+// COMMENTED OUT CODE IS AN ATTEMPT AT DELETING ALL MATCHING VENDORPRODUCTS WHEN A VENDOR IS DELETED, 
+    // IS THERE A TIMING ISSUE IN THE CHAIN OF EVENTS???
+
+
+// ADD LOGOUT BUTTON TO SIDEDRAWER
+
+
+    export const SideDrawer = props => {
     const [vendors, setVendors] = useState([])
     const [isOpen, setIsOpen] = useState()
     // const [deletedVendorId, setDeletedVendorId] = useState("0")
@@ -17,11 +24,19 @@ export const SideDrawer = props => {
 
     useEffect(
         () => {
+            let cancel = false;
             fetch(`http://localhost:8088/vendors?userId=${localStorage.getItem("groce_user")}`)
                 .then(r => r.json())
                 .then((data) => {
-                    setVendors(data)
-                })
+                    if (cancel) return;
+                    setVendors(data);
+                  });
+                  return () => { 
+                    cancel = true;
+                  }
+                // .then((data) => {
+                //     setVendors(data)
+                // })
         },
         []
     )
@@ -82,7 +97,7 @@ export const SideDrawer = props => {
     }
 
     // <nav className is either option a, or b, 
-    // which could be many classes when utilizing []s and .join()
+        // which could be many classes when utilizing []s and .join()
     let drawerClasses = 'sidedrawer'
     if (props.show) {
         drawerClasses = 'sidedrawer open'
@@ -90,21 +105,21 @@ export const SideDrawer = props => {
 
     return (
         <>
-            <div>
-                {isOpen && <Popup
-                    handleClose={TogglePopup}
-                    content={<VendorForm />} />}
-            </div>
             <nav className={drawerClasses}>
-                <div className="sidedrawer-title">
-                    Vendors
+                <div className="myVendors-container">
+                <div className="myVendors-title">
+                    <h3>My Vendors</h3>
                 </div>
                 <ul>
                     {vendors?.map(vendor => {
-                        return <li><Button onClick={() => DeleteVendor(vendor.id)}>-</Button><a onClick={() => history.push(`/vendors/${vendor.id}`)} key={vendor.id}>{vendor.name}</a></li>
+                        return <li><a onClick={() => history.push(`/vendors/${vendor.id}`)} key={vendor.id}>{vendor.name}</a> <Button className="vendorList-button" onClick={() => DeleteVendor(vendor.id)}>-</Button></li>
                     })}
-                    <li><div onClick={() => TogglePopup()}>Add Vendor</div></li>
                 </ul>
+                </div>
+                <div className="sidedrawer-navigation-items">
+                <div className="add-vendor-container"><a href="/vendors/create"><h4>Add Vendor</h4></a></div>
+                <div className="logout-container"><a href="#" onClick={() => {{localStorage.removeItem("groce_user")}}}><h4>Logout</h4></a></div>
+                </div>
             </nav>
         </>
     )
