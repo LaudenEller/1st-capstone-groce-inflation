@@ -74,7 +74,7 @@ export const PurchaseForm = () => {
 
     return (
         // Return a dropdown box that displays all the current user's vendors
-       <section className="main-container">
+       <section className="main-container-purchaseForm">
        <div className="form-container">
            <div className="purchaseForm-title">
        <h2>Enter your receipt</h2>
@@ -200,7 +200,7 @@ export const PurchaseForm = () => {
                         }
                     }
                 />
-                <Label className="price-label" htmlFor="purchasePrice">Price </Label>
+                {/* <Label className="price-label" htmlFor="purchasePrice">Price </Label> */}
             </FormGroup>
             {/* Return a submit form button */}
             <Button className="btn btn-primary" onClick={recordPurchase}>

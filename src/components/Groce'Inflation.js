@@ -19,6 +19,12 @@ export const Groce = () => {
     setSideDrawerOpen(false)
   }
 
+  document.addEventListener(
+    "Vendor View Selected",
+    (customEvent) => {
+      setSideDrawerOpen(!sideDrawerOpen)
+    })
+
     let backdrop = null
 if (sideDrawerOpen === true) {
   backdrop = <Backdrop click={BackdropClickHandler} />

@@ -10,13 +10,13 @@ import { VendorForm } from "../../vendors/VendorForm"
 
 
 // COMMENTED OUT CODE IS AN ATTEMPT AT DELETING ALL MATCHING VENDORPRODUCTS WHEN A VENDOR IS DELETED, 
-    // IS THERE A TIMING ISSUE IN THE CHAIN OF EVENTS???
+// IS THERE A TIMING ISSUE IN THE CHAIN OF EVENTS???
 
 
 // ADD LOGOUT BUTTON TO SIDEDRAWER
 
 
-    export const SideDrawer = props => {
+export const SideDrawer = props => {
     const [vendors, setVendors] = useState([])
     const [isOpen, setIsOpen] = useState()
     // const [deletedVendorId, setDeletedVendorId] = useState("0")
@@ -30,13 +30,13 @@ import { VendorForm } from "../../vendors/VendorForm"
                 .then((data) => {
                     if (cancel) return;
                     setVendors(data);
-                  });
-                  return () => { 
-                    cancel = true;
-                  }
-                // .then((data) => {
-                //     setVendors(data)
-                // })
+                });
+            return () => {
+                cancel = true;
+            }
+            // .then((data) => {
+            //     setVendors(data)
+            // })
         },
         []
     )
@@ -96,8 +96,20 @@ import { VendorForm } from "../../vendors/VendorForm"
         setIsOpen(!isOpen)
     }
 
+    document.addEventListener(
+        "New Vendor POSTed",
+        (customEvent) => {
+            Update()
+            TogglePopup()
+        })
+
+    const HandleVendorClick = (id) => {
+        document.dispatchEvent(new CustomEvent("Vendor View Selected"))
+        history.push(`/vendors/${id}`)
+    }
+
     // <nav className is either option a, or b, 
-        // which could be many classes when utilizing []s and .join()
+    // which could be many classes when utilizing []s and .join()
     let drawerClasses = 'sidedrawer'
     if (props.show) {
         drawerClasses = 'sidedrawer open'
@@ -105,20 +117,26 @@ import { VendorForm } from "../../vendors/VendorForm"
 
     return (
         <>
+            <div>
+                {isOpen && <Popup
+                    handleClose={TogglePopup}
+                    content={<VendorForm />} />}
+            </div>
             <nav className={drawerClasses}>
                 <div className="myVendors-container">
-                <div className="myVendors-title">
-                    <h3>My Vendors</h3>
-                </div>
-                <ul>
-                    {vendors?.map(vendor => {
-                        return <li><a onClick={() => history.push(`/vendors/${vendor.id}`)} key={vendor.id}>{vendor.name}</a> <Button className="vendorList-button" onClick={() => DeleteVendor(vendor.id)}>-</Button></li>
-                    })}
-                </ul>
+                    <div className="myVendors-title">
+                        <h3>My Vendors</h3>
+                    </div>
+                    <ul>
+                        {vendors?.map(vendor => {
+                            return <li><a onClick={() => HandleVendorClick(vendor.id)} key={vendor.id}>{vendor.name}</a>
+                                <Button className="vendorList-button" onClick={() => DeleteVendor(vendor.id)}>-</Button></li>
+                        })}
+                    </ul>
                 </div>
                 <div className="sidedrawer-navigation-items">
-                <div className="add-vendor-container"><a href="/vendors/create"><h4>Add Vendor</h4></a></div>
-                <div className="logout-container"><a href="#" onClick={() => {{localStorage.removeItem("groce_user")}}}><h4>Logout</h4></a></div>
+                    <div className="add-vendor-container"><a href="#" onClick={() => TogglePopup()}><h4>Add Vendor</h4></a></div>
+                    <div className="logout-container"><a href="#" onClick={() => { { localStorage.removeItem("groce_user") } }}><h4>Logout</h4></a></div>
                 </div>
             </nav>
         </>

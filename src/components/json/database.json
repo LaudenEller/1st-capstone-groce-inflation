@@ -107,6 +107,30 @@
       "userId": 5,
       "categoryId": 1,
       "id": 18
+    },
+    {
+      "description": "Concord Grapes",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 19
+    },
+    {
+      "description": "Apple Sauce",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 20
+    },
+    {
+      "description": "Pear Sauce",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 21
+    },
+    {
+      "description": "Banana Sauce",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 22
     }
   ],
   "purchases": [
@@ -317,6 +341,38 @@
       "vendorId": 7,
       "userId": 1,
       "id": 27
+    },
+    {
+      "date": "2022-02-08",
+      "price": 30,
+      "productId": 21,
+      "vendorId": 7,
+      "userId": 2,
+      "id": 28
+    },
+    {
+      "date": "2022-05-08",
+      "price": 33,
+      "productId": 21,
+      "vendorId": 7,
+      "userId": 2,
+      "id": 29
+    },
+    {
+      "date": "2022-01-08",
+      "price": 15,
+      "productId": 22,
+      "vendorId": 7,
+      "userId": 2,
+      "id": 30
+    },
+    {
+      "date": "2022-06-08",
+      "price": 30,
+      "productId": 22,
+      "vendorId": 7,
+      "userId": 2,
+      "id": 31
     }
   ],
   "vendors": [
@@ -373,6 +429,12 @@
       "name": "Ralphs - Calabasas",
       "userId": 5,
       "id": 10
+    },
+    {
+      "address": "123 Test St",
+      "name": "New Vendor Test 1",
+      "userId": 2,
+      "id": 11
     }
   ],
   "vendorProducts": [
@@ -507,6 +569,24 @@
       "productId": 14,
       "userId": 5,
       "id": 33
+    },
+    {
+      "vendorId": 2,
+      "productId": 3,
+      "userId": 2,
+      "id": 41
+    },
+    {
+      "vendorId": 2,
+      "productId": 4,
+      "userId": 2,
+      "id": 42
+    },
+    {
+      "vendorId": 2,
+      "productId": 22,
+      "userId": 2,
+      "id": 44
     }
   ],
   "users": [

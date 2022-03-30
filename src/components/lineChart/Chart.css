@@ -15,10 +15,6 @@
     max-height: 500px; */
 }
 
-h2 {
-    color: #9dc630;
-}
-
 .main-container-linechart {
     display: flex;
     justify-content: center;

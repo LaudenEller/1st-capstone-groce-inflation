@@ -101,6 +101,9 @@ export const AddProduct = () => {
 
             return fetch("http://localhost:8088/products", fetchOption)
                 .then(r => r.json())
+                .then(() => {
+                    document.dispatchEvent(new CustomEvent("New Product POSTed"))
+                })
         }
 }
 
@@ -140,7 +143,6 @@ return (
         </div>
         {/* Return a form with a title */}
         <Form className="productForm">
-            <h2 className="productForm_title">New Product</h2>
             {/* // Return a dropdown box that displays all vendors */}
             {/* <FormGroup floating>
                     <Col sm={10}>
@@ -162,7 +164,7 @@ return (
                     </Col>
             </FormGroup> */}
             {/* // Return a text input field for the user to describe their new product */}
-            <FormGroup floating>
+            <FormGroup floating >
                     
                     <Input
                     id="productField"
@@ -170,7 +172,7 @@ return (
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Product"
+                        placeholder="Product Name"
                         onChange={
                             (evt) => {
                                 const copy = { ...newProduct }
@@ -180,10 +182,9 @@ return (
                             }
                         }
                     />
-                    <Label htmlFor="product-description">Product </Label>
             </FormGroup>
             <Button className="btn btn-primary" onClick={AddProduct}>
-                Add Product
+                Create Product
             </Button>
         </Form>
     </>

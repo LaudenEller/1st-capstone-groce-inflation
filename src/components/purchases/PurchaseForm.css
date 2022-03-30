@@ -1,33 +1,42 @@
-.main-container {
+.main-container-purchaseForm {
     display: flex;
     align-items: center;
-    height: 645px;
-background-color: #fff;
+    justify-content: center;
+    background-color: #fff;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
-    width: 800px;
-    border: solid #C0D6DF;
-    box-shadow: 5px 5px #4F6D7A;
+    /* width: 800px; */
+    box-shadow: 3px 5px #C0D6DF;
+    border: solid aliceblue;
     border-width: 3px;
-    min-height: 500px;
-    max-height: 500px;
+    /* min-height: 500px; */
+    /* max-height: 500px; */
     /* margin-top: 80px; */
     justify-content: center;
     text-align: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: white !important;
+    font-size: calc(6px + 2vmin);
 }
 
-.btn .btn-primary {
-    background-color: #C0D6DF;
+.btn {
+    background-color: white;
+    border: solid #ced4da;
+    border-width: 1px;
+    border-radius: 0.25rem;
+    margin: 0.5rem;
 }
 
-.purchaseForm {
+.btn:hover {
+    color: #fa923f;
+}
+
+/* .purchaseForm {
     width: 600px;
-}
+} */
 
 #vendorSelect {
     width: 600px;
@@ -38,11 +47,13 @@ background-color: #fff;
 }
 
 #exampleDate {
-    height: 10px;
+    height: 19px;
+    width: 96%;
 }
 
 #purchasePrice {
-    height: 10px;
+    height: 19px;
+    width: 96%;
 }
 
 .form-control {}

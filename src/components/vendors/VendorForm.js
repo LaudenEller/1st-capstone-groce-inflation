@@ -35,7 +35,7 @@ export const VendorForm = () => {
 
         return fetch("http://localhost:8088/vendors", fetchOption)
             .then(r => r.json())
-            .then(history.push("/"))
+            .then(document.dispatchEvent(new CustomEvent("New Vendor POSTed")))
     }
 
     return (
@@ -56,11 +56,7 @@ export const VendorForm = () => {
                         }
                     }
                 />
-                <Label for="vendorName">
-                    Vendor Name
-                </Label>
             </FormGroup>
-            {' '}
             <FormGroup floating>
                 <Input
                     id="vendorAddress"
@@ -75,11 +71,7 @@ export const VendorForm = () => {
                         }
                     }
                 />
-                <Label for="vendorAddress">
-                    Vendor Address
-                </Label>
             </FormGroup>
-            {' '}
             <Button onClick={() => AddNewVendor()}>
                 Add Vendor
             </Button>

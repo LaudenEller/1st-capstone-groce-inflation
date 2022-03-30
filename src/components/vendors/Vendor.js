@@ -65,7 +65,6 @@ export const Vendor = () => {
         () => {
            if(typeof selectedProductId === "number") { 
                AddVendorProduct()
-            .then(() => { Update() })
         }},
         [selectedProductId]  
     )
@@ -99,6 +98,14 @@ const history = useHistory()
                 setVendorProducts(data.filter(vendorProduct => 
                     vendorProduct.vendorId === vendor.id))
             })
+            .then(UpdateProducts())
+    }
+
+    const UpdateProducts = () => {
+        fetch(`http://localhost:8088/products?userId=${localStorage.getItem("groce_user")}`)
+            .then(r => r.json())
+                .then((data) => {
+                    setProducts(data)})
     }
 
     // This is invoked when user selects the - remove icon and deletes that object from Json
@@ -132,6 +139,13 @@ const history = useHistory()
 
     }
 
+    document.addEventListener(
+        "New Product POSTed",
+        (customEvent) => {
+            Update()
+            togglePopup()
+        })
+
     
     return (
         <>
@@ -141,7 +155,7 @@ const history = useHistory()
                 handleClose={togglePopup}
                 content={<AddProduct /> } />}
         </div>
-       <section className="main-container">
+       <section className="main-container-vendor">
         {/* // Returns a title, subtitle, a list of products that can be purchased from this vendor and a - remove icon for each */}
             <section className="vendor-container">
                 <h3 className="vendor-name">{vendor.name}</h3>
