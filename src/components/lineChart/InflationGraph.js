@@ -350,24 +350,28 @@ export const GraphInflation = () => {
     })
 
     const [userData, setUserData] = useState(
-        {
-            // UserData is the imported dataset from TempData.js, not Json data yet...
-            labels: "Purchase Dates",
-            // labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-            datasets: [
-                {
-                    labels: "Product Description",
-                    fill: false,
-                    pointBorderColor: "aliceblue",
-                    pointBorderWidth: 1,
-                    pointRadius: 2,
-                    lineTension: 0.4,
-                    backgroundColor: "Random Color",
-                    borderColor: "Random Color",
-                    data: "x_y_data",
-                },
-            ]
-        }
+      
+      0
+      
+      
+        // {
+        //     // UserData is the imported dataset from TempData.js, not Json data yet...
+        //     labels: "Purchase Dates",
+        //     // labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        //     datasets: [
+        //         {
+        //             labels: "Product Description",
+        //             fill: false,
+        //             pointBorderColor: "aliceblue",
+        //             pointBorderWidth: 1,
+        //             pointRadius: 2,
+        //             lineTension: 0.4,
+        //             backgroundColor: "Random Color",
+        //             borderColor: "Random Color",
+        //             data: "x_y_data",
+        //         },
+        //     ]
+        // }
     )
 
     // GET PRODUCTS
@@ -401,6 +405,7 @@ export const GraphInflation = () => {
                                 return purchase.productId === product.id
                             })
                             // WHEN THERE ARE NO MATCHING PURCHASES, CONSOLE LOG A MESSAGE
+                            console.log("filtered data", filteredPurchases)
                             if (filteredPurchases < 1) {
 
                                 console.log(`Current user has not purchased ${product.description}\(s\) yet`)
@@ -431,6 +436,8 @@ export const GraphInflation = () => {
 
                             let color = dynamicColors()
 
+
+                            // DOES IT MATTER THAT THE KEYS GET REORGANIZED WHEN VIEWED IN THE DOM??
                             const datasets = {
                                 labels: purchaseArray[1].product.description,
                                 fill: false,
@@ -443,10 +450,12 @@ export const GraphInflation = () => {
                                 data: x_y_data,
                             }
 
+                            console.log("dataset", datasets)
+
                             // PUSH NEW DATASET TO CHART-DATA ARRAY
                             chartData.push(datasets)
 
-
+// WHAT IS HAPPENING IS THAT USERDATA IS GETTING SET TO AN EMPTY OBJECT AND THEN CHARTISREADY IS GOING OFF
 
                             // RESET PRODUCT-DATA ARRAY
                             // productData = []
@@ -455,17 +464,26 @@ export const GraphInflation = () => {
 
                     })
                     // SET CHART DATA STATE EQUAL TO CHART-DATA ARRAY
-                    .then(setUserData(
+                    .then(() => { if (chartData.length > 0) { setUserData(
                         {
                             labels: organizedPurchaseArray.map((data) => data.date),
                             datasets: chartData
                         }
-                    ))
-                    .then(setChartIsReady(!chartIsReady))
+                        
+                    )}})
+                    // .then(() => {if (typeof userData === "object") setChartIsReady(!chartIsReady)})
 
             }
+            console.log(userData)
         },
         [products]
+    )
+
+    useEffect(
+        () => {
+            if (typeof userData === "object") {setChartIsReady(!chartIsReady)}
+        },
+        [userData]
     )
 
     // creating colors for datasets

@@ -131,6 +131,12 @@
       "userId": 2,
       "categoryId": 1,
       "id": 22
+    },
+    {
+      "description": "Kale",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 23
     }
   ],
   "purchases": [
@@ -373,6 +379,38 @@
       "vendorId": 7,
       "userId": 2,
       "id": 31
+    },
+    {
+      "date": "2022-03-08",
+      "price": 12,
+      "productId": 3,
+      "vendorId": 2,
+      "userId": 2,
+      "id": 32
+    },
+    {
+      "date": "2022-04-06",
+      "price": 13,
+      "productId": 3,
+      "vendorId": 2,
+      "userId": 2,
+      "id": 33
+    },
+    {
+      "date": "2022-03-07",
+      "price": 4.23,
+      "productId": 23,
+      "vendorId": 11,
+      "userId": 2,
+      "id": 34
+    },
+    {
+      "date": "2022-04-07",
+      "price": 22,
+      "productId": 23,
+      "vendorId": 11,
+      "userId": 2,
+      "id": 35
     }
   ],
   "vendors": [
@@ -435,6 +473,12 @@
       "name": "New Vendor Test 1",
       "userId": 2,
       "id": 11
+    },
+    {
+      "address": "4757 Commons Way, Calabasas, CA 91302",
+      "name": "Ralphs - Calabasas",
+      "userId": 2,
+      "id": 12
     }
   ],
   "vendorProducts": [
@@ -587,6 +631,30 @@
       "productId": 22,
       "userId": 2,
       "id": 44
+    },
+    {
+      "vendorId": 11,
+      "productId": 19,
+      "userId": 2,
+      "id": 45
+    },
+    {
+      "vendorId": 11,
+      "productId": 4,
+      "userId": 2,
+      "id": 46
+    },
+    {
+      "vendorId": 11,
+      "productId": 20,
+      "userId": 2,
+      "id": 47
+    },
+    {
+      "vendorId": 11,
+      "productId": 23,
+      "userId": 2,
+      "id": 48
     }
   ],
   "users": [
