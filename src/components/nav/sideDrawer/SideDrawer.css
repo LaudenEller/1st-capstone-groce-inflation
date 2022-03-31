@@ -16,6 +16,8 @@
 
 .sidedrawer.open {
     transform: translateX(0);
+    display: flex;
+    flex-direction: column;
 }
 
 .sidedrawer ul {
@@ -45,11 +47,13 @@
 .myVendors-container {
     display: flex;
     flex-direction: column;
-    
+    height: 50%;
 }
 
 .myVendors-container ul {
-    
+    /* background-color: red; */
+    overflow-y: auto;
+    /* max-height: 1700px; */
 }
 
 .myVendors-title {
@@ -60,6 +64,7 @@
 .sidedrawer-navigation-items {
     margin-top: 50px;
     margin-left: 1rem;
+    height: 50%;
 }
 .sidedrawer-navigation-items a {
     text-decoration: none;
@@ -75,7 +80,7 @@
     color: black;
 }
 
-.sidedrawer-navigation-items h4:hover {
+.sidedrawer-navigation-items h3:hover {
     color: #fa923f;
 }
 

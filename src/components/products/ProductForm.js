@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import Popup from "../Popup";
 import "../Popup.css"
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
+import "./ProductForm.css"
 
 
 export const AddProduct = () => {
@@ -142,7 +143,7 @@ return (
                 </div>} />}
         </div>
         {/* Return a form with a title */}
-        <Form className="productForm">
+        <Form className="product-form">
             {/* // Return a dropdown box that displays all vendors */}
             {/* <FormGroup floating>
                     <Col sm={10}>
@@ -167,11 +168,10 @@ return (
             <FormGroup floating >
                     
                     <Input
-                    id="productField"
-                    name="productField"
+                    name="product-field"
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        id="product-field"
                         placeholder="Product Name"
                         onChange={
                             (evt) => {
@@ -183,7 +183,7 @@ return (
                         }
                     />
             </FormGroup>
-            <Button className="btn btn-primary" onClick={AddProduct}>
+            <Button className="vendor-button" onClick={AddProduct}>
                 Create Product
             </Button>
         </Form>

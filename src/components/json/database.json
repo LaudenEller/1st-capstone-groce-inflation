@@ -137,6 +137,60 @@
       "userId": 2,
       "categoryId": 1,
       "id": 23
+    },
+    {
+      "description": "Hammock",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 24
+    },
+    {
+      "description": "Pringles",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 25
+    },
+    {
+      "description": "Blue Crab",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 26
+    },
+    {
+      "description": "Floss",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 27
+    },
+    {
+      "description": "Toothbrush",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 28
+    },
+    {
+      "description": "asdf",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 29
+    },
+    {
+      "description": "fsa",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 30
+    },
+    {
+      "description": "jtydfg",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 31
+    },
+    {
+      "description": "A new Product",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 32
     }
   ],
   "purchases": [
@@ -395,22 +449,6 @@
       "vendorId": 2,
       "userId": 2,
       "id": 33
-    },
-    {
-      "date": "2022-03-07",
-      "price": 4.23,
-      "productId": 23,
-      "vendorId": 11,
-      "userId": 2,
-      "id": 34
-    },
-    {
-      "date": "2022-04-07",
-      "price": 22,
-      "productId": 23,
-      "vendorId": 11,
-      "userId": 2,
-      "id": 35
     }
   ],
   "vendors": [
@@ -467,18 +505,6 @@
       "name": "Ralphs - Calabasas",
       "userId": 5,
       "id": 10
-    },
-    {
-      "address": "123 Test St",
-      "name": "New Vendor Test 1",
-      "userId": 2,
-      "id": 11
-    },
-    {
-      "address": "4757 Commons Way, Calabasas, CA 91302",
-      "name": "Ralphs - Calabasas",
-      "userId": 2,
-      "id": 12
     }
   ],
   "vendorProducts": [
@@ -631,30 +657,6 @@
       "productId": 22,
       "userId": 2,
       "id": 44
-    },
-    {
-      "vendorId": 11,
-      "productId": 19,
-      "userId": 2,
-      "id": 45
-    },
-    {
-      "vendorId": 11,
-      "productId": 4,
-      "userId": 2,
-      "id": 46
-    },
-    {
-      "vendorId": 11,
-      "productId": 20,
-      "userId": 2,
-      "id": 47
-    },
-    {
-      "vendorId": 11,
-      "productId": 23,
-      "userId": 2,
-      "id": 48
     }
   ],
   "users": [

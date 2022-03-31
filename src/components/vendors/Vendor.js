@@ -159,7 +159,7 @@ const history = useHistory()
         {/* // Returns a title, subtitle, a list of products that can be purchased from this vendor and a - remove icon for each */}
             <section className="vendor-container">
                 <h3 className="vendor-name">{vendor.name}</h3>
-                <p>Inventory</p>
+                <div>Inventory</div>
                 <ul className="vendorProduct-list">
                     {vendorProducts?.map((vendorProduct) => {
                         return <li key={`vendorProduct--${vendorProduct.id}`}><Button

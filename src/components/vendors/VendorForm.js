@@ -41,11 +41,11 @@ export const VendorForm = () => {
     return (
 
 
-        <Form inline className="form">
+        <Form inline className="vendor-form">
             <FormGroup floating>
                 <Input
-                    id="vendorName"
-                    name="vendorName"
+                    id="vendor-name"
+                    name="vendor-name"
                     placeholder="Vendor Name"
                     type="text"
                     onChange={
@@ -72,7 +72,7 @@ export const VendorForm = () => {
                     }
                 />
             </FormGroup>
-            <Button onClick={() => AddNewVendor()}>
+            <Button className="add-vendor-button" onClick={() => AddNewVendor()}>
                 Add Vendor
             </Button>
         </Form>

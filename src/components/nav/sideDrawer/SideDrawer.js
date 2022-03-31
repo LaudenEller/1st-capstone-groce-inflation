@@ -6,6 +6,7 @@ import "./SideDrawer.css"
 import { useHistory } from "react-router-dom";
 import Popup from "../../Popup";
 import { VendorForm } from "../../vendors/VendorForm"
+import { DeleteVendorConfirmation } from "../../vendors/DeleteVendorForm";
 
 
 
@@ -18,7 +19,10 @@ import { VendorForm } from "../../vendors/VendorForm"
 
 export const SideDrawer = props => {
     const [vendors, setVendors] = useState([])
-    const [isOpen, setIsOpen] = useState()
+    const [deletedVendorId, setDeletedVendorId] = useState()
+    const [vendorDeleted, setVendorDeleted] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    const [deleteIsOpen, setDeleteIsOpen] = useState(false)
     // const [deletedVendorId, setDeletedVendorId] = useState("0")
     // const [vendorProducts, setVendorProducts] = useState()
 
@@ -96,12 +100,35 @@ export const SideDrawer = props => {
         setIsOpen(!isOpen)
     }
 
+    const ToggleDeletePopup = () => {
+        setDeleteIsOpen(!deleteIsOpen)
+    }
+
     document.addEventListener(
         "New Vendor POSTed",
         (customEvent) => {
             Update()
             TogglePopup()
         })
+    
+        document.addEventListener(
+            "Vendor Deleted",
+        (customEvent) => {
+           DeleteVendor(deletedVendorId)
+           setVendorDeleted(!vendorDeleted)
+        })
+
+        useEffect(() => {
+           if (vendorDeleted){ ToggleDeletePopup()
+            Update()
+        }},
+        [vendorDeleted]
+        )
+
+        const HandleVendorDelete = (id) => {
+            setDeletedVendorId(id)
+            ToggleDeletePopup()
+        }
 
     const HandleVendorClick = (id) => {
         document.dispatchEvent(new CustomEvent("Vendor View Selected"))
@@ -122,6 +149,11 @@ export const SideDrawer = props => {
                     handleClose={TogglePopup}
                     content={<VendorForm />} />}
             </div>
+            <div>
+                {deleteIsOpen && <Popup
+                    handleClose={ToggleDeletePopup}
+                    content={<DeleteVendorConfirmation />} />}
+            </div>
             <nav className={drawerClasses}>
                 <div className="myVendors-container">
                     <div className="myVendors-title">
@@ -129,14 +161,14 @@ export const SideDrawer = props => {
                     </div>
                     <ul>
                         {vendors?.map(vendor => {
-                            return <li><a onClick={() => HandleVendorClick(vendor.id)} key={vendor.id}>{vendor.name}</a>
-                                <Button className="vendorList-button" onClick={() => DeleteVendor(vendor.id)}>-</Button></li>
+                            return <li><Button className="vendorList-button" onClick={() => {HandleVendorDelete(vendor.id)}}>-</Button>
+                            <a onClick={() => HandleVendorClick(vendor.id)} key={vendor.id}>{vendor.name}</a></li>
                         })}
                     </ul>
                 </div>
                 <div className="sidedrawer-navigation-items">
-                    <div className="add-vendor-container"><a href="#" onClick={() => TogglePopup()}><h4>Add Vendor</h4></a></div>
-                    <div className="logout-container"><a href="#" onClick={() => { { localStorage.removeItem("groce_user") } }}><h4>Logout</h4></a></div>
+                    <div className="add-vendor-container"><a href="#" onClick={() => TogglePopup()}><h3>Add Vendor</h3></a></div>
+                    <div className="logout-container"><a href="#" onClick={() => { { localStorage.removeItem("groce_user") } }}><h3>Logout</h3></a></div>
                 </div>
             </nav>
         </>
