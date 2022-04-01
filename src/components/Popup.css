@@ -38,10 +38,6 @@
     /* align-items: center; */
   }
 
-  button {
-    
-  }
-
   .btn-close {
     align-self: flex-start;
   }

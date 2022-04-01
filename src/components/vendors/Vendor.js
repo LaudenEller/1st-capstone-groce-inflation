@@ -162,8 +162,8 @@ const history = useHistory()
                 <div>Inventory</div>
                 <ul className="vendorProduct-list">
                     {vendorProducts?.map((vendorProduct) => {
-                        return <li key={`vendorProduct--${vendorProduct.id}`}><Button
-                        onClick={() => DeleteVendorProduct(vendorProduct.id)}>-</Button>{vendorProduct.product?.description}</li>
+                        return <li key={`vendorProduct--${vendorProduct.id}`}><Button className="btn-deleteVendorProduct"
+                        onClick={() => DeleteVendorProduct(vendorProduct.id)}>X</Button>{vendorProduct.product?.description}</li>
                     })}
                 </ul>
                 {/* // Return a select box that displays all the products available to the current user */}

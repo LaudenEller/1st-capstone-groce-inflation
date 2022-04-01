@@ -30,14 +30,31 @@
   margin: 0.5rem;
 }
 
-.btn:hover {
-  color: #fa923f;
+.btn-deleteVendorProduct {
+  background: transparent;
+  /* height: 2px; */
+  /* width: 4px; */
+  border: none !important;
+  /* font-size: xx-large; */
+  /* margin-left: 4px; */
+}
+
+.btn-deleteVendorProduct:hover {
+  color: red;
+  cursor: pointer
 }
 
 .vendorProduct-list {
   list-style: none;
-  max-height: 100px;
+  max-height: 150px;
   overflow-y: auto;
+  align-self: flex-start;
+  margin-left: 200px;
+  margin-bottom: 30px;
+  width: 360px;
+  border: solid #ced4da;
+  border-width: 1px;
+
 }
 
 #vendorProduct-select {

@@ -191,6 +191,12 @@
       "userId": 2,
       "categoryId": 1,
       "id": 32
+    },
+    {
+      "description": "Dill - Fresh",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 33
     }
   ],
   "purchases": [
@@ -449,6 +455,62 @@
       "vendorId": 2,
       "userId": 2,
       "id": 33
+    },
+    {
+      "date": "2022-03-30",
+      "price": 2.5,
+      "productId": 4,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 35
+    },
+    {
+      "date": "2022-05-05",
+      "price": 1.76,
+      "productId": 4,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 36
+    },
+    {
+      "date": "1990-04-03",
+      "price": 12,
+      "productId": 26,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 37
+    },
+    {
+      "date": "2022-01-20",
+      "price": 16,
+      "productId": 26,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 38
+    },
+    {
+      "date": "2022-05-06",
+      "price": 19,
+      "productId": 26,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 39
+    },
+    {
+      "date": "2022-03-28",
+      "price": 4,
+      "productId": 26,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 40
+    },
+    {
+      "date": "2022-05-18",
+      "price": 15,
+      "productId": 26,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 41
     }
   ],
   "vendors": [
@@ -505,6 +567,18 @@
       "name": "Ralphs - Calabasas",
       "userId": 5,
       "id": 10
+    },
+    {
+      "address": "4500 Gallatin Pike",
+      "name": "Aldis - Gallatin Pike",
+      "userId": 2,
+      "id": 11
+    },
+    {
+      "address": "2200 Broadway St",
+      "name": "Kroger - Downtown",
+      "userId": 2,
+      "id": 12
     }
   ],
   "vendorProducts": [
@@ -657,6 +731,90 @@
       "productId": 22,
       "userId": 2,
       "id": 44
+    },
+    {
+      "vendorId": 11,
+      "productId": 4,
+      "userId": 2,
+      "id": 45
+    },
+    {
+      "vendorId": 11,
+      "productId": 25,
+      "userId": 2,
+      "id": 46
+    },
+    {
+      "vendorId": 11,
+      "productId": 20,
+      "userId": 2,
+      "id": 48
+    },
+    {
+      "vendorId": 11,
+      "productId": 19,
+      "userId": 2,
+      "id": 50
+    },
+    {
+      "vendorId": 11,
+      "productId": 21,
+      "userId": 2,
+      "id": 51
+    },
+    {
+      "vendorId": 11,
+      "productId": 23,
+      "userId": 2,
+      "id": 52
+    },
+    {
+      "vendorId": 11,
+      "productId": 28,
+      "userId": 2,
+      "id": 53
+    },
+    {
+      "vendorId": 11,
+      "productId": 31,
+      "userId": 2,
+      "id": 54
+    },
+    {
+      "vendorId": 12,
+      "productId": 26,
+      "userId": 2,
+      "id": 55
+    },
+    {
+      "vendorId": 12,
+      "productId": 24,
+      "userId": 2,
+      "id": 56
+    },
+    {
+      "vendorId": 12,
+      "productId": 4,
+      "userId": 2,
+      "id": 57
+    },
+    {
+      "vendorId": 12,
+      "productId": 20,
+      "userId": 2,
+      "id": 58
+    },
+    {
+      "vendorId": 12,
+      "productId": 19,
+      "userId": 2,
+      "id": 59
+    },
+    {
+      "vendorId": 12,
+      "productId": 33,
+      "userId": 2,
+      "id": 60
     }
   ],
   "users": [

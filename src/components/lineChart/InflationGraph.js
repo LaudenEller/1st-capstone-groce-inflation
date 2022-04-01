@@ -6,6 +6,7 @@ import { getAllProducts } from "../json/ApiManger.js";
 import { UserData } from "./TempData.js";
 import "./Chart.css"
 import Chart from 'chart.js/auto';
+import 'chartjs-adapter-moment';
 import {
     Chart as ChartJS,
     LineElement,
@@ -296,11 +297,18 @@ export const GraphInflation = () => {
             legend: {
                 position: 'left',
                 display: true
-            }
-        },
-        title: {
-            display: true,
-            text: "Inflation by Product"
+            },
+            title: {
+                display: true,
+                text: "Inflation by Product"
+            },
+            // time: {
+            //     parser: "DD.MM.YYYY",
+            //     unit: "month",
+            //     displayFormats: {
+            //         month: "DD MM YYYY",
+            //     }
+            // },
         },
         layout: {
             padding: {
@@ -324,11 +332,25 @@ export const GraphInflation = () => {
             },
 
             x: {
+                type: 'time',
+                // distribution: "series",
+                time: {
+                    // min: 2000,
+                    // max: 2023,
+                    // parser: 'MM/DD/YYYY HH:mm',
+                    // tooltipFormat: 'll HH:mm',
+                    unit: 'month',
+                    // unitStepSize: 10,
+                    // displayFormats: {
+                    //   'month': 'MM/DD/YYYY'
+                    // }
+                  },
+                // time: {
+                //     unit: "month"
+                // },
                 ticks: {
                     color: "black",
-                    font: {
-                        size: 18
-                    },
+                    font: { size: 18 },
                     beginAtZero: true
                 }
             },
@@ -350,10 +372,6 @@ export const GraphInflation = () => {
     })
 
     const [userData, setUserData] = useState(
-      
-      0
-      
-      
         // {
         //     // UserData is the imported dataset from TempData.js, not Json data yet...
         //     labels: "Purchase Dates",
@@ -393,11 +411,11 @@ export const GraphInflation = () => {
             let chartData = []
             if (products.length > 0) {
                 fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product`)
-                .then(res => res.json())
-                // CATCH THE RESPONSE
-                .then((res) => {
-                    // ITERATE THROUGH PRODUCTS
-                    for (const product of products) {
+                    .then(res => res.json())
+                    // CATCH THE RESPONSE
+                    .then((res) => {
+                        // ITERATE THROUGH PRODUCTS
+                        for (const product of products) {
 
                             // ITERATE THROUGH PURCHASES
                             // WHEN THERE ARE MATCHES, CREATE NEW ARRAY OF ALL MATCHING PURCHASES
@@ -415,6 +433,7 @@ export const GraphInflation = () => {
                                 organizedPurchaseArray.push(filteredPurchases)
                             }
                         }
+
                         // DECLARE A NEW PRODUCT-DATA ARRAY
                         // let productData = []
                         // ITERATE THROUGH THE ORGANIZED-DATA ARRAY
@@ -439,7 +458,7 @@ export const GraphInflation = () => {
 
                             // DOES IT MATTER THAT THE KEYS GET REORGANIZED WHEN VIEWED IN THE DOM??
                             const datasets = {
-                                labels: purchaseArray[1].product.description,
+                                label: purchaseArray[0].product.description,
                                 fill: false,
                                 pointBorderColor: "aliceblue",
                                 pointBorderWidth: 1,
@@ -450,28 +469,35 @@ export const GraphInflation = () => {
                                 data: x_y_data,
                             }
 
-                            console.log("dataset", datasets)
+                            // console.log("dataset", datasets)
 
                             // PUSH NEW DATASET TO CHART-DATA ARRAY
                             chartData.push(datasets)
 
-// WHAT IS HAPPENING IS THAT USERDATA IS GETTING SET TO AN EMPTY OBJECT AND THEN CHARTISREADY IS GOING OFF
+                            // WHAT IS HAPPENING IS THAT USERDATA IS GETTING SET TO AN EMPTY OBJECT AND THEN CHARTISREADY IS GOING OFF
 
                             // RESET PRODUCT-DATA ARRAY
                             // productData = []
 
                         })
 
+                        console.log("chartdata", chartData)
+                        console.log("Filtered and organized purchases", organizedPurchaseArray)
                     })
                     // SET CHART DATA STATE EQUAL TO CHART-DATA ARRAY
-                    .then(() => { if (chartData.length > 0) { setUserData(
-                        {
-                            labels: organizedPurchaseArray.map((data) => data.date),
-                            datasets: chartData
+                    .then(() => {
+                        if (chartData.length > 0) {
+                            setUserData(
+                                {
+                                    labels: organizedPurchaseArray.map((p) => p.date),
+                                    datasets: chartData
+                                }
+
+                            )
                         }
-                        
-                    )}})
-                    // .then(() => {if (typeof userData === "object") setChartIsReady(!chartIsReady)})
+                    })
+
+                // .then(() => {if (typeof userData === "object") setChartIsReady(!chartIsReady)})
 
             }
             console.log(userData)
@@ -481,7 +507,8 @@ export const GraphInflation = () => {
 
     useEffect(
         () => {
-            if (typeof userData === "object") {setChartIsReady(!chartIsReady)}
+            console.log("State when invoked", userData)
+            if (typeof userData === "object") { setChartIsReady(!chartIsReady) }
         },
         [userData]
     )

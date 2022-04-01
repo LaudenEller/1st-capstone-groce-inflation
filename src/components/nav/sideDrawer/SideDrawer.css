@@ -86,11 +86,12 @@
 
 .vendorList-button {
     background: transparent;
-    height: 2px;
-    width: 4px;
+    /* height: 2px; */
+    /* width: 4px; */
     border: none;
-    font-size: xx-large;
-    margin-left: 4px;
+    /* font-size: xx-large; */
+    /* margin-left: 4px; */
+    
 }
 
 .vendorList-button:hover {

@@ -1,35 +1,30 @@
-.main-container {
+.main-container-welcome {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #DBE9EE;
-    height: 645px;
+    background-color: #fff;
 }
 
-.chart1-container {
+.welcome-container {
+    background-color: white;
+    width: 800px;
     display: flex;
     flex-direction: column;
-    width: 800px;
-    box-shadow: 5px 5px #4F6D7A;
-    border: solid #C0D6DF;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(6px + 2vmin);
+    color: black;
+    box-shadow: 3px 5px #C0D6DF;
+    border: solid aliceblue;
     border-width: 3px;
     min-height: 500px;
     max-height: 500px;
-    /* margin-top: 80px; */
-    /* justify-content: center; */
-    /* text-align: center; */
-    align-items: center;
-    background-color: aliceblue;
+    margin-top: 80px;
 
 }
 
-.inflation-title {
-margin-top: 100px;
-}
-
-.inflation-content {
-justify-content: center;
-align-content: center;
-margin-top: 50px;
-list-style: none;
+.welcome-container p {
+    color: black;
+    font-weight: 600 !important;
 }

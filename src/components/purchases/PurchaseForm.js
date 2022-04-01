@@ -22,6 +22,8 @@ export const PurchaseForm = () => {
     // Stores user Input that will eventually get sent to Json
     const [purchase, setPurchase] = useState({})
 
+    const [purchaseRecorded, setPurchaseRecorded] = useState(false)
+
     const history = useHistory()
 
     const exampleRef = useRef()
@@ -49,8 +51,15 @@ export const PurchaseForm = () => {
         []
     )
 
+const HandleNewPurchase = () => {
+    recordPurchase()
+    setPurchaseRecorded(!purchaseRecorded)
+
+}
+
+
     // Declare a function that accepts an event as a parameter and builds a new object
-    const recordPurchase = (event) => {
+    const recordPurchase = () => {
         // Add keys to the object that match the user Input
         const newPurchase = {
             date: purchase.date,
@@ -69,7 +78,7 @@ export const PurchaseForm = () => {
             body: JSON.stringify(newPurchase)
         }
         return fetch("http://localhost:8088/purchases", fetchOption)
-    .then(history.push("/"))
+    .then(history.push("/inflationchart"))
     }
 
     return (

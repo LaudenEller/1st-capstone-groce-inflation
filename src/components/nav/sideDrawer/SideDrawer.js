@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import Popup from "../../Popup";
 import { VendorForm } from "../../vendors/VendorForm"
 import { DeleteVendorConfirmation } from "../../vendors/DeleteVendorForm";
-
+import "animate.css"
 
 
 // COMMENTED OUT CODE IS AN ATTEMPT AT DELETING ALL MATCHING VENDORPRODUCTS WHEN A VENDOR IS DELETED, 
@@ -45,10 +45,14 @@ export const SideDrawer = props => {
         []
     )
 
-    const history = useHistory()
+    useEffect(() => {
+        if (vendorDeleted){ ToggleDeletePopup()
+         Update()
+     }},
+     [vendorDeleted]
+     )
 
-
-    // useEffect(
+       // useEffect(
     //     () => {
     //         if (typeof deletedVendorId === "number") {
     //             GetVendorProducts(deletedVendorId)
@@ -56,6 +60,51 @@ export const SideDrawer = props => {
     //     },
     //     deletedVendorId
     // )
+
+     document.addEventListener(
+        "New Vendor POSTed",
+        (customEvent) => {
+            Update()
+            TogglePopup()
+        })
+    
+        document.addEventListener(
+            "Vendor Deleted",
+        (customEvent) => {
+           DeleteVendor(deletedVendorId)
+           setVendorDeleted(!vendorDeleted)
+        })
+        
+        document.addEventListener(
+            "New User Arrived",
+        (customEvent) => {
+           animateCSS("toggle-button-id", "rubberBand")
+           document.dispatchEvent(new CustomEvent('animationend'))
+        })
+
+        const animateCSS = (element, animation, prefix = 'animate__') =>
+        // We create a Promise and return it
+        new Promise((resolve, reject) => {
+          const animationName = `${prefix}${animation}`;
+          
+          // CANNOT ACCESS ELEMENT DIRECTLY IN REACT! MUST UTILIZE USEREF FROM REACT AND ADJUST CLASSLIST THAT WAY
+          
+          document.getElementById(element).classList.add(`${prefix}animated`, animationName);
+      
+          // When the animation ends, we clean the classes and resolve the Promise
+          function handleAnimationEnd(event) {
+            event.stopPropagation();
+            document.getElementById(element).classList.remove(`${prefix}animated`, animationName);
+            resolve('Animation ended');
+          }
+      
+          document.getElementById(element).addEventListener('animationend', handleAnimationEnd, {once: true});
+        });
+
+
+
+
+    const history = useHistory()
 
     const DeleteVendor = (id) => {
         // setDeletedVendorId(id)
@@ -104,27 +153,6 @@ export const SideDrawer = props => {
         setDeleteIsOpen(!deleteIsOpen)
     }
 
-    document.addEventListener(
-        "New Vendor POSTed",
-        (customEvent) => {
-            Update()
-            TogglePopup()
-        })
-    
-        document.addEventListener(
-            "Vendor Deleted",
-        (customEvent) => {
-           DeleteVendor(deletedVendorId)
-           setVendorDeleted(!vendorDeleted)
-        })
-
-        useEffect(() => {
-           if (vendorDeleted){ ToggleDeletePopup()
-            Update()
-        }},
-        [vendorDeleted]
-        )
-
         const HandleVendorDelete = (id) => {
             setDeletedVendorId(id)
             ToggleDeletePopup()
@@ -161,7 +189,7 @@ export const SideDrawer = props => {
                     </div>
                     <ul>
                         {vendors?.map(vendor => {
-                            return <li><Button className="vendorList-button" onClick={() => {HandleVendorDelete(vendor.id)}}>-</Button>
+                            return <li><Button className="vendorList-button" onClick={() => {HandleVendorDelete(vendor.id)}}>X</Button>
                             <a onClick={() => HandleVendorClick(vendor.id)} key={vendor.id}>{vendor.name}</a></li>
                         })}
                     </ul>

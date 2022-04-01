@@ -20,7 +20,7 @@ export const Navbar = props => {
                     <DrawerToggleButton click={props.drawerClickHandler} />
                 </div>
                 <div className="spacer"></div>
-                <div className="navbar-logo"><a href="/"><h1>Groce' Inflation</h1></a></div>
+                <div className="navbar-logo"><a href="/inflationchart"><h1>Groce' Inflation</h1></a></div>
                 <div className="spacer"></div>
                 <div className="navbar-navigation-items">
                     <div><a href="/purchases/create"><h4>New Purchase</h4></a></div>
