@@ -1,5 +1,5 @@
 // This module exports a default function that returns a popup box that,
-    // displays a message which comes from the parent component in ProductForm.js
+    // displays a message which comes from the parent component wherever it is invoked
 
 import React from "react";
 import "./Popup.css"

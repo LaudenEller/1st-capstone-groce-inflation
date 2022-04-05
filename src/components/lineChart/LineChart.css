@@ -1,5 +1,5 @@
 .chart-container {
-    background-color: white;
+    background-color: rgba(255,255,255,0.9);
     width: 800px;
     display: flex;
     flex-direction: column;
@@ -8,19 +8,22 @@
     text-align: center;
     font-size: calc(6px + 2vmin);
     color: black;
-    box-shadow: 3px 5px #C0D6DF;
-    border: solid aliceblue;
+    /* box-shadow: 3px 5px #C0D6DF; */
+    border: solid #f7b558;
     border-width: 3px;
     min-height: 500px;
     max-height: 500px;
     margin-top: 80px;
+    border-radius: 10px;
 }
 
 .main-container-linechart {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    /* background-color: #dceed1; */
+    height: 100%;
+    width: 100%;
 }
 
 #lineChart {

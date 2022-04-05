@@ -10,22 +10,23 @@ import { Navbar } from "./nav/Navbar";
 
 export const Groce = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
-
-  const DrawerTogglerHandler = () => {
-    setSideDrawerOpen(!sideDrawerOpen)
-  }
-
-  const BackdropClickHandler = () => {
-    setSideDrawerOpen(false)
-  }
-
+  
   document.addEventListener(
     "Vendor View Selected",
     (customEvent) => {
       setSideDrawerOpen(!sideDrawerOpen)
     })
-
+    
+    const DrawerTogglerHandler = () => {
+      setSideDrawerOpen(!sideDrawerOpen)
+    }
+  
+    const BackdropClickHandler = () => {
+      setSideDrawerOpen(false)
+    }
+    
     let backdrop = null
+
 if (sideDrawerOpen === true) {
   backdrop = <Backdrop click={BackdropClickHandler} />
 }

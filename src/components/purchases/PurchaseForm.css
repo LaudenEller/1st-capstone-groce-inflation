@@ -2,15 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    height: 100%;
+    width: 100%;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
     width: 800px;
-    box-shadow: 3px 5px #C0D6DF;
-    border: solid aliceblue;
+    border: solid #db9d47;
     border-width: 3px;
     min-height: 500px;
     max-height: 500px;
@@ -18,26 +18,14 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    background-color: white;
+    background-color: rgba(255,255,255,0.9);
     font-size: calc(6px + 2vmin);
-}
-
-.btn {
-    background-color: white;
-    border: solid #ced4da;
-    padding: 1.5px 8px;
-    /* border-width: 1px; */
-    /* border-radius: 0.25rem; */
-    /* margin: 0.5rem; */
+    border-radius: 10px;
 }
 
 .btn:hover {
     color: #fa923f;
 }
-
-/* .purchaseForm {
-    width: 600px;
-} */
 
 #vendorSelect {
     width: 250px;
@@ -55,29 +43,4 @@
 #purchasePrice {
     height: 19px;
     width: 225px;
-}
-
-.form-control {}
-
-#purchasePrice {
-    /* max-width: 670px; */
-    /* width: 100%; */
-}
-
-#exampleDate {
-    /* max-width: 670px; */
-    /* width: 100%; */
-}
-
-.price-label {
-    /* background-color: #6c757d;
-    color: #fff;
-    text-align: justify; */
-}
-
-.purchaseForm-title {
-    /* height: fit-content; */
-    /* width: 100%; */
-    /* margin-bottom: 25px; */
-    /* text-align: center; */
 }

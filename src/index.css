@@ -1,5 +1,4 @@
 /* Import the google web fonts you want to use */
-/* @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One"); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 /*Typography
 --------------------------------------------------------------*/
@@ -15,7 +14,6 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: black;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
 }
@@ -25,21 +23,17 @@ p {
 }
 
 .btn {
-background-color: #C0D6DF;
-}
-
-.btn-primary {
-  background-color: #C0D6DF;
-}
-
-* {
-  /* background-color: #a8a9aa; */
-  /* border: dashed goldenrod 1px; */
+background-color: white;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0 !important;
+  background-image: url(./CapStoneBackground.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 html {
@@ -53,4 +47,5 @@ code {
 
 #root {
   height: 100%;
+  width: 100%;
 }

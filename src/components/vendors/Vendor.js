@@ -151,7 +151,7 @@ const history = useHistory()
         <>
          {/* // Return a div containing the Popup function and a display message as the content for that function */}
          <div>
-            {isOpen && <Popup
+            {isOpen && <Popup 
                 handleClose={togglePopup}
                 content={<AddProduct /> } />}
         </div>

@@ -1,0 +1,54 @@
+.vendor-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  border: solid #f7b558;
+  border-width: 3px;
+  min-height: 500px;
+  max-height: 500px;
+  margin-top: 80px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,0.9);
+  font-size: calc(6px + 2vmin);
+  border-radius: 10px;
+}
+
+.main-container-vendor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.btn {
+  border: solid #ced4da;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+}
+
+.btn-deleteVendorProduct {
+  background: transparent !important;
+  border: none !important;
+}
+
+.btn-deleteVendorProduct:hover {
+  color: red;
+  cursor: pointer
+}
+
+.vendorProduct-list {
+  background-color: white;
+  list-style: none;
+  max-height: 150px;
+  overflow-y: auto;
+  align-self: flex-start;
+  margin-left: 200px;
+  margin-bottom: 30px;
+  width: 360px;
+  border: solid #ced4da;
+  border-width: 1px;
+border-radius: 10px;
+}

@@ -1,15 +1,11 @@
 // This module will display a vendor form that will save a new vendor object to Json
-
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Button, ButtonGroup, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input } from "reactstrap";
 import "./VendorForm.css"
 
 
 // export a function that returns Jsx for a form
 export const VendorForm = () => {
-
-    const history = useHistory()
 
     // This useState stores the vendor information as the form is filled out and eventually sent to Json
     const [vendor, addVendors] = useState([])
@@ -46,7 +42,7 @@ export const VendorForm = () => {
                 <Input
                     id="vendor-name"
                     name="vendor-name"
-                    placeholder="Vendor Name"
+                    placeholder="Name - Location"
                     type="text"
                     onChange={
                         (evt) => {
@@ -61,7 +57,7 @@ export const VendorForm = () => {
                 <Input
                     id="vendorAddress"
                     name="address"
-                    placeholder="Vendor Address"
+                    placeholder="Address"
                     type="text"
                     onChange={
                         (evt) => {

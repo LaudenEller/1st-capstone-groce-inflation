@@ -1,9 +1,8 @@
 // This module will display the home page
-import React, { useState, useEffect } from "react"
-import { getAllProducts, getAllPurchases } from "../json/ApiManger"
-import "./Graph.css"
+import React from "react"
+import "./LandingPage.css"
 
-export const GraphIt = () => {
+export const LandingPage = () => {
 
 // Dispatch welcome page arrival announcement to trigger the sidebar animation
 document.dispatchEvent(new CustomEvent("New User Arrived"))

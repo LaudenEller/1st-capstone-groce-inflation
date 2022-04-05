@@ -1,4 +1,3 @@
-/* Popup style */
 .popup-box {
     position: fixed;
     background: #00000050;
@@ -26,35 +25,18 @@
     max-height: 70vh;
     min-height: 35vh;
     margin-top: calc(90vh - 60vh - 20px);
-    background: #fff;
+    background-color: rgba(255,255,255,0.9);
+    opacity: 90%;
     border-radius: 4px;
     padding: 20px;
-    box-shadow: 3px 5px #C0D6DF;
-    border: solid aliceblue;
+    border: solid #db9d47;
     border-width: 3px;
     overflow: auto;
-    /* justify-content: center; */
-    /* text-align: center; */
-    /* align-items: center; */
+    border-radius: 10px;
   }
 
   .btn-close {
     align-self: flex-start;
+    justify-self:flex-start;
+    position: top;
   }
-
-   
-  /* .close-icon {
-    content: 'X';
-    cursor: pointer;
-    position: fixed;
-    right: calc(15% - 30px);
-    top: calc(100vh - 85vh - 33px);
-    background: #ededed;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    line-height: 20px;
-    text-align: center;
-    border: 1px solid #999;
-    font-size: 20px;
-  } */

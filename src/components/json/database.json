@@ -197,6 +197,30 @@
       "userId": 2,
       "categoryId": 1,
       "id": 33
+    },
+    {
+      "description": "Blueberries",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 34
+    },
+    {
+      "description": "Radish",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 35
+    },
+    {
+      "description": "English Cucumber",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 36
+    },
+    {
+      "description": "New Product 2",
+      "userId": 2,
+      "categoryId": 1,
+      "id": 37
     }
   ],
   "purchases": [
@@ -457,60 +481,76 @@
       "id": 33
     },
     {
-      "date": "2022-03-30",
-      "price": 2.5,
+      "date": "2022-04-12",
+      "price": 22,
       "productId": 4,
-      "vendorId": 12,
+      "vendorId": 2,
       "userId": 2,
-      "id": 35
-    },
-    {
-      "date": "2022-05-05",
-      "price": 1.76,
-      "productId": 4,
-      "vendorId": 12,
-      "userId": 2,
-      "id": 36
-    },
-    {
-      "date": "1990-04-03",
-      "price": 12,
-      "productId": 26,
-      "vendorId": 12,
-      "userId": 2,
-      "id": 37
-    },
-    {
-      "date": "2022-01-20",
-      "price": 16,
-      "productId": 26,
-      "vendorId": 12,
-      "userId": 2,
-      "id": 38
+      "id": 42
     },
     {
       "date": "2022-05-06",
-      "price": 19,
-      "productId": 26,
-      "vendorId": 12,
+      "price": 25,
+      "productId": 4,
+      "vendorId": 2,
       "userId": 2,
-      "id": 39
+      "id": 43
+    },
+    {
+      "date": "2022-04-22",
+      "price": 13,
+      "productId": 3,
+      "vendorId": 2,
+      "userId": 2,
+      "id": 46
     },
     {
       "date": "2022-03-28",
-      "price": 4,
-      "productId": 26,
+      "price": 1.35,
+      "productId": 35,
       "vendorId": 12,
       "userId": 2,
-      "id": 40
+      "id": 47
     },
     {
-      "date": "2022-05-18",
-      "price": 15,
-      "productId": 26,
+      "date": "2021-03-30",
+      "price": 2.35,
+      "productId": 35,
       "vendorId": 12,
       "userId": 2,
-      "id": 41
+      "id": 48
+    },
+    {
+      "date": "2020-12-31",
+      "price": 12,
+      "productId": 3,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 49
+    },
+    {
+      "date": "2019-06-19",
+      "price": 2,
+      "productId": 22,
+      "vendorId": 2,
+      "userId": 2,
+      "id": 50
+    },
+    {
+      "date": "2022-03-28",
+      "price": 2.35,
+      "productId": 22,
+      "vendorId": 2,
+      "userId": 2,
+      "id": 51
+    },
+    {
+      "date": "2020-06-17",
+      "price": 3,
+      "productId": 22,
+      "vendorId": 2,
+      "userId": 2,
+      "id": 52
     }
   ],
   "vendors": [
@@ -575,10 +615,16 @@
       "id": 11
     },
     {
-      "address": "2200 Broadway St",
+      "address": "5500 Broadway Ave",
       "name": "Kroger - Downtown",
       "userId": 2,
       "id": 12
+    },
+    {
+      "address": "2525 Nolansville Pike",
+      "name": "Whole Foods - Green Hills",
+      "userId": 2,
+      "id": 13
     }
   ],
   "vendorProducts": [
@@ -740,12 +786,6 @@
     },
     {
       "vendorId": 11,
-      "productId": 25,
-      "userId": 2,
-      "id": 46
-    },
-    {
-      "vendorId": 11,
       "productId": 20,
       "userId": 2,
       "id": 48
@@ -758,63 +798,69 @@
     },
     {
       "vendorId": 11,
-      "productId": 21,
-      "userId": 2,
-      "id": 51
-    },
-    {
-      "vendorId": 11,
       "productId": 23,
       "userId": 2,
       "id": 52
     },
     {
-      "vendorId": 11,
-      "productId": 28,
-      "userId": 2,
-      "id": 53
-    },
-    {
-      "vendorId": 11,
-      "productId": 31,
-      "userId": 2,
-      "id": 54
-    },
-    {
-      "vendorId": 12,
-      "productId": 26,
-      "userId": 2,
-      "id": 55
-    },
-    {
-      "vendorId": 12,
-      "productId": 24,
-      "userId": 2,
-      "id": 56
-    },
-    {
-      "vendorId": 12,
-      "productId": 4,
-      "userId": 2,
-      "id": 57
-    },
-    {
-      "vendorId": 12,
-      "productId": 20,
-      "userId": 2,
-      "id": 58
-    },
-    {
-      "vendorId": 12,
+      "vendorId": 2,
       "productId": 19,
       "userId": 2,
-      "id": 59
+      "id": 61
+    },
+    {
+      "vendorId": 2,
+      "productId": 21,
+      "userId": 2,
+      "id": 62
     },
     {
       "vendorId": 12,
-      "productId": 33,
+      "productId": 23,
       "userId": 2,
-      "id": 60
+      "id": 63
+    },
+    {
+      "vendorId": 12,
+      "productId": 21,
+      "userId": 2,
+      "id": 64
+    },
+    {
+      "vendorId": 12,
+      "productId": 3,
+      "userId": 2,
+      "id": 65
+    },
+    {
+      "vendorId": 12,
+      "productId": 35,
+      "userId": 2,
+      "id": 66
+    },
+    {
+      "vendorId": 13,
+      "productId": 3,
+      "userId": 2,
+      "id": 67
+    },
+    {
+      "vendorId": 13,
+      "productId": 4,
+      "userId": 2,
+      "id": 68
+    },
+    {
+      "vendorId": 13,
+      "productId": 23,
+      "userId": 2,
+      "id": 70
+    },
+    {
+      "vendorId": 13,
+      "productId": 26,
+      "userId": 2,
+      "id": 71
     }
   ],
   "users": [

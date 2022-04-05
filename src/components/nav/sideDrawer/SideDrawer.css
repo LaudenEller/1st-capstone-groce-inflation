@@ -1,7 +1,8 @@
 .sidedrawer {
     height: 100%;
-    background: white;
-    border-right: solid aliceblue;
+    background-color: #3C887E;
+    opacity: 90%;
+    border-right: solid #f7b558;
     border-width: 3px;
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -29,9 +30,10 @@
 
 .sidedrawer li {
     margin: 0.5rem 0;
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 1rem;
+    font-weight: 700;
 }
 
 .sidedrawer li a:hover,
@@ -51,14 +53,13 @@
 }
 
 .myVendors-container ul {
-    /* background-color: red; */
     overflow-y: auto;
-    /* max-height: 1700px; */
 }
 
 .myVendors-title {
     margin-top: 2rem;
     margin-left: 1rem;
+    color: white;
 }
 
 .sidedrawer-navigation-items {
@@ -68,16 +69,15 @@
 }
 .sidedrawer-navigation-items a {
     text-decoration: none;
+    color: white;
 }
 
 .add-vendor-container {
     text-decoration: none;
-    color: black;
 }
 
 .logout-container {
     text-decoration: none;
-    color: black;
 }
 
 .sidedrawer-navigation-items h3:hover {
@@ -86,15 +86,13 @@
 
 .vendorList-button {
     background: transparent;
-    /* height: 2px; */
-    /* width: 4px; */
     border: none;
-    /* font-size: xx-large; */
-    /* margin-left: 4px; */
+    font-weight: 700;
+    color: white
     
 }
 
 .vendorList-button:hover {
     color: red;
-    cursor: pointer
+    cursor: pointer;
 }

@@ -1,23 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css"
 import { DrawerToggleButton } from "./sideDrawer/DrawerToggler";
-import NavBrand from "../../NavBrand.png"
-
-
-// REMOVE LOGOUT BUTTON FROM NAVBAR
-
-// CHANGE VENDORS BUTTON TO HAMBURGER SHAPE
 
 export const Navbar = props => {
-
-    const navbrand = NavBrand
+const [toggleButtonAnimate, setToggleButtonAnimate] = useState(false)
 
     return (
         <header className="navbar">
             <nav className="navbar-navigation">
                 <div>
                     {/* forwards prop reference from Groce'Inflation.js to DrawerToggler.js */}
-                    <DrawerToggleButton click={props.drawerClickHandler} />
+                    <DrawerToggleButton show={toggleButtonAnimate} click={props.drawerClickHandler} />
                 </div>
                 <div className="spacer"></div>
                 <div className="navbar-logo"><a href="/inflationchart"><h1>Groce' Inflation</h1></a></div>

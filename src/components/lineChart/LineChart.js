@@ -1,182 +1,193 @@
+// This module exports a line chart of teh purchase data
 
+import { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import { getAllProducts } from "../json/ApiManger.js";
+import "./LineChart.css"
+import Chart from 'chart.js/auto';
+import 'chartjs-adapter-moment';
+import { Button } from "reactstrap";
 
-// import React from "react";
-// import {Line} from "react-chartjs-2";
-// import "./Graph.css";
+export const GraphInflation = () => {
+    const [chartIsReady, setChartIsReady] = useState(false)
+    const [products, setProducts] = useState([])
 
-// const state = {
-//   labels: ['January', 'February', 'March',
-//            'April', 'May'],
-//   datasets: [
-//     {
-//       label: 'Rainfall',
-//       fill: false,
-//       lineTension: 0.5,
-//       backgroundColor: 'rgba(75,192,192,1)',
-//       borderColor: 'rgba(0,0,0,1)',
-//       borderWidth: 2,
-//       data: [65, 59, 80, 81, 56]
-//     }
-//   ]
-// }
+    // Sets options properties in chart, ie the legend and chart structure
+    const [options, setOptions] = useState({
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                position: 'left',
+                display: true
+            },
+        },
+        layout: {
+            padding: {
+                top: 50,
+                left: 5,
+                right: 50,
+                bottom: 50
+            }
+        },
+        scales: {
 
-// export default class GraphPurchases extends React.Component {
-//   render() {
-//     return (     
-//       <div>
-//           <canvas id="myChart"></canvas>
-//         <Line
-//           data={state}
-//           options={{
-//             title:{
-//               display:true,
-//               text:'Average Rainfall per month',
-//               fontSize:20
-//             },
-//             legend:{
-//               display:true,
-//               position:'right'
-//             }
-//           }}
-//         />
-//       </div>
-//     );
-//     }
-// }
-// // }
+            y: {
+                ticks: {
+                    color: "black",
+                    font: { size: 18 },
+                    beginAtZero: true
+                },
+                grid: {
+                    color: "98ef89"
+                }
+            },
 
+            x: {
+                type: 'time',
+                min: '2019-11-07 00:00:00',
+                time: {
+                    unit: 'month',
+                    unitStepSize: 10,
+                  },
+                ticks: {
+                    color: "black",
+                    font: { size: 18 },
+                }
+            },
+        }
+    })
 
-// // import React from "react";
-// // import { Line } from "react-chartjs-2";
+    const [userData, setUserData] = useState(
+    )
 
-// // const [purchases, setPurchases] = useState()
+    // GETs and filters products upon initialization of useStates
+    useEffect(() => {
+        getAllProducts()
+            .then((data) => {
+                setProducts(data.filter(product => product.userId === parseInt(localStorage.getItem("groce_user"))))
+            })
+    },
+        []
+    )
 
-// // componentDidMount() {
-// //     fetch("http://localhost8088/purchases")
-// //     .then(r => r.json())
-// //     .then((data) => {
-// //         setPurchases(data)
-// //     });
-// //     }
+    // GETs and filters purchases then sets userData with matching datasets
+    useEffect(
+        () => {
 
-// // const data = {
-// //   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-// //   datasets: [
-// //     {
-// //       label: "First dataset",
-// //       data: [33, 53, 85, 41, 44, 65],
-// //       fill: true,
-// //       backgroundColor: "rgba(75,192,192,0.2)",
-// //       borderColor: "rgba(75,192,192,1)"
-// //     },
-// //     {
-// //       label: "Second dataset",
-// //       data: [33, 25, 35, 51, 54, 76],
-// //       fill: false,
-// //       borderColor: "#742774"
-// //     }
-// //   ]
-// // };
+            // This array will store the purchase objects that inform the line chart
+            let organizedPurchaseArray = []
 
-// // export default function App() {
-// //   return (
-// //     <div className="App">
-// //       <Line data={data} />
-// //     </div>
-// //   );
-// // }
+            // This array will copy the objects formatted properly for the line chart
+            let chartData = []
 
-// // let purchasePriceArray = []
+            if (products.length > 0) {
+                fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product`)
+                    .then(res => res.json())
+                    // Catching the response allows us to perform a number of functions before proceeding in the response chain
+                    .then((res) => {
+                        // Iterating through nested arrays lets us build an array of purchases that match products
+                        for (const product of products) {
+                            const filteredPurchases = res.filter(purchase => {
+                                return purchase.productId === product.id
+                            })
 
-// // for (const purchase of purchases) {
-// // purchasePriceArray.push(purchase.price)
-// // }
+                            // When there are no matches of a purchase to a product, console log a meassage
+                            console.log("filtered data", filteredPurchases)
+                            if (filteredPurchases < 1) {
 
-// // class lineChart extends Component
-// // {
-// //   constructor() {
-// //     super();
-// //     this.state = {
-// //       lineChartData: []
-// //     }
-// //     this.change0 = this.change0.bind(this);
-// //     this.change1 = this.change1.bind(this);
-// //     this.change2 = this.change2.bind(this);
-// //   }
+                                console.log(`Current user has not purchased ${product.description}\(s\) yet`)
 
-// //   componentDidMount() {
-// //     this.change0();
-// //     }
+                            } else {
+                                // When there are matches, push matched purchases to teh organizedPurchaseArray
+                                organizedPurchaseArray.push(filteredPurchases)
+                            }
+                        }
 
+                        // Iterate through the organized-data array which creates a new dataset for every group of purchases
+                        organizedPurchaseArray.forEach((purchaseArray) => {
 
-// //   change0(){
-// //     this.setState({
-// //       lineChartData:{
-// //         labels: ['Q1, 2020', 'Q2, 2020', 'Q3, 2020', ' Q4, 2020', 'Q1, 2021', 'Q2, 2021', 'Q3, 2021', ' Q4, 2021', 'Q1, 2022', 'Q2, 2022', 'Q3, 2022', ' Q4, 2022',],
-// //         datasets: [
-// //           {
-// //             label: 'Products',
-// //             backgroundColor: 'rgba(255,99,132,0.2)',
-// //             borderColor: 'rgba(255,99,132,1)',
-// //             borderWidth: 1,
-// //             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-// //             hoverBorderColor: 'rgba(255,99,132,1)',
-// //             data: [purchases]
-// //           }
-// //         ]
-// //       }
-// //     })
-// //   }
+                            // this is the array that will be set to useState
+                            let x_y_data = purchaseArray.map((purchase) => ({
 
-// //     change1(){
-// //       this.setState({
-// //         lineChartData:{
-// //           labels: ['January', 'February', 'March','April','May','June'],
-// //           datasets: [
-// //             {
-// //               label: '6 Months',
-// //               backgroundColor: 'rgba(255,99,132,0.2)',
-// //               borderColor: 'rgba(255,99,132,1)',
-// //               borderWidth: 1,
-// //               hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-// //               hoverBorderColor: 'rgba(255,99,132,1)',
-// //               data: [49, 22, 23,65,43,21]
-// //             }
-// //           ]
-// //         }
-// //       })
-// //     }
+                                // Save price and date data of current purchase object to a new object on the returned array from the .map method
+                                y: purchase.price,
+                                x: purchase.date
+                            }))
 
-// //   change2(){
-// //     this.setState({
-// //       lineChartData:{
-// //         labels: ['January', 'February', 'March','April','May','June', 'July', 'Aug', 'Sept','Oct', 'Nov', 'Dec'],
-// //         datasets: [
-// //           {
-// //             label: 'One Year',
-// //             backgroundColor: 'rgba(255,99,132,0.2)',
-// //             borderColor: 'rgba(255,99,132,1)',
-// //             borderWidth: 1,
-// //             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-// //             hoverBorderColor: 'rgba(255,99,132,1)',
-// //             data: [49, 22, 23,65,43,21,56,57, 100,23,43,21,]
-// //           }
-// //         ]
-// //       }
-// //     })
-// //   }
+                            // Create a new dataset object with
+                                // A label that matches product description,
+                                // A novel label color,
+                                // and data that matches x_y_data,
 
-// //   render() {
-// //     return (
-// //         <div>
-// //           <lineChart data={this.state.lineChartData}  />
-// //           <button onClick={this.change0}>Change to 3 months</button>
-// //           <button onClick={this.change1}>Change to 6 months</button>
-// //           <button onClick={this.change2}>Change to 1 year</button>
-// //           {/*<button onClick={this.change2}></button>*/}
-// //         </div>
-// //   )
-// //   }
-// // }
+                            let color = dynamicColors()
 
-// // export default (lineChart)
+                            const datasets = {
+                                label: purchaseArray[0].product.description,
+                                fill: false,
+                                pointBorderColor: "aliceblue",
+                                pointBorderWidth: 1,
+                                pointRadius: 2,
+                                lineTension: 0.4,
+                                backgroundColor: color,
+                                borderColor: color,
+                                data: x_y_data,
+                            }
+
+                            // Push new data set to chartData array
+                            chartData.push(datasets)
+
+                        })
+                    })
+                    // Set chartData state equal to chartData array
+                    .then(() => {
+                        if (chartData.length > 0) {
+                            setUserData(
+                                {
+                                    labels: organizedPurchaseArray.map((p) => p.date),
+                                    datasets: chartData
+                                }
+
+                            )
+                        }
+                    })
+            }
+        },
+        [products]
+    )
+
+    useEffect(
+        () => {
+            console.log("State when invoked", userData)
+            // if (typeof userData === "object") { setChartIsReady(!chartIsReady) }
+            if (typeof userData === "object") { setChartIsReady(true) }
+        },
+        [userData]
+    )
+
+    // creating colors for datasets
+    const dynamicColors = () => {
+        let r = Math.floor(Math.random() * 255)
+        let g = Math.floor(Math.random() * 255)
+        let b = Math.floor(Math.random() * 255)
+        return 'rgb(' + r + ',' + g + ',' + b + ')'
+    }
+
+    // Return still loading message
+    if (!chartIsReady) {
+        return (
+            <div>Still Loading...</div>
+        )
+    }
+    else {
+        // Return line chart with options passed as an argument and updated chartData state passed as another argument
+        return (
+            <section className="main-container-linechart">
+                <div className="chart-container">
+                    {/* // Sets the two objects passed to Chart to useStates */}
+                    <Line data={userData} options={options} id="lineChart" />
+                </div>
+            </section>
+        )
+    }
+}
