@@ -31,82 +31,16 @@
       "id": 5
     },
     {
-      "description": "Apple",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 6
-    },
-    {
-      "description": "Kale",
-      "userId": 3,
-      "categoryId": 1,
-      "id": 7
-    },
-    {
       "description": "Blueberries",
       "userId": 1,
       "categoryId": 1,
       "id": 8
     },
     {
-      "description": "Cat Food",
-      "userId": 1,
-      "categoryId": 1,
-      "id": 9
-    },
-    {
-      "description": "Gatorade",
-      "userId": 1,
-      "categoryId": 1,
-      "id": 10
-    },
-    {
       "description": "Green Apple",
       "userId": 1,
       "categoryId": 1,
       "id": 11
-    },
-    {
-      "description": "Caviar",
-      "userId": 5,
-      "categoryId": 1,
-      "id": 12
-    },
-    {
-      "description": "Marzapan",
-      "userId": 5,
-      "categoryId": 1,
-      "id": 13
-    },
-    {
-      "description": "Aluminum Baking Tins",
-      "userId": 5,
-      "categoryId": 1,
-      "id": 14
-    },
-    {
-      "description": "Spam",
-      "userId": 5,
-      "categoryId": 1,
-      "id": 15
-    },
-    {
-      "description": "Pizza",
-      "userId": 5,
-      "categoryId": 1,
-      "id": 16
-    },
-    {
-      "description": "Broccoli",
-      "userId": 5,
-      "categoryId": 1,
-      "id": 17
-    },
-    {
-      "description": "Kale",
-      "userId": 5,
-      "categoryId": 1,
-      "id": 18
     },
     {
       "description": "Concord Grapes",
@@ -127,22 +61,10 @@
       "id": 21
     },
     {
-      "description": "Banana Sauce",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 22
-    },
-    {
       "description": "Kale",
       "userId": 2,
       "categoryId": 1,
       "id": 23
-    },
-    {
-      "description": "Hammock",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 24
     },
     {
       "description": "Pringles",
@@ -155,42 +77,6 @@
       "userId": 2,
       "categoryId": 1,
       "id": 26
-    },
-    {
-      "description": "Floss",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 27
-    },
-    {
-      "description": "Toothbrush",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 28
-    },
-    {
-      "description": "asdf",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 29
-    },
-    {
-      "description": "fsa",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 30
-    },
-    {
-      "description": "jtydfg",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 31
-    },
-    {
-      "description": "A new Product",
-      "userId": 2,
-      "categoryId": 1,
-      "id": 32
     },
     {
       "description": "Dill - Fresh",
@@ -217,7 +103,7 @@
       "id": 36
     },
     {
-      "description": "New Product 2",
+      "description": "Hulahoop",
       "userId": 2,
       "categoryId": 1,
       "id": 37
@@ -255,46 +141,6 @@
       "vendorId": 1,
       "userId": 1,
       "id": 4
-    },
-    {
-      "date": "2022-02-28",
-      "price": 3,
-      "productId": 6,
-      "vendorId": 3,
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "date": "2022-03-30",
-      "price": 4,
-      "productId": 6,
-      "vendorId": 3,
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "date": "2022-03-07",
-      "price": 3.35,
-      "productId": 7,
-      "vendorId": 3,
-      "userId": 3,
-      "id": 7
-    },
-    {
-      "date": "2022-03-30",
-      "price": 4.15,
-      "productId": 7,
-      "vendorId": 3,
-      "userId": 3,
-      "id": 8
-    },
-    {
-      "date": "2022-03-19",
-      "price": 6,
-      "productId": 7,
-      "vendorId": 3,
-      "userId": 3,
-      "id": 9
     },
     {
       "date": "2022-04-07",
@@ -417,94 +263,6 @@
       "id": 25
     },
     {
-      "date": "2022-03-07",
-      "price": 22,
-      "productId": 9,
-      "vendorId": 7,
-      "userId": 1,
-      "id": 26
-    },
-    {
-      "date": "2022-04-08",
-      "price": 33,
-      "productId": 9,
-      "vendorId": 7,
-      "userId": 1,
-      "id": 27
-    },
-    {
-      "date": "2022-02-08",
-      "price": 30,
-      "productId": 21,
-      "vendorId": 7,
-      "userId": 2,
-      "id": 28
-    },
-    {
-      "date": "2022-05-08",
-      "price": 33,
-      "productId": 21,
-      "vendorId": 7,
-      "userId": 2,
-      "id": 29
-    },
-    {
-      "date": "2022-01-08",
-      "price": 15,
-      "productId": 22,
-      "vendorId": 7,
-      "userId": 2,
-      "id": 30
-    },
-    {
-      "date": "2022-06-08",
-      "price": 30,
-      "productId": 22,
-      "vendorId": 7,
-      "userId": 2,
-      "id": 31
-    },
-    {
-      "date": "2022-03-08",
-      "price": 12,
-      "productId": 3,
-      "vendorId": 2,
-      "userId": 2,
-      "id": 32
-    },
-    {
-      "date": "2022-04-06",
-      "price": 13,
-      "productId": 3,
-      "vendorId": 2,
-      "userId": 2,
-      "id": 33
-    },
-    {
-      "date": "2022-04-12",
-      "price": 22,
-      "productId": 4,
-      "vendorId": 2,
-      "userId": 2,
-      "id": 42
-    },
-    {
-      "date": "2022-05-06",
-      "price": 25,
-      "productId": 4,
-      "vendorId": 2,
-      "userId": 2,
-      "id": 43
-    },
-    {
-      "date": "2022-04-22",
-      "price": 13,
-      "productId": 3,
-      "vendorId": 2,
-      "userId": 2,
-      "id": 46
-    },
-    {
       "date": "2022-03-28",
       "price": 1.35,
       "productId": 35,
@@ -513,7 +271,7 @@
       "id": 47
     },
     {
-      "date": "2021-03-30",
+      "date": "2021-01-30",
       "price": 2.35,
       "productId": 35,
       "vendorId": 12,
@@ -521,7 +279,7 @@
       "id": 48
     },
     {
-      "date": "2020-12-31",
+      "date": "2020-02-31",
       "price": 12,
       "productId": 3,
       "vendorId": 12,
@@ -529,28 +287,188 @@
       "id": 49
     },
     {
-      "date": "2019-06-19",
-      "price": 2,
-      "productId": 22,
-      "vendorId": 2,
+      "date": "2020-03-31",
+      "price": 15,
+      "productId": 3,
+      "vendorId": 12,
       "userId": 2,
       "id": 50
     },
     {
-      "date": "2022-03-28",
-      "price": 2.35,
-      "productId": 22,
-      "vendorId": 2,
+      "date": "2020-05-31",
+      "price": 17,
+      "productId": 3,
+      "vendorId": 12,
       "userId": 2,
       "id": 51
     },
     {
-      "date": "2020-06-17",
-      "price": 3,
-      "productId": 22,
-      "vendorId": 2,
+      "date": "2020-05-31",
+      "price": 16.5,
+      "productId": 3,
+      "vendorId": 12,
       "userId": 2,
       "id": 52
+    },
+    {
+      "date": "2020-05-31",
+      "price": 17.73,
+      "productId": 3,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 53
+    },
+    {
+      "date": "2022-12-31",
+      "price": 12.35,
+      "productId": 3,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 54
+    },
+    {
+      "date": "2022-12-31",
+      "price": 15.64,
+      "productId": 3,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 55
+    },
+    {
+      "date": "2022-12-31",
+      "price": 16.67,
+      "productId": 3,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 56
+    },
+    {
+      "date": "2022-12-31",
+      "price": 17.78,
+      "productId": 3,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 57
+    },
+    {
+      "date": "2022-12-31",
+      "price": 17,
+      "productId": 3,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 58
+    },
+    {
+      "date": "2020-03-28",
+      "price": 1.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 59
+    },
+    {
+      "date": "2020-03-28",
+      "price": 1.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 60
+    },
+    {
+      "date": "2020-04-28",
+      "price": 2.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 61
+    },
+    {
+      "date": "2020-07-28",
+      "price": 2.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 62
+    },
+    {
+      "date": "2021-03-28",
+      "price": 3.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 63
+    },
+    {
+      "date": "2022-03-28",
+      "price": 4.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 64
+    },
+    {
+      "date": "2022-05-28",
+      "price": 3.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 65
+    },
+    {
+      "date": "2022-03-28",
+      "price": 2.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 66
+    },
+    {
+      "date": "2022-06-28",
+      "price": 4.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 67
+    },
+    {
+      "date": "2022-07-28",
+      "price": 5.35,
+      "productId": 35,
+      "vendorId": 12,
+      "userId": 2,
+      "id": 68
+    },
+    {
+      "date": "2022-03-29",
+      "price": 2.35,
+      "productId": 23,
+      "vendorId": 11,
+      "userId": 2,
+      "id": 69
+    },
+    {
+      "date": "2022-07-13",
+      "price": 3.34,
+      "productId": 23,
+      "vendorId": 11,
+      "userId": 2,
+      "id": 70
+    },
+    {
+      "date": "2021-05-05",
+      "price": 1.35,
+      "productId": 36,
+      "vendorId": 13,
+      "userId": 2,
+      "id": 71
+    },
+    {
+      "date": "2022-04-28",
+      "price": 2.35,
+      "productId": 36,
+      "vendorId": 13,
+      "userId": 2,
+      "id": 72
     }
   ],
   "vendors": [
@@ -559,18 +477,6 @@
       "address": "4832 Wilshire Ave",
       "name": "Ralphs-Wilshire",
       "userId": 1
-    },
-    {
-      "address": "123 Test St",
-      "name": "New Vendor Test",
-      "userId": 2,
-      "id": 2
-    },
-    {
-      "address": "123 Main St",
-      "name": "Kroger",
-      "userId": 3,
-      "id": 3
     },
     {
       "address": "4754 Commons Way, Calabasas, CA 91302",
@@ -597,18 +503,6 @@
       "id": 7
     },
     {
-      "address": "3000 Santa Monica Blvd",
-      "name": "Sprouts - Santa Monica",
-      "userId": 5,
-      "id": 9
-    },
-    {
-      "address": "4754 Commons Way, Calabasas, CA 91302",
-      "name": "Ralphs - Calabasas",
-      "userId": 5,
-      "id": 10
-    },
-    {
       "address": "4500 Gallatin Pike",
       "name": "Aldis - Gallatin Pike",
       "userId": 2,
@@ -628,12 +522,6 @@
     }
   ],
   "vendorProducts": [
-    {
-      "vendorId": 3,
-      "productId": 7,
-      "userId": 3,
-      "id": 5
-    },
     {
       "vendorId": 4,
       "productId": 5,
@@ -659,24 +547,6 @@
       "id": 11
     },
     {
-      "vendorId": 3,
-      "productId": 1,
-      "userId": 1,
-      "id": 13
-    },
-    {
-      "vendorId": 3,
-      "productId": 2,
-      "userId": 1,
-      "id": 14
-    },
-    {
-      "vendorId": 3,
-      "productId": 5,
-      "userId": 1,
-      "id": 17
-    },
-    {
       "vendorId": 1,
       "productId": 8,
       "userId": 1,
@@ -689,30 +559,6 @@
       "id": 19
     },
     {
-      "vendorId": 1,
-      "productId": 9,
-      "userId": 1,
-      "id": 20
-    },
-    {
-      "vendorId": 3,
-      "productId": 9,
-      "userId": 1,
-      "id": 23
-    },
-    {
-      "vendorId": 3,
-      "productId": 10,
-      "userId": 1,
-      "id": 24
-    },
-    {
-      "vendorId": 3,
-      "productId": 11,
-      "userId": 1,
-      "id": 25
-    },
-    {
       "vendorId": 4,
       "productId": 11,
       "userId": 1,
@@ -723,60 +569,6 @@
       "productId": 2,
       "userId": 1,
       "id": 27
-    },
-    {
-      "vendorId": 7,
-      "productId": 9,
-      "userId": 1,
-      "id": 28
-    },
-    {
-      "vendorId": 7,
-      "productId": 10,
-      "userId": 1,
-      "id": 29
-    },
-    {
-      "vendorId": 9,
-      "productId": 15,
-      "userId": 5,
-      "id": 30
-    },
-    {
-      "vendorId": 9,
-      "productId": 18,
-      "userId": 5,
-      "id": 31
-    },
-    {
-      "vendorId": 9,
-      "productId": 13,
-      "userId": 5,
-      "id": 32
-    },
-    {
-      "vendorId": 9,
-      "productId": 14,
-      "userId": 5,
-      "id": 33
-    },
-    {
-      "vendorId": 2,
-      "productId": 3,
-      "userId": 2,
-      "id": 41
-    },
-    {
-      "vendorId": 2,
-      "productId": 4,
-      "userId": 2,
-      "id": 42
-    },
-    {
-      "vendorId": 2,
-      "productId": 22,
-      "userId": 2,
-      "id": 44
     },
     {
       "vendorId": 11,
@@ -797,34 +589,10 @@
       "id": 50
     },
     {
-      "vendorId": 11,
-      "productId": 23,
-      "userId": 2,
-      "id": 52
-    },
-    {
-      "vendorId": 2,
-      "productId": 19,
-      "userId": 2,
-      "id": 61
-    },
-    {
-      "vendorId": 2,
-      "productId": 21,
-      "userId": 2,
-      "id": 62
-    },
-    {
       "vendorId": 12,
       "productId": 23,
       "userId": 2,
       "id": 63
-    },
-    {
-      "vendorId": 12,
-      "productId": 21,
-      "userId": 2,
-      "id": 64
     },
     {
       "vendorId": 12,
@@ -846,21 +614,33 @@
     },
     {
       "vendorId": 13,
-      "productId": 4,
-      "userId": 2,
-      "id": 68
-    },
-    {
-      "vendorId": 13,
       "productId": 23,
       "userId": 2,
       "id": 70
     },
     {
       "vendorId": 13,
-      "productId": 26,
+      "productId": 4,
       "userId": 2,
       "id": 71
+    },
+    {
+      "vendorId": 13,
+      "productId": 19,
+      "userId": 2,
+      "id": 72
+    },
+    {
+      "vendorId": 13,
+      "productId": 26,
+      "userId": 2,
+      "id": 73
+    },
+    {
+      "vendorId": 13,
+      "productId": 36,
+      "userId": 2,
+      "id": 74
     }
   ],
   "users": [
@@ -871,18 +651,6 @@
     {
       "id": 2,
       "email": "senior@chef.com"
-    },
-    {
-      "email": "Devin@chef.com",
-      "id": 3
-    },
-    {
-      "email": "Lauden@chef.com",
-      "id": 4
-    },
-    {
-      "email": "newUser@chef.com",
-      "id": 5
     }
   ],
   "categories": [

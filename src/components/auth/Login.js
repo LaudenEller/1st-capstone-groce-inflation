@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react"
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
-import NavBrand from "../../NavBrand.png"
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 export const Login = () => {
@@ -29,8 +27,6 @@ export const Login = () => {
             })
     }
 
-    const brand = NavBrand
-
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={existDialog}>
@@ -40,7 +36,6 @@ export const Login = () => {
             <header className="navbarLogin">
         <nav className="navbarLogin-navigation">
             <div className="spacer"></div>
-            <div className="navbar-logo"><a href="/"><img src={brand} /></a></div>
             <div className="spacer"></div>
         </nav>
 
