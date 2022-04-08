@@ -71,6 +71,29 @@ export const GraphInflation = () => {
         []
     )
 
+
+    // THE ORIGINAL USEEFFECT CAN HANDLE THE INITIAL RENDERING OF THE CHART
+
+    // CREATE A HANDLER FUNCTION THAT IS INVOKED BY A BUTTON AND SETS USERDATA WITH NEWLY ARRANGED DATASETS REPRESENTING VENDOR' DATA
+        // CREATE AN ORGANIZEDVENDORPURCHASE ARRAY
+        // CREATE A CHARTDATA ARRAY
+        // FETCH PURCHASES AND CATCH THE RESPONSE
+            // ITERATE THROUGH VENDORPRODUCTS
+                // FILTER PURCHASES BY VENDORPRODUCT.ID
+                // PRINT A MESSAGE FOR VENDORPORDUCTS WITHOUT MATCHES
+                // PUSH MATCHES TO THE ORGANIZEDVENDORPURCHASE ARRAY
+            
+                // SEPARATE THESE TWO RESPONSIBILITIES INTO DIFFERENT FUNCTIONS:
+                    // CREATE FUNCTION THAT FETCHES AND ORGANIZES DATA (LINES 77-84) WHEN USER ARRIVES ON THE PAGE
+                    // CREATE A SEPARATE FUNCTION THAT SETS CHARTDATA STATE (LINES 90-93) WHEN A USER CLICKS RELEVANT BUTTON
+            
+                // ITERATE THROUGH ORGANIZEDVENDORPURCHASE ARRAY
+                // BUILD NEW DATASET FOR EACH ARRAY OF MATCHES
+                // PUSH DATASET TO CHARTDATA ARRAY
+            // SET USERDATA WITH CHARTDATA
+
+    // CREATE A HANDLER FUNCTION THAT IS INVOKED BY A BUTTON AND SETS USERDATA WITH ORIGINAL DATASETS REPRESENTING PRODUCT' DATA
+
     // GETs and filters purchases then sets userData with matching datasets
     useEffect(
         () => {
@@ -92,8 +115,7 @@ export const GraphInflation = () => {
                                 return purchase.productId === product.id
                             })
 
-                            // When there are no matches of a purchase to a product, console log a meassage
-                            console.log("filtered data", filteredPurchases)
+                            // When there are no matches of a purchase to a product, console log a message
                             if (filteredPurchases < 1) {
 
                                 console.log(`Current user has not purchased ${product.description}\(s\) yet`)
