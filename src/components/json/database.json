@@ -519,6 +519,12 @@
       "name": "Whole Foods - Green Hills",
       "userId": 2,
       "id": 13
+    },
+    {
+      "address": "987 Testing Vendor Form Avenue",
+      "name": "Another New Vendor Test",
+      "userId": 2,
+      "id": 14
     }
   ],
   "vendorProducts": [
@@ -641,6 +647,30 @@
       "productId": 36,
       "userId": 2,
       "id": 74
+    },
+    {
+      "vendorId": 14,
+      "productId": 3,
+      "userId": 2,
+      "id": 75
+    },
+    {
+      "vendorId": 14,
+      "productId": 4,
+      "userId": 2,
+      "id": 76
+    },
+    {
+      "vendorId": 14,
+      "productId": 19,
+      "userId": 2,
+      "id": 77
+    },
+    {
+      "vendorId": 14,
+      "productId": 20,
+      "userId": 2,
+      "id": 78
     }
   ],
   "users": [

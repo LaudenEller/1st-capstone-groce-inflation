@@ -4,6 +4,12 @@ import { DrawerToggleButton } from "./sideDrawer/DrawerToggler";
 
 export const Navbar = props => {
 const [toggleButtonAnimate, setToggleButtonAnimate] = useState(false)
+ 
+ document.addEventListener(
+    "New User Arrived",
+(customEvent) => {
+   setToggleButtonAnimate(!toggleButtonAnimate)
+}) 
 
     return (
         <header className="navbar">
