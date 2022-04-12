@@ -26,6 +26,12 @@
     width: 100%;
 }
 
+.chart-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #lineChart {
     min-width: 300px;
     min-height: 300px;

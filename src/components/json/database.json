@@ -499,6 +499,22 @@
       "vendorId": 15,
       "userId": 2,
       "id": 76
+    },
+    {
+      "date": "2021-06-16",
+      "price": 16,
+      "productId": 3,
+      "vendorId": 11,
+      "userId": 2,
+      "id": 77
+    },
+    {
+      "date": "2022-05-04",
+      "price": 25,
+      "productId": 3,
+      "vendorId": 11,
+      "userId": 2,
+      "id": 78
     }
   ],
   "vendors": [
@@ -707,6 +723,12 @@
       "productId": 38,
       "userId": 2,
       "id": 87
+    },
+    {
+      "vendorId": 11,
+      "productId": 3,
+      "userId": 2,
+      "id": 88
     }
   ],
   "users": [
