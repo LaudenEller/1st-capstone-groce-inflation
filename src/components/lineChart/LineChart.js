@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { getAllProducts } from "../json/ApiManger.js";
+import { getAllProducts, getAllVendorProducts } from "../json/ApiManger.js";
 import "./LineChart.css"
 import Chart from 'chart.js/auto';
 import 'chartjs-adapter-moment';
@@ -11,6 +11,8 @@ import { Button } from "reactstrap";
 export const GraphInflation = () => {
     const [chartIsReady, setChartIsReady] = useState(false)
     const [products, setProducts] = useState([])
+    const [vendorProducts, setVendorProducts] = useState([])
+    const [userData, setUserData] = useState()
 
     // Sets options properties in chart, ie the legend and chart structure
     const [options, setOptions] = useState({
@@ -58,9 +60,6 @@ export const GraphInflation = () => {
         }
     })
 
-    const [userData, setUserData] = useState(
-    )
-
     // GETs and filters products upon initialization of useStates
     useEffect(() => {
         getAllProducts()
@@ -70,29 +69,14 @@ export const GraphInflation = () => {
     },
         []
     )
-
-
-    // THE ORIGINAL USEEFFECT CAN HANDLE THE INITIAL RENDERING OF THE CHART
-
-    // CREATE A HANDLER FUNCTION THAT IS INVOKED BY A BUTTON AND SETS USERDATA WITH NEWLY ARRANGED DATASETS REPRESENTING VENDOR' DATA
-        // CREATE AN ORGANIZEDVENDORPURCHASE ARRAY
-        // CREATE A CHARTDATA ARRAY
-        // FETCH PURCHASES AND CATCH THE RESPONSE
-            // ITERATE THROUGH VENDORPRODUCTS
-                // FILTER PURCHASES BY VENDORPRODUCT.ID
-                // PRINT A MESSAGE FOR VENDORPORDUCTS WITHOUT MATCHES
-                // PUSH MATCHES TO THE ORGANIZEDVENDORPURCHASE ARRAY
-            
-                // SEPARATE THESE TWO RESPONSIBILITIES INTO DIFFERENT FUNCTIONS:
-                    // CREATE FUNCTION THAT FETCHES AND ORGANIZES DATA (LINES 77-84) WHEN USER ARRIVES ON THE PAGE
-                    // CREATE A SEPARATE FUNCTION THAT SETS CHARTDATA STATE (LINES 90-93) WHEN A USER CLICKS RELEVANT BUTTON
-            
-                // ITERATE THROUGH ORGANIZEDVENDORPURCHASE ARRAY
-                // BUILD NEW DATASET FOR EACH ARRAY OF MATCHES
-                // PUSH DATASET TO CHARTDATA ARRAY
-            // SET USERDATA WITH CHARTDATA
-
-    // CREATE A HANDLER FUNCTION THAT IS INVOKED BY A BUTTON AND SETS USERDATA WITH ORIGINAL DATASETS REPRESENTING PRODUCT' DATA
+    useEffect(() => {
+        getAllVendorProducts()
+            .then((data) => {
+                setVendorProducts(data.filter(vendorProduct => vendorProduct.userId === parseInt(localStorage.getItem("groce_user"))))
+            })
+    },
+        []
+    )
 
     // GETs and filters purchases then sets userData with matching datasets
     useEffect(
@@ -187,6 +171,93 @@ export const GraphInflation = () => {
         [userData]
     )
 
+
+  // THE ORIGINAL USEEFFECT CAN HANDLE THE INITIAL RENDERING OF THE CHART
+
+    // CREATE A HANDLER FUNCTION THAT IS INVOKED BY A BUTTON AND SETS USERDATA WITH NEWLY ARRANGED DATASETS REPRESENTING VENDOR' DATA
+        // CREATE AN ORGANIZEDVENDORPURCHASE ARRAY
+        // CREATE A CHARTDATA ARRAY
+        // FETCH PURCHASES AND CATCH THE RESPONSE
+            // ITERATE THROUGH VENDORPRODUCTS
+                // FILTER PURCHASES BY VENDORPRODUCT.ID
+                // PRINT A MESSAGE FOR VENDORPORDUCTS WITHOUT MATCHES
+                // PUSH MATCHES TO THE ORGANIZEDVENDORPURCHASE ARRAY
+            
+                // SEPARATE THESE TWO RESPONSIBILITIES INTO DIFFERENT FUNCTIONS:
+                    // CREATE FUNCTION THAT FETCHES AND ORGANIZES DATA (LINES 77-84) WHEN USER ARRIVES ON THE PAGE
+                    // CREATE A SEPARATE FUNCTION THAT SETS CHARTDATA STATE (LINES 90-93) WHEN A USER CLICKS RELEVANT BUTTON
+            
+                // ITERATE THROUGH ORGANIZEDVENDORPURCHASE ARRAY
+                // BUILD NEW DATASET FOR EACH ARRAY OF MATCHES
+                // PUSH DATASET TO CHARTDATA ARRAY
+            // SET USERDATA WITH CHARTDATA
+
+    // CREATE A HANDLER FUNCTION THAT IS INVOKED BY A BUTTON AND SETS USERDATA WITH ORIGINAL DATASETS REPRESENTING PRODUCT' DATA
+
+    // CHART IS GETTING UPDATED BY BUTTON BUT THE DATA IS ORGANIZED WRONG BECAUSE IT'S STILL DISPLAYING PRODUCT INFO INSTEAD OF VENDOR INFO
+
+
+    const GraphVendorHandler = () => {
+
+        const organizedVPPurchaseArray = []
+        const vendorChartData = []
+        fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product`)
+        .then(res => res.json())
+        // Catching the response allows us to perform a number of functions before proceeding in the response chain
+        .then((res) => {
+    
+    
+            for (const vp of vendorProducts) {
+                const vendorFilteredPurchases = res.filter(purchase => {
+                    return purchase.vendorId === vp.vendorId
+                })
+    
+                if (vendorFilteredPurchases.length < 1) {
+    
+                console.log(`Current user has not purchased ${vp.product.description}\(s\) yet`)}
+    
+                else {
+                    organizedVPPurchaseArray.push(vendorFilteredPurchases)
+                }
+            }
+    
+            organizedVPPurchaseArray.forEach((vpPurchaseArray) => {
+    
+                let x_y_data = vpPurchaseArray.map((purchase) => ({
+                    y: purchase.price,
+                    x: purchase.date
+                }))
+    
+                let color = dynamicColors()
+    
+                const datasets = {
+                    label: vpPurchaseArray[0].product.description,
+                    fill: false,
+                    pointBorderColor: "aliceblue",
+                    pointBorderWidth: 1,
+                    pointRadius: 2,
+                    lineTension: 0.4,
+                    backgroundColor: color,
+                    borderColor: color,
+                    data: x_y_data,
+                }
+    
+                // Push new data set to chartData array
+                vendorChartData.push(datasets)
+            })
+    })
+    .then(() => {
+        if(vendorChartData.length > 0) {
+            setUserData(
+                {
+                    labels: organizedVPPurchaseArray.map((p) => p.date),
+                    datasets: vendorChartData
+                }
+    
+            )
+        }
+    })}
+
     // creating colors for datasets
     const dynamicColors = () => {
         let r = Math.floor(Math.random() * 255)
@@ -209,6 +280,7 @@ export const GraphInflation = () => {
                     {/* // Sets the two objects passed to Chart to useStates */}
                     <Line data={userData} options={options} id="lineChart" />
                 </div>
+                <Button onClick={() => GraphVendorHandler()}>Graph by Vendors</Button>
             </section>
         )
     }
