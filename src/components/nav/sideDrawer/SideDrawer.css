@@ -1,6 +1,6 @@
 .sidedrawer {
     height: 100%;
-    background-color: #3C887E;
+    background-color: rgba(255,255,255,0.7);
     opacity: 90%;
     border-right: solid #f7b558;
     border-width: 3px;
@@ -30,7 +30,7 @@
 
 .sidedrawer li {
     margin: 0.5rem 0;
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 700;
@@ -59,7 +59,7 @@
 .myVendors-title {
     margin-top: 2rem;
     margin-left: 1rem;
-    color: white;
+    color: black;
 }
 
 .sidedrawer-navigation-items {
@@ -69,7 +69,7 @@
 }
 .sidedrawer-navigation-items a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .add-vendor-container {
@@ -88,8 +88,7 @@
     background: transparent;
     border: none;
     font-weight: 700;
-    color: white
-    
+    color: black
 }
 
 .vendorList-button:hover {

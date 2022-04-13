@@ -4,13 +4,17 @@
 
 .vendor-form {
     margin-left: 34%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .vendor-form-title {
     color: black;
-    opacity: 100% !important;
+    /* opacity: 100% !important; */
 }
 
 .add-vendor-button {
-    margin-left: 13%;
+    width: 175px;
+    margin-left: 23px !important;
 }

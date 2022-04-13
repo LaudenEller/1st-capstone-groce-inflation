@@ -1,14 +1,18 @@
 #product-field {
     margin-top: 5em;
-    margin-left: 34%;
+    margin-left: 262px;
+    
 }
 
 .product-form {
-    margin-left: 2em;
+    /* margin-left: 2em; */
+    display: flex;
+    flex-direction: column;
 }
 
 .vendor-button {
-    margin-left: 39%;
-    margin-top: 20px;
-
+    /* margin-left: 90%; */
+    /* margin-top: 200px; */
+    width: 175px;
+    align-self: center;
 }

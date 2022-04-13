@@ -1,4 +1,10 @@
 .delete-message {
     margin-top: 75px;
     text-align: center;
+    font-weight: bolder;
+}
+
+.delete-button {
+    width: 175px;
+    margin-left: 275px;
 }

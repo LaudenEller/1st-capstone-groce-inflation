@@ -9,7 +9,7 @@ export const DeleteVendorConfirmation = () => {
     return (
         <>
         <p className="delete-message">Are you sure you want to delete this vendor?</p>
-        <Button onClick={() => document.dispatchEvent(new CustomEvent("Vendor Deleted"))}>Delete Vendor</Button>
+        <Button className="delete-button" onClick={() => document.dispatchEvent(new CustomEvent("Vendor Deleted"))}>Delete Vendor</Button>
         </>
     )
 }

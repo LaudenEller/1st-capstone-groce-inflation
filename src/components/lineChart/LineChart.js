@@ -89,7 +89,7 @@ export const GraphInflation = () => {
             let chartData = []
 
             if (products.length > 0) {
-                fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product`)
+                fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product&_sort=date`)
                     .then(res => res.json())
                     // Catching the response allows us to perform a number of functions before proceeding in the response chain
                     .then((res) => {
@@ -203,7 +203,7 @@ export const GraphInflation = () => {
 
         const organizedVPPurchaseArray = []
         const vendorChartData = []
-        fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product&_expand=vendor`)
+        fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product&_expand=vendor&_sort=date`)
             .then(res => res.json())
             // Catching the response allows us to perform a number of functions before proceeding in the response chain
             .then((res) => {
@@ -220,6 +220,12 @@ export const GraphInflation = () => {
                     }
 
                     else {
+                        // console.log(`unsorted purchases: ${vendorFilteredPurchases}`)
+
+                        // vendorFilteredPurchases.sort((a, b) => a.date - b.date)
+
+                        // console.log(`sorted purchases: ${vendorFilteredPurchases}`)
+
                         organizedVPPurchaseArray.push(vendorFilteredPurchases)
                     }
                 }
@@ -271,7 +277,7 @@ export const GraphInflation = () => {
         let chartData = []
 
         if (products.length > 0) {
-            fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product`)
+            fetch(`http://localhost:8088/purchases?userId=${localStorage.getItem("groce_user")}&_expand=product&_sort=date`)
                 .then(res => res.json())
                 // Catching the response allows us to perform a number of functions before proceeding in the response chain
                 .then((res) => {
